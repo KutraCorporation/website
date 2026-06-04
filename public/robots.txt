@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Content-Signal: ai-train=no
+Content-Signal: ai-search=yes
+
+Sitemap: https://kutra.co/sitemap.xml

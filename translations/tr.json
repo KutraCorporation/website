@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "headline": "Kutra",
+    "tagline": "Sürekliliği Kodla",
+    "subhead": "Türkiye'nin En Genç Teknoloji Ekosistemi",
+    "ctaPrimary": "Ekosistemi Keşfet",
+    "ctaSecondary": "Kutra ID ile Başla"
+  },
+  "ecosystem": {
+    "title": "Ürünler",
+    "viewAll": "Tüm Ürünleri Gör"
+  },
+  "footer": {
+    "tagline": "Genç bir zihinden doğan, güvenli ve sınırsız dijital gelecek.\nSürekliliği Kodla",
+    "corporate": "Kurumsal",
+    "overview": "Genel Bakış",
+    "team": "Takım",
+    "contact": "İletişim",
+    "policies": "Politikalar",
+    "products": "Ürünler",
+    "resources": "Kaynaklar",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Kullanım Koşulları",
+    "systemStatus": "Sistem Durumu",
+    "support": "Destek",
+    "copyright": "Kutra Corporation. Tüm hakları saklıdır.",
+    "privacy": "Gizlilik",
+    "terms": "Koşullar",
+    "socialAria": "Sosyal medya",
+    "projbrandOn": "Kutra - {platform}"
+  },
+  "header": {
+    "products": "Ürünler"
+  },
+  "about": {
+    "headline": "Derin Çözümler,",
+    "highlight": "Sınırsız Teknoloji",
+    "subhead": "Kutra olarak dijital altyapının bir sonraki neslini inşa ediyoruz. Güvenli kimlik yönetiminden eksiksiz bulut hizmetlerine kadar platformumuz, dijital çağda başarılı olmanızı destekler.",
+    "ctaExplore": "Ürünleri Keşfet",
+    "cards": {
+      "overview": {
+        "title": "Genel Bakış",
+        "desc": "Vizyonumuza, mimari kılavuzlarımıza ve ekosistem yol haritamıza derinlemesine bir bakış."
+      },
+      "team": {
+        "title": "Takım",
+        "desc": "Yetenekli ekibimizi ve uzmanlık alanlarını keşfedin."
+      },
+      "policies": {
+        "title": "Politikalar ve Sertifikalar",
+        "desc": "Güvenlik taahhütlerimizi, veri gizliliği politikalarımızı ve uyumluluk sertifikalarımızı okuyun."
+      }
+    }
+  },
+  "productsPage": {
+    "title": "Ürünler",
+    "subtitle": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin."
+  },
+  "products": {
+    "title": "Ürünler",
+    "subtitle": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin.",
+    "detailsHeading": "Ürün Detayları",
+    "linksHeading": "İlgili Bağlantılar",
+    "categories": {
+      "Security": "Güvenlik",
+      "Productivity": "Verimlilik",
+      "Web3": "Web3",
+      "Education": "Eğitim",
+      "Domains": "Alan Adları",
+      "AI": "Yapay Zeka",
+      "Personal Assistant": "Kişisel Asistan"
+    },
+    "items": {
+      "authenticator": {
+        "name": "Authenticator",
+        "description": "Gelişmiş içe/dışa aktarma ve şifre korumasına sahip modern arayüzlü Authenticator uygulaması.",
+        "details": [
+          "Kesintisiz erişim için biyometrik kilit",
+          "Güvenli kurtarma için şifreli yedekleme ve geri yükleme",
+          "Sorunsuz kullanım için cihazlar arası eşleme ve senkronizasyon"
+        ]
+      },
+      "certwallet": {
+        "name": "CertWallet",
+        "description": "Sui Network üzerinde dijital kimlikler, diplomalar ve doğrulanabilir başarılar için güvenli kasa.",
+        "details": [
+          "Blockchain tabanlı sertifika düzenleme ve doğrulama",
+          "Güvenilir taraflarla paylaşılabilir, doğrulanabilir kimlikler",
+          "Akademik ve profesyonel kayıtları kriptografik güvenlikle korur"
+        ]
+      },
+      "chain": {
+        "name": "Chain Browser",
+        "description": "Cüzdan entegrasyonu ve dApp erişimi ile modern döneme uygun Web2 + Web3 tarayıcısı.",
+        "details": [
+          "Yerleşik cüzdan ve adres yöneticisi",
+          "Optimizasyonlu Web3 tarayıcı deneyimi",
+          "Merkeziyetsiz uygulama keşfi ve erişimi"
+        ]
+      },
+      "domains": {
+        "name": "Domains",
+        "description": "Web2 + Web3 dönemi için merkeziyetsiz alan adı kayıt hizmeti.",
+        "details": [
+          ".id ve .kutra alan adları kaydı",
+          "DNS ve sahiplik yönetimini güvenli bir şekilde sağlama",
+          "Web3 kimliği ve cüzdanlarla entegrasyon"
+        ]
+      },
+      "Simay": {
+        "name": "Simay",
+        "description": "Verimlilik ve akıllı iş akışları için yapay zeka destekli kişisel asistan.",
+        "details": [
+          "Bağlama duyarlı görev asistanı",
+          "Doğal dil ile verimlilik araçları",
+          "Uygulamalar arası asistan iş akışları"
+        ]
+      }
+    }
+  },
+  "team": {
+    "heading": "Takım"
+  }
+}

@@ -1,0 +1,10 @@
+Contact: mailto:security@kutra.co
+Contact: https://hackerone.com/KutraCorporation
+
+Encryption: https://kutra.co/keys/security-pubkey.asc
+Policy: https://kutra.co/security/policy
+Acknowledgments: https://kutra.co/hall-of-fame
+Hiring: https://kutra.co/jobs
+Preferred-Languages: tr, en
+
+Canonical: https://kutra.co/security.txt

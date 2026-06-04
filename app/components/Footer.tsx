@@ -1,0 +1,58 @@
+"use client";
+
+import Link from "next/link";
+import { Github } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+export default function Footer() {
+  const t = useTranslations("footer");
+
+  return (
+    <footer
+      className="bg-zinc-950 border-t border-white/6 pt-16 pb-8"
+      role="contentinfo"
+      aria-label="Site footer"
+    >
+      <div className="container px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-14">
+          <div className="lg:col-span-2">
+            <Link
+              href="/"
+              translate="no"
+              aria-label={"Kutra Home page"}
+              className="inline-flex gap-2.5 items-center mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+            >
+              <span className="font-black text-2xl tracking-tighter text-[#e8e8e8]">Kutra</span>
+            </Link>
+            <p className="text-[#b8b8b8] text-sm leading-relaxed max-w-sm">
+              {t("tagline")}
+            </p>
+            <nav className="flex gap-3 mt-6" aria-label={t("socialAria")}>
+              <Link
+                href="https://github.com/KutraCorporation"
+                aria-label={t("projbrandOn", { platform: "GitHub" })}
+                title={t('projbrandOn', { platform: 'GitHub' })}
+                rel="me noopener noreferrer"
+                target="_blank"
+                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#b8b8b8] hover:text-[#e8e8e8] hover:border-[var(--accent-cyan)]/30 transition-all focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+              >
+                <Github className="w-5 h-5" />
+              </Link>
+            </nav>
+          </div>
+          <div className="lg:col-span-2">
+            <a href="/about" className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase">{t('corporate')}</a>
+            <nav className="flex flex-col mt-6 gap-3">
+              <Link href="/about/team">{t('team')}</Link>
+              <Link href="/about/contact">{t('contact')}</Link>
+            </nav>
+          </div>
+        </div>
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#737373]">
+          <p translate="no">{new Date().getFullYear() + ' © ' + t('copyright')}</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+

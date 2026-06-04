@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "headline": "ProjBrand",
+    "tagline": "Code the Continuum",
+    "subhead": "Student-founded Turkish tech holding. Secure, high-performance, and user-centric digital ecosystem.",
+    "ctaPrimary": "Explore Ecosystem",
+    "ctaSecondary": "Start with ProjBrand ID"
+  },
+  "ecosystem": {
+    "title": "Ecosystem",
+    "viewAll": "View All Products →"
+  },
+  "footer": {
+    "tagline": "Secure, high-performance, and user-centric digital ecosystem. Student-founded Turkish tech holding.",
+    "corporate": "Corporate",
+    "overview": "Overview",
+    "team": "Team",
+    "contact": "Contact",
+    "policies": "Policies",
+    "products": "Products",
+    "resources": "Resources",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "systemStatus": "System Status",
+    "support": "Support",
+    "copyright": "ProjBrand. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "socialAria": "Social media",
+    "projbrandOn": "ProjBrand on {platform}"
+  },
+  "header": {
+    "products": "Products"
+  },
+  "about": {
+    "headline": "Deep Solutions,",
+    "highlight": "Limitless Technology",
+    "subhead": "At Kutra, we are building the next generation of digital infrastructure. From secure identity management to a full suite of cloud services, our platform empowers you to thrive in the digital age.",
+    "ctaExplore": "Explore Products",
+    "cards": {
+      "overview": {
+        "title": "Overview",
+        "desc": "A deep dive into our vision, architectural guidelines, and the core ecosystem roadmap."
+      },
+      "team": {
+        "title": "Team",
+        "desc": "Learn about our talented team and their expertise."
+      },
+      "policies": {
+        "title": "Policies & Certificates",
+        "desc": "Read our security commitments, data privacy policies, and compliance certificates."
+      }
+    }
+  },
+  "productsPage": {
+    "title": "Products",
+    "subtitle": "Explore our ecosystem of apps and services built for security, productivity, and Web3."
+  },
+  "products": {
+    "title": "Products",
+    "subtitle": "Explore our ecosystem of apps and services built for security, productivity, and Web3.",
+    "detailsHeading": "Product Details",
+    "linksHeading": "Related Links",
+    "categories": {
+      "Security": "Security",
+      "Productivity": "Productivity",
+      "Web3": "Web3",
+      "Education": "Education",
+      "Domains": "Domains",
+      "AI": "AI",
+      "Personal Assistant": "Personal Assistant"
+    },
+    "items": {
+      "authenticator": {
+        "name": "Authenticator",
+        "description": "Modern UI-supported Authenticator app with advanced import/export and password protection.",
+        "details": [
+          "Biometric-enabled unlock for frictionless access",
+          "Encrypted backup and restore for safe recovery",
+          "Cross-device pairing and sync for seamless use"
+        ]
+      },
+      "certwallet": {
+        "name": "CertWallet",
+        "description": "Secure vault for digital credentials, diplomas, and verifiable achievements on Sui Network.",
+        "details": [
+          "Blockchain-based certificate issuance and verification",
+          "Shareable verifiable credentials with trusted parties",
+          "Protects academic and professional records with cryptographic security"
+        ]
+      },
+      "chain": {
+        "name": "Chain Browser",
+        "description": "Web2 + Web3 browser for the modern era, with wallet integration and dApp access.",
+        "details": [
+          "Built-in wallet and address manager",
+          "Optimized Web3 browsing experience",
+          "Decentralized app discovery and access"
+        ]
+      },
+      "domains": {
+        "name": "Domains",
+        "description": "Decentralized domain registration service for the Web2 + Web3 era.",
+        "details": [
+          "Register .id and .kutra domains",
+          "Manage DNS and ownership securely",
+          "Integrates with Web3 identity and wallet systems"
+        ]
+      },
+      "Simay": {
+        "name": "Simay",
+        "description": "AI-powered personal assistant for productivity and smart workflows.",
+        "details": [
+          "Context-aware task assistance",
+          "Natural language productivity tools",
+          "Cross-app assistant workflows"
+        ]
+      }
+    }
+  },
+  "team": {
+    "heading": "Team"
+  }
+}

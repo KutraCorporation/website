@@ -1,0 +1,14 @@
+/* TEAM */
+Founder: Mehmet Ali Durusoy
+Core Team: Kutra Team
+
+/* THANKS */
+Special thanks to the open source community, our first users, and everyone supporting digital innovation.
+
+/* CONTACT */
+Website: https://kutra.co
+Twitter: https://twitter.com/KutraCorporation
+GitHub: https://github.com/KutraCorporation
+LinkedIn: https://linkedin.com/company/kutra
+
+© 2025 Kutra Corporation. All rights reserved.
