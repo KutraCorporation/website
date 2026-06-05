@@ -1,1 +1,2 @@
-npm lint
+npm run lint
+npx context-squeezer-cli
