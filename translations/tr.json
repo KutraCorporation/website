@@ -46,6 +46,10 @@
         "title": "Takım",
         "desc": "Yetenekli ekibimizi ve uzmanlık alanlarını keşfedin."
       },
+      "contact": {
+        "title": "İletişim",
+        "desc": "Bize ulaşın, işbirliği fırsatları hakkında konuşalım veya sorularınızı yanıtlayalım."
+      },
       "policies": {
         "title": "Politikalar ve Sertifikalar",
         "desc": "Güvenlik taahhütlerimizi, veri gizliliği politikalarımızı ve uyumluluk sertifikalarımızı okuyun."
@@ -120,5 +124,86 @@
   },
   "team": {
     "heading": "Takım"
+  },
+  "contactPage": {
+    "title": "İletişime Geçin",
+    "subtitle": "Sorularınız, geri bildirimleriniz veya iş ortaklığı teklifleriniz için bizimle iletişime geçin.",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta Adresi",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "placeholderName": "Mehmet Yılmaz",
+      "placeholderEmail": "mehmet@ornek.com",
+      "placeholderSubject": "Size nasıl yardımcı olabiliriz?",
+      "placeholderMessage": "Talebiniz hakkında daha fazla bilgi verin...",
+      "send": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Teşekkürler! Mesajınız başarıyla gönderildi.",
+      "error": "Bir sorun oluştu. Lütfen tekrar deneyin."
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "subtitle": "Doğrudan bize ulaşın veya sosyal medya kanallarımızı takip edin.",
+      "email": {
+        "title": "E-posta",
+        "value": "info@kutra.co"
+      },
+      "location": {
+        "title": "Konum",
+        "value": "İstanbul, Türkiye"
+      },
+      "hours": {
+        "title": "Çalışma Saatleri",
+        "value": "Pazartesi - Cuma, 09:00 - 18:00"
+      }
+    }
+  },
+  "overviewPage": {
+    "title": "Ekosistem Genel Bakış",
+    "subtitle": "Kutra'nın arkasındaki vizyonu, mimari ilkeleri ve yol haritasını keşfedin.",
+    "mission": {
+      "title": "Misyonumuz",
+      "text": "Kutra olarak, güvenli, yüksek performanslı ve merkeziyetsiz bir dijital ekosistem inşa ediyoruz. Kimlik doğrulamadan kişisel yapay zeka asistanlarına kadar, bireylerin ve işletmelerin verileri üzerinde tam kontrol sahibi olarak dijital dünyada güvenle hareket etmelerini sağlayan yeni nesil altyapılar tasarlıyoruz."
+    },
+    "pillars": {
+      "title": "Temel Direkler",
+      "security": {
+        "title": "Önce Güvenlik",
+        "desc": "Tüm kullanıcı kimlik bilgileri için kriptografik koruma, sıfır bilgi (zero-knowledge) ilkeleri ve güvenli depolama."
+      },
+      "ux": {
+        "title": "Premium Arayüz & Deneyim",
+        "desc": "Mikro etkileşimler, duyarlı tasarımlar ve sezgisel kullanıcı deneyimleri içeren özel tasarımlar."
+      },
+      "decentralization": {
+        "title": "Merkeziyetsiz Altyapı",
+        "desc": "Merkezi hata noktalarını ortadan kaldırmak için Web3, blokzincir doğrulaması ve egemen kimlik çözümleri."
+      }
+    },
+    "tech": {
+      "title": "Mimari ve Teknoloji",
+      "desc": "Yazılım altyapımız, güvenilirlik ve performansı garanti etmek için modern, hızlı ve güvenli araçlarla oluşturulmuştur.",
+      "stack": {
+        "frontend": "Yüksek kaliteli etkileşimli arayüzler için Next.js, React ve Framer Motion dahil modern teknolojiler.",
+        "backend": "Yüksek performanslı Edge çalışma ortamları, Cloudflare Workers ve Sunucusuz (Serverless) bilişim.",
+        "web3": "Doğrulanabilir kimlik bilgileri, merkeziyetsiz ağlar ve modern protokoller üzerinde akıllı sözleşmeler."
+      }
+    },
+    "roadmap": {
+      "title": "Ekosistem Yol Haritası",
+      "p1": {
+        "title": "Aşama 1: Güvenli Kimlik ve Kimlik Doğrulama",
+        "desc": "Bir güven protokolü oluşturmak için ProjBrand ID, Authenticator ve birleşik güvenlik katmanlarının sunulması."
+      },
+      "p2": {
+        "title": "Aşama 2: Merkeziyetsiz Web ve Doğrulama",
+        "desc": "Chain Browser aracılığıyla Web3 keşfini ve CertWallet ile doğrulanabilir sertifika sahipliğini etkinleştirme."
+      },
+      "p3": {
+        "title": "Aşama 3: Yapay Zeka Yardımcıları ve Alan Adı Sistemleri",
+        "desc": "Simay yapay zeka asistanının entegrasyonu ve küresel adres çözümlemesi için Kutra merkeziyetsiz alan adlarının dağıtılması."
+      }
+    }
   }
 }

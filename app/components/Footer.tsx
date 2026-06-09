@@ -50,6 +50,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <a href="/about" className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase">{t('corporate')}</a>
             <nav className="flex flex-col mt-6 gap-3">
+              <Link href="/about/overview">{t('overview')}</Link>
               <Link href="/about/team">{t('team')}</Link>
               <Link href="/about/contact">{t('contact')}</Link>
             </nav>

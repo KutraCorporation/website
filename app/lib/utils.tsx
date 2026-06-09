@@ -20,7 +20,8 @@ function Linkedin({ className }: { className?: string }) {
   );
 }
 
-export const baseUrl = "http://localhost:3000/";
+const rawUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+export const baseUrl = rawUrl.endsWith('/') ? rawUrl : `${rawUrl}/`;
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -79,7 +80,7 @@ export const products: Product[] = [
 export const teams: TeamDetail[] = [
   {
     title: 'Mehmet Ali Durusoy',
-    role: 'Co-Founder & CEO',
+    role: 'CEO',
     socialAccounts: [
       {
         _type: "twitter",

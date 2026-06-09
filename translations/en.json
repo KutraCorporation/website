@@ -46,6 +46,10 @@
         "title": "Team",
         "desc": "Learn about our talented team and their expertise."
       },
+      "contact": {
+        "title": "Contact",
+        "desc": "Get in touch with us to discuss collaboration opportunities or ask questions."
+      },
       "policies": {
         "title": "Policies & Certificates",
         "desc": "Read our security commitments, data privacy policies, and compliance certificates."
@@ -120,5 +124,86 @@
   },
   "team": {
     "heading": "Team"
+  },
+  "contactPage": {
+    "title": "Get in Touch",
+    "subtitle": "Have a question, feedback, or a partnership proposal? We'd love to hear from you.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "placeholderName": "John Doe",
+      "placeholderEmail": "john@example.com",
+      "placeholderSubject": "How can we help you?",
+      "placeholderMessage": "Tell us more about your inquiry...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "subtitle": "Reach out to us directly or follow our social channels.",
+      "email": {
+        "title": "Email",
+        "value": "info@kutra.co"
+      },
+      "location": {
+        "title": "Location",
+        "value": "Istanbul, Turkey"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "value": "Monday - Friday, 9:00 AM - 6:00 PM"
+      }
+    }
+  },
+  "overviewPage": {
+    "title": "Ecosystem Overview",
+    "subtitle": "Discover the vision, architectural principles, and roadmap behind Kutra.",
+    "mission": {
+      "title": "Our Mission",
+      "text": "At Kutra, we are building a secure, high-performance, and decentralized digital ecosystem. From identity verification to personal AI assistants, we design and implement next-generation infrastructure that empowers individuals and enterprises to navigate the digital world with confidence, security, and absolute control over their data."
+    },
+    "pillars": {
+      "title": "Core Pillars",
+      "security": {
+        "title": "Security-First",
+        "desc": "Cryptographic protection, zero-knowledge principles, and secure storage for all user credentials and identities."
+      },
+      "ux": {
+        "title": "Premium UX & Aesthetics",
+        "desc": "Bespoke user interfaces with micro-interactions, responsive design, and intuitive user experiences."
+      },
+      "decentralization": {
+        "title": "Decentralized Infrastructure",
+        "desc": "Leveraging Web3, blockchain verification, and sovereign identity solutions to eliminate central points of failure."
+      }
+    },
+    "tech": {
+      "title": "Architecture & Technology",
+      "desc": "Our software stack is built using modern, fast, and secure tools to guarantee reliability.",
+      "stack": {
+        "frontend": "Modern frameworks including Next.js, React, and Framer Motion for high-fidelity interactive UIs.",
+        "backend": "High-performance Edge runtimes, Cloudflare Workers, and Serverless computing.",
+        "web3": "Verifiable credentials, decentralized networks, and smart contracts deployed on modern protocols."
+      }
+    },
+    "roadmap": {
+      "title": "Ecosystem Roadmap",
+      "p1": {
+        "title": "Phase 1: Secure Identity & Authentication",
+        "desc": "Launching ProjBrand ID, Authenticator, and unified security layers to establish a trust protocol."
+      },
+      "p2": {
+        "title": "Phase 2: Decentralized Web & Verification",
+        "desc": "Enabling Web3 exploration via Chain Browser and verifiable credential ownership through CertWallet."
+      },
+      "p3": {
+        "title": "Phase 3: AI Co-Pilots & Domain Systems",
+        "desc": "Integrating Simay AI assistant and deploying Kutra decentralized domains for global address resolution."
+      }
+    }
   }
 }
