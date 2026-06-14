@@ -1,6 +1,5 @@
 "use client";
 
-import Img from "@/components/Img";
 import { useTranslations } from "next-intl";
 import { socialAccountUrl, baseUrl, sanitizeId } from "@/lib/utils";
 import type { TeamDetail } from "@/lib/types/Team";
@@ -18,7 +17,7 @@ export default function TeamClientComponent({ teams }: TeamProps) {
       "@type": "Person",
       "@id": `${baseUrl}#person-${sanitizeId(member.title)}`,
       "name": member.title,
-      "jobTitle": member.role,
+      "jobTitle": t('roles.' + member.roleKey),
       "worksFor": {
         "@type": "Organization",
         "@id": `${baseUrl}#organization`
