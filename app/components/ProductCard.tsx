@@ -46,7 +46,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent opacity-60 pointer-events-none" aria-hidden />
         </div>
         <div className="p-5 flex flex-col flex-grow">
-          <Link href={`/products/${product.id}`}>
+          <Link href={`/projects/${product.id}`}>
             <h3 id={`${product.id}-card-heading`} className="text-lg font-bold text-[var(--accent-cyan)] tracking-tight transition-colors mb-2" translate="no">
               {productName}
             </h3>

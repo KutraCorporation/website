@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!product) return {};
 
-  const url = `${baseUrl}/products/${product.id}`;
+  const url = `${baseUrl}/projects/${product.id}`;
 
   return {
     title: product.name,
@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: url,
       languages: {
-        'tr-TR': `${baseUrl}tr/products/${product.id}`,
-        'en-US': `${baseUrl}en/products/${product.id}`,
-        'x-default': `${baseUrl}products/${product.id}`,
+        'tr-TR': `${baseUrl}tr/projects/${product.id}`,
+        'en-US': `${baseUrl}en/projects/${product.id}`,
+        'x-default': url,
       },
     },
     openGraph: {

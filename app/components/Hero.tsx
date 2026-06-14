@@ -21,7 +21,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#e8e8e8] mb-3 leading-[1.1]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#e8e8e8] mb-3 leading-[1.3] overflow-visible"
           style={{ fontFeatureSettings: '"cv02", "cv03", "cv04"' }}
         >
           {t("headline")}

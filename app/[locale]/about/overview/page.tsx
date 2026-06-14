@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Shield, Sparkles, Network, Code2, Cpu, Database, Layers, ChevronRight, Milestone } from "lucide-react";
+import { Shield, Sparkles, Network, Code2, Cpu, Database, ChevronRight, Milestone } from "lucide-react";
 
 export default function Overview() {
     const t = useTranslations("overviewPage");

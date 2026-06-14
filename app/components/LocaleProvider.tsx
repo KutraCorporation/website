@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import { NextIntlClientProvider } from "next-intl";
 import { getCookie, setCookie } from "cookies-next";
 
-import { i18n, type Locale } from "../../i18n/i18n";
+import { i18n, type Locale } from "../i18n/i18n";
 
 import tr from "../../translations/tr.json";
 import en from "../../translations/en.json";

@@ -1,12 +1,12 @@
-import "./globals.css";
-import { i18n } from '../i18n/i18n';
+import "../globals.css";
+import { i18n } from '@/i18n/i18n';
 import type { Metadata, Viewport } from "next";
 import { Inter } from 'next/font/google';
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import { ThemeProvider } from "./components/theme-provider";
-import { LocaleProvider } from "./components/LocaleProvider";
-import { baseUrl } from "./lib/utils";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/theme-provider";
+import { LocaleProvider } from "@/components/LocaleProvider";
+import { baseUrl } from "@/lib/utils";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 

@@ -65,22 +65,49 @@ const products: Product[] = [
 const teams: TeamDetail[] = [
   {
     title: 'Mehmet Ali Durusoy',
-    role: 'CEO',
+    roleKey: 'ceo_dev',
     socialAccounts: [
-      {
-        _type: "twitter",
-        url: "mehmetalidsy"
-      },
-      {
-        _type: "linkedin",
-        url: "mehmetalidsy"
-      },
-      {
-        _type: "github",
-        url: "mehmetalidsy"
-      }
+      { _type: "twitter", url: "mehmetalidsy" },
+      { _type: "linkedin", url: "mehmetalidsy" },
+      { _type: "github", url: "mehmetalidsy" }
     ]
   },
+  {
+    title: 'Tuna',
+    roleKey: 'dev_designer',
+    socialAccounts: [
+      { _type: "twitter", url: "" },
+      { _type: "linkedin", url: "" },
+      { _type: "github", url: "" }
+    ]
+  },
+  {
+    title: 'Erhan',
+    roleKey: 'modeler',
+    socialAccounts: [
+      { _type: "twitter", url: "" },
+      { _type: "linkedin", url: "" },
+      { _type: "github", url: "" }
+    ]
+  },
+  {
+    title: 'Tuğra',
+    roleKey: 'animator',
+    socialAccounts: [
+      { _type: "twitter", url: "" },
+      { _type: "linkedin", url: "" },
+      { _type: "github", url: "" }
+    ]
+  },
+  {
+    title: 'Samet',
+    roleKey: 'tester',
+    socialAccounts: [
+      { _type: "twitter", url: "" },
+      { _type: "linkedin", url: "" },
+      { _type: "github", url: "" }
+    ]
+  }
 ];
 
 function socialAccountUrl(_type: string, url: string, _title: string, iconClass?: string) {
@@ -117,6 +144,22 @@ function socialAccountUrl(_type: string, url: string, _title: string, iconClass?
         icon: <Icons.Twitter className={iconClass} />,
         label: _title + " of X (Twitter)",
         url: "https://x.com/" + url
+      };
+    break;
+
+    case "youtube":
+      output = {
+        icon: <Icons.Youtube className={iconClass} />,
+        label: _title + " of Youtube",
+        url: "https://youtube.com/" + url
+      };
+    break;
+
+    case "discord":
+      output = {
+        icon: <Icons.Discord className={iconClass} />,
+        label: _title + " of Discord",
+        url: "https://discord.gg/" + url
       };
     break;
 

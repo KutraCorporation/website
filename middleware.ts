@@ -1,12 +1,16 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import createIntlMiddleware from 'next-intl/middleware';
+import { routing } from './app/i18n/i18n';
 
-const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000']
+const intlMiddleware = createIntlMiddleware(routing);
+
+const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000'];
 
 const corsOptions = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-}
+};
 
 interface RateLimitConfig {
   windowMs: number;
@@ -33,13 +37,9 @@ const AGGRESSIVE_ROUTES = [
 
 function getClientIp(request: NextRequest): string {
   const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
-  }
+  if (forwarded) return forwarded.split(',')[0].trim();
   const realIp = request.headers.get('x-real-ip');
-  if (realIp) {
-    return realIp;
-  }
+  if (realIp) return realIp;
   return 'unknown';
 }
 
@@ -47,16 +47,18 @@ function isAggressiveRoute(pathname: string): boolean {
   return AGGRESSIVE_ROUTES.some(route => pathname.startsWith(route));
 }
 
-function cleanOldEntries(): void {
+let lastCleanTime = Date.now();
+function cleanOldEntriesLazy(): void {
   const now = Date.now();
+  if (now - lastCleanTime < 60 * 1000) return;
+  
   for (const [key, value] of rateLimits.entries()) {
     if (now > value.resetTime) {
       rateLimits.delete(key);
     }
   }
+  lastCleanTime = now;
 }
-
-setInterval(cleanOldEntries, 60 * 1000);
 
 function applyRateLimiting(request: NextRequest): NextResponse | null {
   const pathname = request.nextUrl.pathname;
@@ -64,6 +66,8 @@ function applyRateLimiting(request: NextRequest): NextResponse | null {
   if (!pathname.startsWith('/api/')) {
     return null;
   }
+
+  cleanOldEntriesLazy();
 
   const config = isAggressiveRoute(pathname) ? aggressiveConfig : defaultConfig;
   const clientIp = getClientIp(request);
@@ -93,42 +97,53 @@ function applyRateLimiting(request: NextRequest): NextResponse | null {
     return response;
   }
 
-  const response = NextResponse.next();
-  response.headers.set('X-RateLimit-Limit', config.maxRequests.toString());
-  response.headers.set('X-RateLimit-Remaining', (config.maxRequests - entry.count).toString());
-  response.headers.set('X-RateLimit-Reset', entry.resetTime.toString());
-
-  return response;
+  return null; 
 }
 
 export function middleware(request: NextRequest) {
-  const rateLimitResponse = applyRateLimiting(request);
-  if (rateLimitResponse) {
-    return rateLimitResponse;
+  const pathname = request.nextUrl.pathname;
+
+  if (pathname.startsWith('/api/')) {
+    const rateLimitResponse = applyRateLimiting(request);
+    if (rateLimitResponse) return rateLimitResponse; // 429 hatası döner
   }
 
-  const origin = request.headers.get('origin') ?? ''
-  const isAllowedOrigin = allowedOrigins.includes(origin)
-
-  const isPreflight = request.method === 'OPTIONS'
+  const origin = request.headers.get('origin') ?? '';
+  const isAllowedOrigin = allowedOrigins.includes(origin);
+  const isPreflight = request.method === 'OPTIONS';
 
   if (isPreflight) {
     const preflightHeaders = {
       ...(isAllowedOrigin && { 'Access-Control-Allow-Origin': origin }),
       ...corsOptions,
-    }
-    return NextResponse.json({}, { headers: preflightHeaders })
+    };
+    return NextResponse.json({}, { headers: preflightHeaders });
   }
 
-  const response = NextResponse.next({});
+  let response: NextResponse;
+  
+  if (pathname.startsWith('/api/')) {
+    response = NextResponse.next();
+    const clientIp = getClientIp(request);
+    const key = `${clientIp}:${pathname}`;
+    const entry = rateLimits.get(key);
+    const config = isAggressiveRoute(pathname) ? aggressiveConfig : defaultConfig;
+    if (entry) {
+      response.headers.set('X-RateLimit-Limit', config.maxRequests.toString());
+      response.headers.set('X-RateLimit-Remaining', (config.maxRequests - entry.count).toString());
+      response.headers.set('X-RateLimit-Reset', entry.resetTime.toString());
+    }
+  } else {
+    response = intlMiddleware(request);
+  }
 
   if (isAllowedOrigin) {
-    response.headers.set('Access-Control-Allow-Origin', origin)
+    response.headers.set('Access-Control-Allow-Origin', origin);
   }
 
   Object.entries(corsOptions).forEach(([key, value]) => {
-    response.headers.set(key, value)
-  })
+    response.headers.set(key, value);
+  });
 
   const securityHeaders = [
     { key: 'X-DNS-Prefetch-Control', value: 'on' },
@@ -140,17 +155,19 @@ export function middleware(request: NextRequest) {
     { key: 'X-XSS-Protection', value: '1; mode=block' },
     { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
     { key: 'Cross-Origin-Resource-Policy', value: 'same-origin' },
-    { key: 'Expect-CT', value: 'enforce, max-age=86400' },
   ];
 
   securityHeaders.forEach(({ key, value }) => {
     response.headers.set(key, value);
   });
 
-  return response
+  return response;
 }
 
 export const config = {
   runtime: 'experimental-edge',
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.json).*)', '/api/:path*'],
-}
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.json|.*\\..*$).*)',
+    '/api/:path*'
+  ]
+};

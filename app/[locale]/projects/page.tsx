@@ -1,6 +1,9 @@
 import ProductsPageContent from "@/components/ProductsPageContent";
 import { products, baseUrl } from "@/lib/utils";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+const PAGE_URL = `${baseUrl}/projects/`;
 
 const combinedSchema = [
   {
@@ -12,9 +15,9 @@ const combinedSchema = [
       "position": index + 1,
       "item": {
         "@type": "SoftwareApplication",
-        "@id": `${baseUrl}/products/${product.id}/#software`,
+        "@id": `${PAGE_URL + product.id}/#software`,
         "name": product.name,
-        "url": `${baseUrl}/products/${product.id}`,
+        "url": `${PAGE_URL + product.id}`,
         "publisher": { "@id": `${baseUrl}/#organization` },
         "author": { "@id": `${baseUrl}/#organization` },
         "applicationCategory": "SecurityApplication",
@@ -35,17 +38,21 @@ const combinedSchema = [
   }
 ];
 
-export const metadata: Metadata = {
-  title: "Products",
-  alternates: {
-    canonical: baseUrl + "/products",
-    languages: {
-      "x-default": baseUrl + "/en/products",
-      "en": baseUrl + "/en/products",
-      "tr": baseUrl + "/tr/products",
-    }
-  }
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("ecosystem");
+
+  return {
+    title: t("title"),
+    alternates: {
+      canonical: PAGE_URL.replace(/\/$/, ""),
+      languages: {
+        "x-default": baseUrl + "/en/projects",
+        "en": baseUrl + "/en/projects",
+        "tr": baseUrl + "/tr/projects",
+      },
+    },
+  };
+}
 
 export default function Products() {
   return (

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -28,6 +29,13 @@ export default function Footer() {
             <p className="text-[#b8b8b8] text-sm leading-relaxed max-w-sm">
               {t("tagline")}
             </p>
+            <br />
+            <a
+              href="mailto:info@kutra.co"
+              className="mt-3 text-[#b8b8b8] hover:text-owt1 transition-colors"
+            >
+              info@kutra.co
+            </a>
             <nav className="flex gap-3 mt-6" aria-label={t("socialAria")}>
               <Link
                 href="https://github.com/KutraCorporation"
@@ -40,7 +48,7 @@ export default function Footer() {
                 <Icons.Github className="w-5 h-5" />
               </Link>
               <Link
-                href="https://linkedin.com/company/kutra"
+                href="https://linkedin.com/company/kutra-corporation"
                 aria-label={t("projbrandOn", { platform: "LinkedIn" })}
                 title={t('projbrandOn', { platform: 'LinkedIn' })}
                 rel="me noopener noreferrer"
@@ -50,7 +58,7 @@ export default function Footer() {
                 <Icons.Linkedin className="w-5 h-5" />
               </Link>
               <Link
-                href="https://x.com/kutra"
+                href={`https://x.com/KutraCorporation${locale === "en" ? "" : locale.toUpperCase()}`}
                 aria-label={t("projbrandOn", { platform: "X (Twitter)" })}
                 title={t('projbrandOn', { platform: 'X (Twitter)' })}
                 rel="me noopener noreferrer"
@@ -71,12 +79,17 @@ export default function Footer() {
               </Link>
             </nav>
           </div>
-          <div className="lg:col-span-2">
-            <a href="/about" className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase">{t('corporate')}</a>
-            <nav className="flex flex-col mt-6 gap-3">
+          <div className="lg:col-span-1">
+            <a
+              href="/about"
+              className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase"
+            >
+              {t('corporate')}
+            </a>
+            <nav className="flex flex-col mt-6 gap-3" aria-label={t('corporate')}>
               <Link href="/about/overview">{t('overview')}</Link>
               <Link href="/about/team">{t('team')}</Link>
-              <Link href="/about/contact">{t('contact')}</Link>
+              <Link href="/projects">{t('products')}</Link>
             </nav>
           </div>
         </div>
@@ -87,4 +100,3 @@ export default function Footer() {
     </footer>
   );
 }
-

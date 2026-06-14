@@ -7,8 +7,8 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState, memo } from "react";
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useLocaleContext } from "./LocaleProvider";
-import { i18n } from "../../i18n/i18n";
-import type { Locale } from "../../i18n/i18n";
+import { i18n, usePathname, useRouter } from "../i18n/i18n";
+import type { Locale } from "../i18n/i18n";
 
 export default memo(function Header() {
   const [open, setOpen] = useState(false);
@@ -16,7 +16,13 @@ export default memo(function Header() {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const t = useTranslations('header');
-  const { locale, setLocale } = useLocaleContext();
+  const { locale } = useLocaleContext();
+
+  const pathname = usePathname();
+  const router = useRouter();
+  const handleLocaleChange = (newLocale: Locale) => {
+    router.replace(pathname, { locale: newLocale });
+  };
 
   useEffect(() => {
     let ticking = false;
@@ -81,7 +87,7 @@ export default memo(function Header() {
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden md:flex items-center gap-8">
-          <Link href="/products" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors">{t('products')}</Link>
+          <Link href="/projects" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-500 transition-colors">{t('products')}</Link>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger className="inline-flex items-center gap-2 text-sm font-medium px-2 py-1 rounded bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               <span>{locale.toUpperCase()}</span>
@@ -92,7 +98,7 @@ export default memo(function Header() {
                 {i18n.locales.map((l) => (
                   <DropdownMenu.Item
                     key={l}
-                    onSelect={() => setLocale(l as Locale)}
+                    onSelect={() => handleLocaleChange(l as Locale)}
                     className={`px-3 py-2 text-sm rounded cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 ${locale === l ? 'font-semibold' : ''}`}
                   >
                     {l.toUpperCase()}
@@ -126,7 +132,7 @@ export default memo(function Header() {
           }`}
       >
         <div className="flex flex-col gap-6 p-8 h-full">
-          <Link onClick={() => setOpen(false)} href="/products" className="text-2xl font-bold">{t('products')}</Link>
+          <Link onClick={() => setOpen(false)} href="/projects" className="text-2xl font-bold">{t('products')}</Link>
           <div className="mt-auto">
             <DropdownMenu.Root>
               <DropdownMenu.Trigger className="inline-flex items-center gap-2 text-lg font-medium px-3 py-2 rounded bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
@@ -138,7 +144,7 @@ export default memo(function Header() {
                   {i18n.locales.map((l) => (
                     <DropdownMenu.Item
                       key={l}
-                      onSelect={() => { setLocale(l as Locale); setOpen(false); }}
+                      onSelect={() => { handleLocaleChange(l as Locale); setOpen(false); }}
                       className={`block px-3 py-2 text-lg rounded cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 ${locale === l ? 'font-semibold' : ''}`}
                     >
                       {l.toUpperCase()}

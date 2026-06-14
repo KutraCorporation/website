@@ -5,7 +5,7 @@ interface SocialAccount {
 
 export interface TeamDetail {
     title: string,
-    role: string,
+    roleKey: string,
     avatar?: string,
     socialAccounts: SocialAccount[];
 };

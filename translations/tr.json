@@ -1,23 +1,23 @@
 {
   "hero": {
     "headline": "Kutra",
-    "tagline": "Sürekliliği Kodla",
+    "tagline": "Sınırların Ötesinde",
     "subhead": "Türkiye'nin En Genç Teknoloji Ekosistemi",
     "ctaPrimary": "Ekosistemi Keşfet",
     "ctaSecondary": "Kutra ID ile Başla"
   },
   "ecosystem": {
-    "title": "Ürünler",
-    "viewAll": "Tüm Ürünleri Gör"
+    "title": "Projeler",
+    "viewAll": "Tüm Projeleri Gör"
   },
   "footer": {
-    "tagline": "Genç bir zihinden doğan, güvenli ve sınırsız dijital gelecek.\nSürekliliği Kodla",
+    "tagline": "Sınırların Ötesinde",
     "corporate": "Kurumsal",
     "overview": "Genel Bakış",
     "team": "Takım",
     "contact": "İletişim",
     "policies": "Politikalar",
-    "products": "Ürünler",
+    "products": "Projeler",
     "resources": "Kaynaklar",
     "privacyPolicy": "Gizlilik Politikası",
     "termsOfService": "Kullanım Koşulları",
@@ -30,13 +30,13 @@
     "projbrandOn": "Kutra - {platform}"
   },
   "header": {
-    "products": "Ürünler"
+    "products": "Projeler"
   },
   "about": {
     "headline": "Derin Çözümler,",
     "highlight": "Sınırsız Teknoloji",
     "subhead": "Kutra olarak dijital altyapının bir sonraki neslini inşa ediyoruz. Güvenli kimlik yönetiminden eksiksiz bulut hizmetlerine kadar platformumuz, dijital çağda başarılı olmanızı destekler.",
-    "ctaExplore": "Ürünleri Keşfet",
+    "ctaExplore": "Projeleri Keşfet",
     "cards": {
       "overview": {
         "title": "Genel Bakış",
@@ -57,11 +57,11 @@
     }
   },
   "productsPage": {
-    "title": "Ürünler",
+    "title": "Projeler",
     "subtitle": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin."
   },
   "products": {
-    "title": "Ürünler",
+    "title": "Projeler",
     "subtitle": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin.",
     "detailsHeading": "Ürün Detayları",
     "linksHeading": "İlgili Bağlantılar",
@@ -123,7 +123,16 @@
     }
   },
   "team": {
-    "heading": "Takım"
+    "heading": "Takım",
+    "roles": {
+     "ceo_dev": "Geliştirici",
+     "dev_designer": "Geliştirici / Harita & Arayüz Tasarımcısı",
+     "modeler": "3D Modelci",
+     "animator": "Animasyon & Ses Efektleri",
+     "tester": "QA Test Sorumlusu",
+     "open_position": "3D Modelci (Açık Pozisyon)",
+     "join_us": "Aramıza Katıl"
+   }
   },
   "contactPage": {
     "title": "İletişime Geçin",

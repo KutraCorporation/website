@@ -1,23 +1,23 @@
 {
   "hero": {
     "headline": "ProjBrand",
-    "tagline": "Code the Continuum",
+    "tagline": "Beyond Limits",
     "subhead": "Student-founded Turkish tech holding. Secure, high-performance, and user-centric digital ecosystem.",
     "ctaPrimary": "Explore Ecosystem",
     "ctaSecondary": "Start with ProjBrand ID"
   },
   "ecosystem": {
-    "title": "Ecosystem",
-    "viewAll": "View All Products →"
+    "title": "Projects",
+    "viewAll": "View All Projects →"
   },
   "footer": {
-    "tagline": "Secure, high-performance, and user-centric digital ecosystem. Student-founded Turkish tech holding.",
+    "tagline": "Beyond Limits",
     "corporate": "Corporate",
     "overview": "Overview",
     "team": "Team",
     "contact": "Contact",
     "policies": "Policies",
-    "products": "Products",
+    "products": "Projects",
     "resources": "Resources",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
@@ -30,13 +30,13 @@
     "projbrandOn": "ProjBrand on {platform}"
   },
   "header": {
-    "products": "Products"
+    "products": "Projects"
   },
   "about": {
     "headline": "Deep Solutions,",
     "highlight": "Limitless Technology",
     "subhead": "At Kutra, we are building the next generation of digital infrastructure. From secure identity management to a full suite of cloud services, our platform empowers you to thrive in the digital age.",
-    "ctaExplore": "Explore Products",
+    "ctaExplore": "Explore Projects",
     "cards": {
       "overview": {
         "title": "Overview",
@@ -57,13 +57,13 @@
     }
   },
   "productsPage": {
-    "title": "Products",
+    "title": "Projects",
     "subtitle": "Explore our ecosystem of apps and services built for security, productivity, and Web3."
   },
   "products": {
-    "title": "Products",
+    "title": "Projects",
     "subtitle": "Explore our ecosystem of apps and services built for security, productivity, and Web3.",
-    "detailsHeading": "Product Details",
+    "detailsHeading": "Project Details",
     "linksHeading": "Related Links",
     "categories": {
       "Security": "Security",
@@ -123,7 +123,16 @@
     }
   },
   "team": {
-    "heading": "Team"
+    "heading": "Team",
+    "roles": {
+      "ceo_dev": "Developer",
+      "dev_designer": "Developer / Map & UI Designer",
+      "modeler": "3D Modeler",
+      "animator": "Animation & Sound FX Specialist",
+      "tester": "QA Tester",
+      "open_position": "3D Modeler (Open Position)",
+      "join_us": "Join Our Team"
+    }
   },
   "contactPage": {
     "title": "Get in Touch",

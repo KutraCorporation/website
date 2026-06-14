@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import EcosystemSection from "@/components/EcosystemSection";
-import { products, teams, baseUrl } from "@/lib/utils";
+import { products, baseUrl, teams, sanitizeId } from "@/lib/utils";
 
 const combinedSchema = {
   "@context": "https://schema.org",
@@ -23,7 +23,7 @@ const combinedSchema = {
         "https://www.linkedin.com/company/KutraCorporation"
       ],
       "employee": teams.map(member => ({
-        "@id": `${baseUrl}/#person-${member.title.toLowerCase().trim().replace(/\s+/g, '-')}`
+        "@id": `${baseUrl}/#person-${sanitizeId(member.title)}`
       }))
     },
     {
@@ -82,7 +82,11 @@ export default function Home() {
             <Hero />
           </div>
         </section>
-        <EcosystemSection products={products.slice(0, 8)} />
+        <section className="flex flex-row justify-center items-center gap-5 px-3 py-6 md:py-8 lg:py-12 text-center bg-[#111111]" aria-hidden>
+          <p rel="noopener noreferrer" className="text-[#e8e8e8] hover:text-owt1">DeepMatter St.</p>
+          <p rel="noopener noreferrer" className="text-[#e8e8e8] hover:text-owt1">TST Digital</p>
+        </section>
+        <EcosystemSection products={products.slice(0, 8)} /> 
       </div>
     </>
   );
