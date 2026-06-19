@@ -18,41 +18,53 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: "Kutra",
-    template: "%s | Kutra"
-  },
-  robots: "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
-  icons: {
-    icon: baseUrl + "img/logo.png"
-  },
-  authors: { name: "Kutra Corporation", url: baseUrl + "humans.txt" },
-  referrer: "origin",
-  creator: "Kutra Corporation",
-  publisher: "Kutra Corporation",
-  classification: "software",
-  appleWebApp: {
-    capable: true,
-    title: "Kutra Ecosystem",
-    statusBarStyle: "black-translucent",
-  },
-  formatDetection: {
-    telephone: false,
-  },
-  alternates: {
-    canonical: baseUrl,
-    languages: {
-      'x-default': baseUrl + 'en',
-      'en-US': baseUrl + 'en',
-      'tr-TR': baseUrl + 'tr',
-    },
-  },
-  other: {
-    'expect-ct': 'max-age=86400, enforce',
-  }
+type Props = {
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    metadataBase: new URL(baseUrl),
+    title: {
+      default: "Kutra",
+      template: `%s | Kutra ${locale.toUpperCase()}`,
+    },
+    description: "Kutra, modern teknolojiler ve yapay zeka ile uçtan uca dijital çözümler sunar.",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+      },
+    },
+    icons: {
+      icon: baseUrl + 'img/logo.png',
+    },
+    authors: [{ name: "Kutra Corporation", url: `${baseUrl}humans.txt` }],
+    creator: "Kutra Corporation",
+    publisher: "Kutra Corporation",
+    formatDetection: { telephone: false },
+    alternates: {
+      canonical: `${baseUrl + locale}`,
+      languages: {
+        'x-default': `${baseUrl}en`,
+        'en': `${baseUrl}en`,
+        'tr': `${baseUrl}tr`,
+      },
+    },
+    appleWebApp: {
+      capable: true,
+      title: "Kutra Ecosystem",
+      statusBarStyle: "black-translucent",
+    },
+  };
+}
 
 export default function RootLayout({
   children,

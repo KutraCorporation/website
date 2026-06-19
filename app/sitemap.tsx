@@ -1,26 +1,10 @@
-import type { MetadataRoute } from 'next'
-import { products, baseUrl } from "./lib/utils";
+import { MetadataRoute } from 'next';
+import { i18n } from '@/i18n/i18n';
+import { baseUrl } from './lib/utils';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-
-    const productEntries = products.map((product) => ({
-      url: `${baseUrl}products/${product.id}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    }));
-    
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            alternates: {
-                languages: {
-                    en: `${baseUrl}/en`,
-                    tr: `${baseUrl}/tr`,
-                },
-            },
-        },
-        ...productEntries,
-    ]
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  return i18n.locales.map((locale) => ({
+    url: `${baseUrl + locale}/sitemap.xml`,
+    lastModified: new Date(),
+  }));
 }

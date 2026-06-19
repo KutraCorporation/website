@@ -13,6 +13,14 @@ function cn(...inputs: ClassValue[]) {
 }
 
 const products: Product[] = [
+  /*{
+    id: "aether",
+    name: "Aether",
+    description: "A programming language for high-performance, standalone software ready for quantum technology; it supports contract writing and artificial intelligence for virtually all Web3 networks.",
+    links: [
+      { id: 1, name: "Github", link: "https://github.com/KutraCorporation/aether" },
+    ],
+  },*/
   {
     id: "authenticator",
     name: "Authenticator",
@@ -52,14 +60,6 @@ const products: Product[] = [
       { id: 1, name: "Chat with Simay", link: "#" },
     ],
   },
-  /*{
-    id: "aether",
-    name: "Aether",
-    description: "A programming language for high-performance, standalone software ready for quantum technology; it supports contract writing and artificial intelligence for virtually all Web3 networks.",
-    links: [
-      { id: 1, name: "Github", link: "https://github.com/KutraCorporation/aether" },
-    ],
-  }*/
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 const teams: TeamDetail[] = [
@@ -70,42 +70,6 @@ const teams: TeamDetail[] = [
       { _type: "twitter", url: "mehmetalidsy" },
       { _type: "linkedin", url: "mehmetalidsy" },
       { _type: "github", url: "mehmetalidsy" }
-    ]
-  },
-  {
-    title: 'Tuna',
-    roleKey: 'dev_designer',
-    socialAccounts: [
-      { _type: "twitter", url: "" },
-      { _type: "linkedin", url: "" },
-      { _type: "github", url: "" }
-    ]
-  },
-  {
-    title: 'Erhan',
-    roleKey: 'modeler',
-    socialAccounts: [
-      { _type: "twitter", url: "" },
-      { _type: "linkedin", url: "" },
-      { _type: "github", url: "" }
-    ]
-  },
-  {
-    title: 'Tuğra',
-    roleKey: 'animator',
-    socialAccounts: [
-      { _type: "twitter", url: "" },
-      { _type: "linkedin", url: "" },
-      { _type: "github", url: "" }
-    ]
-  },
-  {
-    title: 'Samet',
-    roleKey: 'tester',
-    socialAccounts: [
-      { _type: "twitter", url: "" },
-      { _type: "linkedin", url: "" },
-      { _type: "github", url: "" }
     ]
   }
 ];

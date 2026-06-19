@@ -80,12 +80,12 @@ export default function Footer() {
             </nav>
           </div>
           <div className="lg:col-span-1">
-            <a
+            <Link
               href="/about"
               className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase"
             >
               {t('corporate')}
-            </a>
+            </Link>
             <nav className="flex flex-col mt-6 gap-3" aria-label={t('corporate')}>
               <Link href="/about/overview">{t('overview')}</Link>
               <Link href="/about/team">{t('team')}</Link>
