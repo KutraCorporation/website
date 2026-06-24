@@ -31,12 +31,6 @@ export default function Footer() {
               {t("tagline")}
             </p>
             <br />
-            <a
-              href="mailto:info@kutra.co"
-              className="mt-3 text-[#b8b8b8] hover:text-owt1 transition-colors"
-            >
-              info@kutra.co
-            </a>
             <nav className="flex gap-3 mt-6" aria-label={t("socialAria")}>
               <Link
                 href="https://github.com/KutraCorporation"
@@ -58,28 +52,6 @@ export default function Footer() {
               >
                 <Icons.Linkedin className="w-5 h-5" />
               </Link>
-               {/*
-                <Link
-                href={`https://x.com/KutraCorporation${locale === "en" ? "" : locale.toUpperCase()}`}
-                aria-label={t("projbrandOn", { platform: "X (Twitter)" })}
-                title={t('projbrandOn', { platform: 'X (Twitter)' })}
-                rel="me noopener noreferrer"
-                target="_blank"
-                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#b8b8b8] hover:text-[#e8e8e8] hover:border-[var(--accent-cyan)]/30 transition-all focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
-              >
-                <Icons.Twitter className="w-5 h-5" />
-              </Link>
-                <Link
-                href={`https://youtube.com/@KutraCorporation${locale === "en" ? "" : locale.toUpperCase()}`}
-                aria-label={t("projbrandOn", { platform: "YouTube" })}
-                title={t('projbrandOn', { platform: 'YouTube' })}
-                rel="me noopener noreferrer"
-                target="_blank"
-                className="min-h-[44px] min-w-[44px] w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#b8b8b8] hover:text-[#e8e8e8] hover:border-[var(--accent-cyan)]/30 transition-all focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
-              >
-                <Icons.Youtube className="w-5 h-5" />
-              </Link>
-              */}
             </nav>
           </div>
           <div className="lg:col-span-1">
