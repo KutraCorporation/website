@@ -13,7 +13,7 @@ export const getBaseUrl = () => {
 const getLangBaseUrl = (locale: string) => {
   const base = getBaseUrl();
   const cleanLocale = locale.replace(/^\/+/, "");
-  return `${base}${cleanLocale}/`;
+  return `${base}${cleanLocale}`;
 };
 
 const baseUrl = getBaseUrl();
