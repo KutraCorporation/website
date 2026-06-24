@@ -6,9 +6,7 @@ Core Team: Kutra Team
 Special thanks to the open source community, our first users, and everyone supporting digital innovation.
 
 /* CONTACT */
-Website: https://kutra.co
-Twitter: https://twitter.com/KutraCorporation
 GitHub: https://github.com/KutraCorporation
-LinkedIn: https://linkedin.com/company/kutra
+LinkedIn: https://linkedin.com/company/kutracorporation
 
 © 2025 Kutra Corporation. All rights reserved.
