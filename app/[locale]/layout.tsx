@@ -1,5 +1,4 @@
 import "../globals.css";
-import { i18n } from '@/i18n/i18n';
 import type { Metadata, Viewport } from "next";
 import { Inter } from 'next/font/google';
 import Footer from "@/components/Footer";
@@ -66,32 +65,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
-  const safeLocale = i18n.defaultLocale;
-  const lang = safeLocale === "tr" ? "tr-TR" : "en-US";
+  const { locale } = await params;
+  const currentLocale = locale as 'en' | 'tr';
 
   return (
-    <html lang={lang} prefix="og: https://ogp.me/ns#" className={`${inter.variable} dark h-full scrollbar_Cer45 scroll-smooth`} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang={currentLocale} prefix="og: https://ogp.me/ns#" className={`${inter.variable} dark h-full scrollbar_Cer45 scroll-smooth`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="min-h-screen font-inter antialiased bg-background text-foreground">
         <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
-          <LocaleProvider defaultLocale={safeLocale}>
-            <div className="flex flex-col min-h-screen">
-              <Header />
-              <main id="main-content" className="grow" role="main" tabIndex={-1}>
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </LocaleProvider>
-        </ThemeProvider>
+      attribute="class"
+      defaultTheme="dark"
+      disableTransitionOnChange
+    >
+      <LocaleProvider defaultLocale={currentLocale}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main id="main-content" className="grow" role="main" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </LocaleProvider>
+    </ThemeProvider>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const withNextIntl = createNextIntlPlugin("./app//i18n/request.tsx");
+const withNextIntl = createNextIntlPlugin("./app/i18n/request.tsx");
 
 const nextConfig: NextConfig = {
   experimental: {

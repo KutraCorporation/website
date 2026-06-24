@@ -1,17 +1,17 @@
 {
   "hero": {
-    "headline": "ProjBrand",
-    "tagline": "Beyond Limits",
-    "subhead": "Student-founded Turkish tech holding. Secure, high-performance, and user-centric digital ecosystem.",
+    "headline": "Kutra",
+    "tagline": "Beyond Boundaries",
+    "subhead": "Turkey's Youngest Technology Ecosystem",
     "ctaPrimary": "Explore Ecosystem",
-    "ctaSecondary": "Start with ProjBrand ID"
+    "ctaSecondary": "Start with Kutra ID"
   },
   "ecosystem": {
     "title": "Projects",
-    "viewAll": "View All Projects →"
+    "viewAll": "View All Projects"
   },
   "footer": {
-    "tagline": "Beyond Limits",
+    "tagline": "Beyond Boundaries",
     "corporate": "Corporate",
     "overview": "Overview",
     "team": "Team",
@@ -23,11 +23,11 @@
     "termsOfService": "Terms of Service",
     "systemStatus": "System Status",
     "support": "Support",
-    "copyright": "ProjBrand. All rights reserved.",
+    "copyright": "Kutra Corporation. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
     "socialAria": "Social media",
-    "projbrandOn": "ProjBrand on {platform}"
+    "projbrandOn": "Kutra - {platform}"
   },
   "header": {
     "products": "Projects"
@@ -35,35 +35,35 @@
   "about": {
     "headline": "Deep Solutions,",
     "highlight": "Limitless Technology",
-    "subhead": "At Kutra, we are building the next generation of digital infrastructure. From secure identity management to a full suite of cloud services, our platform empowers you to thrive in the digital age.",
+    "subhead": "At Kutra, we are building the next generation of digital infrastructure. From secure identity management to comprehensive cloud services, our platform empowers you to thrive in the digital age.",
     "ctaExplore": "Explore Projects",
     "cards": {
       "overview": {
         "title": "Overview",
-        "desc": "A deep dive into our vision, architectural guidelines, and the core ecosystem roadmap."
+        "desc": "A deep dive into our vision, architectural guidelines, and ecosystem roadmap."
       },
       "team": {
         "title": "Team",
-        "desc": "Learn about our talented team and their expertise."
+        "desc": "Discover our talented team and their areas of expertise."
       },
       "contact": {
         "title": "Contact",
-        "desc": "Get in touch with us to discuss collaboration opportunities or ask questions."
+        "desc": "Get in touch, discuss partnership opportunities, or get your questions answered."
       },
       "policies": {
-        "title": "Policies & Certificates",
-        "desc": "Read our security commitments, data privacy policies, and compliance certificates."
+        "title": "Policies and Certifications",
+        "desc": "Read about our security commitments, data privacy policies, and compliance certifications."
       }
     }
   },
   "productsPage": {
     "title": "Projects",
-    "subtitle": "Explore our ecosystem of apps and services built for security, productivity, and Web3."
+    "subtitle": "Explore our ecosystem applications designed for security, efficiency, and Web3."
   },
   "products": {
     "title": "Projects",
-    "subtitle": "Explore our ecosystem of apps and services built for security, productivity, and Web3.",
-    "detailsHeading": "Project Details",
+    "subtitle": "Explore our ecosystem applications designed for security, efficiency, and Web3.",
+    "detailsHeading": "Product Details",
     "linksHeading": "Related Links",
     "categories": {
       "Security": "Security",
@@ -77,47 +77,47 @@
     "items": {
       "authenticator": {
         "name": "Authenticator",
-        "description": "Modern UI-supported Authenticator app with advanced import/export and password protection.",
+        "description": "Modern-interface Authenticator app with advanced import/export and password protection.",
         "details": [
-          "Biometric-enabled unlock for frictionless access",
-          "Encrypted backup and restore for safe recovery",
-          "Cross-device pairing and sync for seamless use"
+          "Biometric lock for seamless access",
+          "Encrypted backup and restore for secure recovery",
+          "Cross-device pairing and synchronization for smooth usage"
         ]
       },
       "certwallet": {
         "name": "CertWallet",
-        "description": "Secure vault for digital credentials, diplomas, and verifiable achievements on Sui Network.",
+        "description": "A secure vault on the Sui Network for digital identities, diplomas, and verifiable achievements.",
         "details": [
           "Blockchain-based certificate issuance and verification",
-          "Shareable verifiable credentials with trusted parties",
+          "Verifiable identities sharable with trusted parties",
           "Protects academic and professional records with cryptographic security"
         ]
       },
       "chain": {
         "name": "Chain Browser",
-        "description": "Web2 + Web3 browser for the modern era, with wallet integration and dApp access.",
+        "description": "A Web2 + Web3 browser suited for the modern era, featuring wallet integration and dApp access.",
         "details": [
           "Built-in wallet and address manager",
           "Optimized Web3 browsing experience",
-          "Decentralized app discovery and access"
+          "Decentralized application discovery and access"
         ]
       },
       "domains": {
         "name": "Domains",
         "description": "Decentralized domain registration service for the Web2 + Web3 era.",
         "details": [
-          "Register .id and .kutra domains",
-          "Manage DNS and ownership securely",
-          "Integrates with Web3 identity and wallet systems"
+          ".id and .kutra domain registration",
+          "Secure DNS and ownership management",
+          "Integration with Web3 identity and wallets"
         ]
       },
       "Simay": {
         "name": "Simay",
-        "description": "AI-powered personal assistant for productivity and smart workflows.",
+        "description": "AI-powered personal assistant for productivity and intelligent workflows.",
         "details": [
-          "Context-aware task assistance",
-          "Natural language productivity tools",
-          "Cross-app assistant workflows"
+          "Context-aware task assistant",
+          "Productivity tools via natural language",
+          "Cross-application assistant workflows"
         ]
       }
     }
@@ -128,15 +128,15 @@
       "ceo_dev": "Developer",
       "dev_designer": "Developer / Map & UI Designer",
       "modeler": "3D Modeler",
-      "animator": "Animation & Sound FX Specialist",
+      "animator": "Animation & Sound Effects",
       "tester": "QA Tester",
       "open_position": "3D Modeler (Open Position)",
-      "join_us": "Join Our Team"
+      "join_us": "Join Us"
     }
   },
   "contactPage": {
     "title": "Get in Touch",
-    "subtitle": "Have a question, feedback, or a partnership proposal? We'd love to hear from you.",
+    "subtitle": "Contact us for questions, feedback, or partnership proposals.",
     "form": {
       "name": "Full Name",
       "email": "Email Address",
@@ -145,15 +145,15 @@
       "placeholderName": "John Doe",
       "placeholderEmail": "john@example.com",
       "placeholderSubject": "How can we help you?",
-      "placeholderMessage": "Tell us more about your inquiry...",
+      "placeholderMessage": "Tell us more about your request...",
       "send": "Send Message",
       "sending": "Sending...",
       "success": "Thank you! Your message has been sent successfully.",
-      "error": "Something went wrong. Please try again."
+      "error": "An issue occurred. Please try again."
     },
     "info": {
       "title": "Contact Information",
-      "subtitle": "Reach out to us directly or follow our social channels.",
+      "subtitle": "Reach out to us directly or follow our social media channels.",
       "email": {
         "title": "Email",
         "value": "info@kutra.co"
@@ -163,55 +163,55 @@
         "value": "Istanbul, Turkey"
       },
       "hours": {
-        "title": "Business Hours",
-        "value": "Monday - Friday, 9:00 AM - 6:00 PM"
+        "title": "Working Hours",
+        "value": "Monday - Friday, 09:00 - 18:00"
       }
     }
   },
   "overviewPage": {
     "title": "Ecosystem Overview",
-    "subtitle": "Discover the vision, architectural principles, and roadmap behind Kutra.",
+    "subtitle": "Explore the vision, architectural principles, and roadmap behind Kutra.",
     "mission": {
       "title": "Our Mission",
-      "text": "At Kutra, we are building a secure, high-performance, and decentralized digital ecosystem. From identity verification to personal AI assistants, we design and implement next-generation infrastructure that empowers individuals and enterprises to navigate the digital world with confidence, security, and absolute control over their data."
+      "text": "At Kutra, we are building a secure, high-performance, and decentralized digital ecosystem. From identity verification to personal AI assistants, we design next-generation infrastructures that allow individuals and businesses to move safely in the digital world with full control over their data."
     },
     "pillars": {
       "title": "Core Pillars",
       "security": {
-        "title": "Security-First",
-        "desc": "Cryptographic protection, zero-knowledge principles, and secure storage for all user credentials and identities."
+        "title": "Security First",
+        "desc": "Cryptographic protection for all user credentials, zero-knowledge principles, and secure storage."
       },
       "ux": {
-        "title": "Premium UX & Aesthetics",
-        "desc": "Bespoke user interfaces with micro-interactions, responsive design, and intuitive user experiences."
+        "title": "Premium UI & Experience",
+        "desc": "Custom designs featuring micro-interactions, responsive layouts, and intuitive user experiences."
       },
       "decentralization": {
         "title": "Decentralized Infrastructure",
-        "desc": "Leveraging Web3, blockchain verification, and sovereign identity solutions to eliminate central points of failure."
+        "desc": "Web3, blockchain verification, and sovereign identity solutions to eliminate single points of failure."
       }
     },
     "tech": {
-      "title": "Architecture & Technology",
-      "desc": "Our software stack is built using modern, fast, and secure tools to guarantee reliability.",
+      "title": "Architecture and Technology",
+      "desc": "Our software infrastructure is built with modern, fast, and secure tools to guarantee reliability and performance.",
       "stack": {
-        "frontend": "Modern frameworks including Next.js, React, and Framer Motion for high-fidelity interactive UIs.",
-        "backend": "High-performance Edge runtimes, Cloudflare Workers, and Serverless computing.",
-        "web3": "Verifiable credentials, decentralized networks, and smart contracts deployed on modern protocols."
+        "frontend": "Modern technologies including Next.js, React, and Framer Motion for high-quality interactive interfaces.",
+        "backend": "High-performance Edge environments, Cloudflare Workers, and Serverless computing.",
+        "web3": "Smart contracts on verifiable credentials, decentralized networks, and modern protocols."
       }
     },
     "roadmap": {
       "title": "Ecosystem Roadmap",
       "p1": {
-        "title": "Phase 1: Secure Identity & Authentication",
-        "desc": "Launching ProjBrand ID, Authenticator, and unified security layers to establish a trust protocol."
+        "title": "Phase 1: Secure Identity and Authentication",
+        "desc": "Introduction of ProjBrand ID, Authenticator, and unified security layers to establish a trust protocol."
       },
       "p2": {
-        "title": "Phase 2: Decentralized Web & Verification",
-        "desc": "Enabling Web3 exploration via Chain Browser and verifiable credential ownership through CertWallet."
+        "title": "Phase 2: Decentralized Web and Verification",
+        "desc": "Enabling Web3 exploration via Chain Browser and verifiable certificate ownership with CertWallet."
       },
       "p3": {
-        "title": "Phase 3: AI Co-Pilots & Domain Systems",
-        "desc": "Integrating Simay AI assistant and deploying Kutra decentralized domains for global address resolution."
+        "title": "Phase 3: AI Assistants and Domain Systems",
+        "desc": "Integration of the Simay AI assistant and deployment of Kutra decentralized domains for global address resolution."
       }
     }
   }

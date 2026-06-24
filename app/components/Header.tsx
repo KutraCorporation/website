@@ -7,7 +7,8 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState, memo } from "react";
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useLocaleContext } from "./LocaleProvider";
-import { i18n, usePathname, useRouter } from "../i18n/i18n";
+import { i18n } from "../i18n/i18n";
+import { usePathname, useRouter } from "../i18n/i18n";
 import type { Locale } from "../i18n/i18n";
 
 export default memo(function Header() {

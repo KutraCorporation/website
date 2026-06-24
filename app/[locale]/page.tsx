@@ -62,6 +62,9 @@ export const metadata: Metadata = {
     description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
     images: [baseUrl + "img/kutra-hero.png"],
   },
+  other: {
+    'shortlink': 'https://kutra.link/website'
+  }
 };
 
 export default function Home() {

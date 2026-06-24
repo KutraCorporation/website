@@ -1,13 +1,14 @@
-
 "use client";
 
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
-import { Icons } from "@/lib/utils";
+import { useTranslations } from "next-intl";
+import { Icons, getLangBaseUrl } from "@/lib/utils";
+import { useLocaleContext } from "./LocaleProvider";
 
 export default function Footer() {
+  const { locale } = useLocaleContext();
   const t = useTranslations("footer");
-  const locale = useLocale();
+  const langBaseUrl = getLangBaseUrl(locale);
 
   return (
     <footer
@@ -57,7 +58,8 @@ export default function Footer() {
               >
                 <Icons.Linkedin className="w-5 h-5" />
               </Link>
-              <Link
+               {/*
+                <Link
                 href={`https://x.com/KutraCorporation${locale === "en" ? "" : locale.toUpperCase()}`}
                 aria-label={t("projbrandOn", { platform: "X (Twitter)" })}
                 title={t('projbrandOn', { platform: 'X (Twitter)' })}
@@ -67,7 +69,7 @@ export default function Footer() {
               >
                 <Icons.Twitter className="w-5 h-5" />
               </Link>
-              <Link
+                <Link
                 href={`https://youtube.com/@KutraCorporation${locale === "en" ? "" : locale.toUpperCase()}`}
                 aria-label={t("projbrandOn", { platform: "YouTube" })}
                 title={t('projbrandOn', { platform: 'YouTube' })}
@@ -77,6 +79,7 @@ export default function Footer() {
               >
                 <Icons.Youtube className="w-5 h-5" />
               </Link>
+              */}
             </nav>
           </div>
           <div className="lg:col-span-1">
@@ -87,13 +90,13 @@ export default function Footer() {
               {t('corporate')}
             </Link>
             <nav className="flex flex-col mt-6 gap-3" aria-label={t('corporate')}>
-              <Link href="/about/overview">{t('overview')}</Link>
-              <Link href="/about/team">{t('team')}</Link>
-              <Link href="/projects">{t('products')}</Link>
+              <Link href={`${langBaseUrl}/about/overview`}>{t('overview')}</Link>
+              <Link href={`${langBaseUrl}/about/team`}>{t('team')}</Link>
+              <Link href={`${langBaseUrl}/projects`}>{t('products')}</Link>
             </nav>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#737373]">
+        <div className="pt-8 border-t border-white/6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#737373]">
           <p translate="no">{new Date().getFullYear() + ' © ' + t('copyright')}</p>
         </div>
       </div>

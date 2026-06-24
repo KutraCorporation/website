@@ -4,11 +4,14 @@ import Img from "./Img";
 import { motion } from "framer-motion";
 import type { Product } from "../lib/types/Product";
 import Link from "next/link";
-import { cn } from "../lib/utils";
+import { cn, getLangBaseUrl } from "../lib/utils";
+import { useLocaleContext } from "./LocaleProvider";
 import { Box } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function ProductCard({ product }: { product: Product }) {
+  const { locale } = useLocaleContext();
+  const langBaseUrl = getLangBaseUrl(locale);
   const t = useTranslations("products");
   const productName = t(`items.${product.id}.name`);
   const productDescription = t(`items.${product.id}.description`);
@@ -46,7 +49,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent opacity-60 pointer-events-none" aria-hidden />
         </div>
         <div className="p-5 flex flex-col flex-grow">
-          <Link href={`/projects/${product.id}`}>
+          <Link href={`${langBaseUrl}/projects/${product.id}`}>
             <h3 id={`${product.id}-card-heading`} className="text-lg font-bold text-[var(--accent-cyan)] tracking-tight transition-colors mb-2" translate="no">
               {productName}
             </h3>
