@@ -5,22 +5,18 @@ import type { TeamDetail } from "@/lib/types/Team";
 import { Mail } from "lucide-react";
 import * as Icons from "@/lib/icons";
 
-// utils/url.js
 export const getBaseUrl = () => {
   const rawUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   return rawUrl.endsWith('/') ? rawUrl : `${rawUrl}/`;
 };
 
-
 const getLangBaseUrl = (locale: string) => {
   const base = getBaseUrl();
-  const cleanLocale = locale.replace(/^\/+/, ""); // strip leading slash if any
+  const cleanLocale = locale.replace(/^\/+/, "");
   return `${base}${cleanLocale}/`;
 };
 
-
 const baseUrl = getBaseUrl();
-
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
