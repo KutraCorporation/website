@@ -43,7 +43,7 @@ export default function Footer() {
                 <Icons.Github className="w-5 h-5" />
               </Link>
               <Link
-                href="https://linkedin.com/company/kutra-corporation"
+                href="https://linkedin.com/company/kutracorporation"
                 aria-label={t("projbrandOn", { platform: "LinkedIn" })}
                 title={t('projbrandOn', { platform: 'LinkedIn' })}
                 rel="me noopener noreferrer"
