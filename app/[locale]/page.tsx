@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import { getTranslations } from "next-intl/server"; // Burayı güncelledik
 import EcosystemSection from "@/components/EcosystemSection";
 import { products, baseUrl, teams, sanitizeId } from "@/lib/utils";
 
@@ -36,36 +37,47 @@ const combinedSchema = {
   ]
 };
 
-export const metadata: Metadata = {
-  description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
-  openGraph: {
-    title: "Kutra | Derin Çözümler, Sınırsız Teknoloji",
-    description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
-    url: baseUrl,
-    siteName: "Kutra",
-    images: [
-      {
-        url: baseUrl + "img/kutra-hero.png",
-        width: 1200,
-        height: 630,
-        alt: "Kutra | Derin Çözümler, Sınırsız Teknoloji",
-      },
-    ],
-    locale: "tr_TR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@KutraCorporation",
-    creator: "@KutraCorporation",
-    title: "Kutra | Derin Çözümler, Sınırsız Teknoloji",
-    description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
-    images: [baseUrl + "img/kutra-hero.png"],
-  },
-  other: {
-    'shortlink': 'https://kutra.link/website'
-  }
+type Props = {
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'hero' });
+  const upperLocale = locale === "en" ? "" : locale.toUpperCase();
+
+  return {
+    title: `${t('tagline')} - Kutra ${upperLocale}`,
+    description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
+    openGraph: {
+      title: "Kutra | Derin Çözümler, Sınırsız Teknoloji",
+      description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
+      url: baseUrl,
+      siteName: `Kutra ${upperLocale}`,
+      images: [
+        {
+          url: baseUrl + "img/hero-bg.png",
+          width: 1200,
+          height: 630,
+          alt: `Kutra ${upperLocale}`,
+        },
+      ],
+      locale: "tr_TR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@KutraCorporation",
+      creator: "@KutraCorporation",
+      title: `${t('tagline')} - Kutra ${upperLocale}`,
+      description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
+      images: [baseUrl + "img/kutra-hero.png"],
+    },
+    other: {
+      'shortlink': 'https://kutra.link/website'
+    }
+  }
+}
 
 export default function Home() {
   return (

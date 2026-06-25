@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-14">
           <div className="lg:col-span-2">
             <Link
-              href="/"
+              href={langBaseUrl}
               translate="no"
               aria-label={"Kutra Home page"}
               className="inline-flex gap-2.5 items-center mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
@@ -55,12 +55,7 @@ export default function Footer() {
             </nav>
           </div>
           <div className="lg:col-span-1">
-            <Link
-              href="/about"
-              className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase"
-            >
-              {t('corporate')}
-            </Link>
+            <Link href={`${langBaseUrl}/about`} className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase">{t('corporate')}</Link>
             <nav className="flex flex-col mt-6 gap-3" aria-label={t('corporate')}>
               <Link href={`${langBaseUrl}/about/overview`}>{t('overview')}</Link>
               <Link href={`${langBaseUrl}/about/team`}>{t('team')}</Link>

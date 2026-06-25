@@ -11,7 +11,7 @@ import en from "../../translations/en.json";
 
 const LOCALE_COOKIE = "NEXT_LOCALE";
 
-const messages: Record<Locale, Record<string, unknown>> = { tr, en };
+const messages = { tr, en };
 
 type LocaleContextValue = {
   locale: Locale;

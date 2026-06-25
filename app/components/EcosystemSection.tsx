@@ -3,12 +3,17 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import ProductCard from "./ProductCard";
+import { getLangBaseUrl } from "@/lib/utils";
 import type { Product } from "@/lib/types/Product";
+import { useLocaleContext } from "@/components/LocaleProvider";
 
 type Props = { products: Product[] };
 
 export default function EcosystemSection({ products }: Props) {
+  const { locale } = useLocaleContext();
   const t = useTranslations("ecosystem");
+  const langBaseUrl = getLangBaseUrl(locale);
+
   return (
     <section
       id="ecosystem"
@@ -24,7 +29,7 @@ export default function EcosystemSection({ products }: Props) {
             <div className="w-16 h-0.5 bg-[var(--accent-cyan)]/60" aria-hidden />
           </div>
           <Link
-            href="/projects"
+            href={`${langBaseUrl}/projects`}
             className="text-xs font-bold text-[#b8b8b8] hover:text-[var(--accent-cyan)] uppercase tracking-[0.2em] transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d]"
           >
             {t("viewAll")}

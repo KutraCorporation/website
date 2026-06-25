@@ -105,8 +105,11 @@ export function middleware(request: NextRequest) {
 
   if (pathname.startsWith('/api/')) {
     const rateLimitResponse = applyRateLimiting(request);
-    if (rateLimitResponse) return rateLimitResponse; // 429 hatası döner
+    if (rateLimitResponse) return rateLimitResponse;
   }
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-current-path', pathname);
 
   const origin = request.headers.get('origin') ?? '';
   const isAllowedOrigin = allowedOrigins.includes(origin);
@@ -121,7 +124,7 @@ export function middleware(request: NextRequest) {
   }
 
   let response: NextResponse;
-  
+
   if (pathname.startsWith('/api/')) {
     response = NextResponse.next();
     const clientIp = getClientIp(request);
@@ -165,7 +168,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  runtime: 'experimental-edge',
+  runtime: 'edge',
   matcher: [
     '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|manifest.json|.*\\..*$).*)',
     '/api/:path*'
