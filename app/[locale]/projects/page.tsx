@@ -1,9 +1,9 @@
 import ProductsPageContent from "@/components/ProductsPageContent";
-import { products, baseUrl } from "@/lib/utils";
+import { products, baseUrl, getLocalizedUrl } from "@/lib/utils";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-const PAGE_URL = `${baseUrl}/projects/`;
+const PAGE_URL = `${getLocalizedUrl('en', 'projects')}/`;
 
 const combinedSchema = [
   {
@@ -38,17 +38,23 @@ const combinedSchema = [
   }
 ];
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations("ecosystem");
+  const pageUrl = getLocalizedUrl(locale, "projects");
 
   return {
     title: t("title"),
     alternates: {
-      canonical: PAGE_URL.replace(/\/$/, ""),
+      canonical: pageUrl,
       languages: {
-        "x-default": baseUrl + "/en/projects",
-        "en": baseUrl + "/en/projects",
-        "tr": baseUrl + "/tr/projects",
+        "x-default": getLocalizedUrl('en', "projects"),
+        "en": getLocalizedUrl('en', "projects"),
+        "tr": getLocalizedUrl('tr', "projects"),
       },
     },
   };

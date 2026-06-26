@@ -12,8 +12,16 @@ export const getBaseUrl = () => {
 
 const getLangBaseUrl = (locale: string) => {
   const base = getBaseUrl();
-  const cleanLocale = locale.replace(/^\/+/, "");
+  const cleanLocale = locale.replace(/^\/+|\/+$/g, "").toLowerCase();
   return `${base}${cleanLocale}`;
+};
+
+export const getLocalizedUrl = (locale: string, path = "") => {
+  const cleanLocale = locale.replace(/^\/+|\/+$/g, "").toLowerCase();
+  const cleanPath = path.replace(/^\/+|\/+$/g, "");
+  const localePart = cleanLocale === "en" ? "en" : cleanLocale;
+  const pathname = cleanPath ? `/${localePart}/${cleanPath}` : `/${localePart}`;
+  return new URL(pathname, getBaseUrl()).toString();
 };
 
 const baseUrl = getBaseUrl();

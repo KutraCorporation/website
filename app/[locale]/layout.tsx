@@ -30,24 +30,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   let pathname = '/';
 
   try {
-    const headersList = headers();
+    const headersList = await headers();
     pathname = headersList.get('x-current-path') || '/';
   } catch (error) {
     console.error('Headers error:', error);
-    // Fallback: pathname yoksa en azından locale ile devam et
   }
 
-  // Locale prefix'ini temizle
   const localePrefix = `/${cleanLocale}`;
   if (pathname.startsWith(localePrefix)) {
     pathname = pathname.slice(localePrefix.length) || '/';
   }
 
-  // Canonical
-  const canonicalPath = cleanLocale === 'en' 
-    ? pathname 
-    : `/${cleanLocale}${pathname}`;
-
+  const sanitizedPath = pathname.replace(/\/+/g, '/');
+  const normalizedPath = sanitizedPath.startsWith('/') ? sanitizedPath : `/${sanitizedPath}`;
+  let canonicalPath = `/${cleanLocale}${normalizedPath}`;
+  canonicalPath = canonicalPath.replace(/\/+/g, '/');
+  const canonicalUrl = new URL(canonicalPath, baseUrl).toString();
 
   return {
     metadataBase: new URL(baseUrl),
@@ -75,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     publisher: "Kutra Corporation",
     formatDetection: { telephone: false },
     alternates: {
-      canonical: canonicalPath,
+      canonical: canonicalUrl,
       languages: {
         'x-default': `${baseUrl}en`,
         'en': `${baseUrl}en`,

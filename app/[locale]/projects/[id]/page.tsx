@@ -1,21 +1,22 @@
-import { products, baseUrl } from "@/lib/utils";
+import { products, getLocalizedUrl } from "@/lib/utils";
 import { ProductDetailContent } from "@/components/product-details";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{
+    locale: string;
     id: string;
   }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const id = (await params).id;
+  const { locale, id } = await params;
   const product = products.find((p) => p.id === id);
 
   if (!product) return {};
 
-  const url = `${baseUrl}/projects/${product.id}`;
+  const url = getLocalizedUrl(locale, `projects/${product.id}`);
 
   return {
     title: product.name,
@@ -23,10 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: url,
       languages: {
-        'tr-TR': `${baseUrl}tr/projects/${product.id}`,
-        'en-US': `${baseUrl}en/projects/${product.id}`,
-        'x-default': url,
-      },
+        'tr-TR': getLocalizedUrl('tr', `projects/${product.id}`),
+        'en-US': getLocalizedUrl('en', `projects/${product.id}`),
+        'x-default': getLocalizedUrl('en', `projects/${product.id}`),
+      }
     },
     openGraph: {
       title: product.name,
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: url,
       type: 'website',
     }
-  };
+  }
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
