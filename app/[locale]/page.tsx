@@ -106,10 +106,6 @@ export default function Home() {
             <Hero />
           </div>
         </section>
-        <section className="flex flex-row justify-center items-center gap-5 px-3 py-6 md:py-8 lg:py-12 text-center bg-[#111111]" aria-hidden>
-          <a href="#" rel="noopener noreferrer" className="text-[#e8e8e8] hover:text-owt1">DeepMatter St.</a>
-          <a href="#" rel="noopener noreferrer" className="text-[#e8e8e8] hover:text-owt1">TST Digital</a>
-        </section>
         <EcosystemSection products={products.slice(0, 8)} /> 
       </div>
     </>
