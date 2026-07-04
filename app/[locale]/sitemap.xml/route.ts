@@ -1,17 +1,19 @@
 import { NextResponse } from 'next/server';
-import { baseUrl, products } from '@/lib/utils';
+import { getLocalizedUrl, products, getBaseUrl } from '@/lib/utils';
 
 export async function GET(request: Request, { params }: { params: { locale: string } }) {
   const { locale } = await params;
   const lastmod = new Date().toISOString();
+  const baseUrl = getBaseUrl();
 
+  // Map products using the utility function for consistency
   const productUrls = products.map((p) => ({
-    loc: `${baseUrl}/${locale}/products/${p.id}`,
+    loc: getLocalizedUrl(locale, `/products/${p.id}`),
     changefreq: 'weekly',
   }));
 
   const urls = [
-    { loc: `${baseUrl}/${locale}`, changefreq: 'daily' },
+    { loc: getLocalizedUrl(locale, '/'), changefreq: 'daily' },
     ...productUrls,
   ];
 
