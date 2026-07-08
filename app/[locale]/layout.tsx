@@ -72,7 +72,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     creator: "Kutra Corporation",
     publisher: "Kutra Corporation",
     formatDetection: { telephone: false },
-    themeColor: '#0EB1D4',
     alternates: {
       canonical: canonicalUrl,
       languages: {

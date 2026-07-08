@@ -21,7 +21,8 @@ async function getContributors(id: string) {
   };
 
   const headers: HeadersInit = {
-    Accept: 'application/vnd.github.v3+json',
+    'Accept': 'application/vnd.github.v3+json',
+    'User-Agent': 'Mozilla/5.0 (KutraCorporation-Website)'
   };
   
   const repoName = repoMap[id] || id;
