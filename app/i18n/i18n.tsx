@@ -3,7 +3,7 @@ import { createNavigation } from 'next-intl/navigation';
 
 export const i18n = {
   locales: ["tr", "en"],
-  defaultLocale: "tr",
+  defaultLocale: "en",
 } as const;
 
 export type Locale = (typeof i18n)["locales"][number];

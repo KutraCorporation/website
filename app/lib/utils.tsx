@@ -43,7 +43,10 @@ const products: Product[] = [
     id: "authenticator",
     name: "Authenticator",
     categories: ["Security", "Productivity"],
-    description: "Modern UI-Supported Authenticator App with advanced import/export and password protection."
+    description: "Modern UI-Supported Authenticator App with advanced import/export and password protection.",
+    links: [
+      {id: 1, name: "Github", link: "https://github.com/KutraCorporation/authenticator" }
+    ]
   },
   {
     id: "certwallet",
@@ -51,9 +54,9 @@ const products: Product[] = [
     categories: ["Web3", "Education"],
     description: "Secure vault for digital credentials, diplomas, and verifiable achievements on Sui Network.",
     links: [
-      { id: 1, name: "Github", link: "https://github.com/KutraCorporation/certwallet-contracts" },
+      { id: 1, name: "Contracts Github", link: "https://github.com/KutraCorporation/certwallet-contracts" },
     ],
-  },
+  },/*
   {
     id: "chain",
     name: "Chain Browser",
@@ -64,20 +67,14 @@ const products: Product[] = [
     id: "domains",
     name: "Domains",
     categories: ["Web3", "Domains"],
-    description: "Decentralized domain name registration service for the Web2 + Web3 era.",
-    links: [
-      { id: 1, name: "Search Domains", link: "#" },
-    ]
+    description: "Decentralized domain name registration service for the Web2 + Web3 era."
   },
   {
     id: "Simay",
     name: "Simay",
     categories: ["AI", "Personal Assistant"],
-    description: "Personal Assistant",
-    links: [
-      { id: 1, name: "Chat with Simay", link: "#" },
-    ],
-  },
+    description: "Personal Assistant"
+  },*/
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 const teams: TeamDetail[] = [

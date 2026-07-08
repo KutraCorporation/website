@@ -11,7 +11,7 @@ import { baseUrl } from "@/lib/utils";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#0EB1D4',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -72,6 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     creator: "Kutra Corporation",
     publisher: "Kutra Corporation",
     formatDetection: { telephone: false },
+    themeColor: '#0EB1D4',
     alternates: {
       canonical: canonicalUrl,
       languages: {
@@ -100,7 +101,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={currentLocale} prefix="og: https://ogp.me/ns#" className={`${inter.variable} dark h-full scrollbar_Cer45 scroll-smooth`} data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="min-h-screen font-inter antialiased bg-background text-foreground">
+      <head>
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://github.com" />
+        <link rel="dns-prefetch" href="https://www.linkedin.com" />
+      </head>
+      <body className="min-h-screen font-inter antialiased bg-background text-foreground" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

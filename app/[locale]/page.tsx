@@ -81,9 +81,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${t('tagline')} - Kutra ${upperLocale}`,
       description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
       images: [`${baseUrl}img/kutra-hero.png`],
-    },
-    other: {
-      'shortlink': 'https://kutra.link/website'
     }
   }
 }
@@ -97,11 +94,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema).replace(/</g, '\\u003c') }}
       />
       <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
-        {/* Hero Section */}
-        <section
-          className="relative flex items-center justify-center pt-32 pb-0 overflow-hidden hero-mesh"
-          aria-label="Kutra – Güvenli, Sınırsız Dijital Gelecek"
-        >
+        <section className="relative flex items-center justify-center pt-32 pb-0 overflow-hidden hero-mesh">
           <div className="container relative z-10 px-6 text-center">
             <Hero />
           </div>

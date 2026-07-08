@@ -26,7 +26,15 @@ const nextConfig: NextConfig = {
   typedRoutes: true,
   images: {
     unoptimized: isCloudflareBuild,
-    ...(!isCloudflareBuild && { qualities: [70, 75, 90] })
+    ...(!isCloudflareBuild && { qualities: [70, 75, 90] }),
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   poweredByHeader: false,
   crossOrigin: "use-credentials",

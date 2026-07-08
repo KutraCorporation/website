@@ -31,7 +31,7 @@ export default function Footer() {
               {t("tagline")}
             </p>
             <br />
-            <nav className="flex gap-3 mt-6" aria-label={t("socialAria")}>
+            <nav className="flex gap-3" aria-label={t("socialAria")}>
               <Link
                 href="https://github.com/KutraCorporation"
                 aria-label={t("projbrandOn", { platform: "GitHub" })}
@@ -64,7 +64,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="pt-8 border-t border-white/6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#737373]">
-          <p translate="no">{new Date().getFullYear() + ' © ' + t('copyright')}</p>
+          <div className="float-left">
+            <p translate="no">{new Date().getFullYear() + ' © ' + t('copyright')}</p>
+          </div>
+          <div className="float-right flex gap-2"></div>
         </div>
       </div>
     </footer>

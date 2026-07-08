@@ -54,22 +54,7 @@ export default function ProductCard({ product }: { product: Product }) {
               {productName}
             </h3>
           </Link>
-          <p className="text-[#b8b8b8] text-sm leading-relaxed mb-5 font-medium">
-            {productDescription}
-          </p>
-          <div className="mt-auto flex flex-wrap gap-2">
-            {product?.links?.map((productLink, index) => (
-              <a
-                key={productLink.id ?? index}
-                href={productLink.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center min-h-11 min-w-11 text-xs font-semibold uppercase tracking-wider px-4 py-3 rounded-lg bg-white/5 text-[#b5b5b5] hover:bg-white/10 hover:text-[#e8e8e8] border border-white/5 hover:border-white/10 transition-all focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111]"
-              >
-                {productLink.name}
-              </a>
-            ))}
-          </div>
+          <p className="text-[#b8b8b8] text-sm leading-relaxed mb-5 font-medium">{productDescription}</p>
         </div>
       </motion.article >
     </>
