@@ -1,5 +1,3 @@
-import React from 'react';
-import type { ReactNode } from 'react';
 import ProductsPageContent from "@/components/ProductsPageContent";
 import { products, baseUrl, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata } from "@/lib/utils";
 import type { Metadata } from "next";
