@@ -1,12 +1,29 @@
 /* TEAM */
+Kutra is built by a young founder and a global open
+source community of contributors, designers, writers,
+and dreamers in different cities across the world.
+
 Founder: Mehmet Ali Durusoy
-Core Team: Kutra Team
+  17, Alanya, Türkiye.
+  github.com/mehmetalidsy
+
+It is developed actively, and built with more languages,
+frameworks, and protocols than we can shake a stick at.
+
+If you'd like to help us out, see
+github.com/KutraCorporation
 
 /* THANKS */
-Special thanks to the open source community, our first users, and everyone supporting digital innovation.
+Special thanks to the open source community, our first
+users, and everyone supporting digital innovation.
+
+/* PHILOSOPHY */
+Privacy is the default, not a premium feature.
+Open source is a philosophy, not just code.
 
 /* CONTACT */
 GitHub: https://github.com/KutraCorporation
 LinkedIn: https://linkedin.com/company/kutracorporation
 
 © 2025 Kutra Corporation. All rights reserved.
+"Beyond Limits." — Kutra Corporation

@@ -32,7 +32,7 @@ export default async function ContributorCard({ contributor }: { contributor: Co
     >
       <Img 
         src={contributor.avatar_url} 
-        altText={`${contributor.login}'s avatar`} 
+        altText={`${contributor.login}'s avatar`}
         imgClass="w-20 h-20 rounded-full shrink-0 ring-2 ring-white/10 group-hover:ring-(--accent-cyan)/30 transition-all"
       />
       <div className="flex flex-col min-w-0">

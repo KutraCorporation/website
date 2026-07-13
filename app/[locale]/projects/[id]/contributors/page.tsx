@@ -1,8 +1,9 @@
-import { getLocalizedUrl, products } from "@/lib/utils";
+import { getLocalizedUrl, getLangBaseUrl, products, generateSiteMetadata } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import ContributorCard from "@/components/ContributorCard";
 import { Metadata } from "next";
+import { i18n } from "@/i18n/i18n";
 
 type Contributor = {
   login?: string;
@@ -20,19 +21,27 @@ async function getContributors(id: string) {
     'certwallet': 'certwallet-contracts',
   };
 
-  const headers: HeadersInit = {
-    'Accept': 'application/vnd.github.v3+json',
-    'User-Agent': 'Mozilla/5.0 (KutraCorporation-Website)'
-  };
-  
   const repoName = repoMap[id] || id;
-  const res = await fetch(`https://api.github.com/repos/KutraCorporation/${repoName}/contributors?per_page=100&anon=true`, {
-    headers,
-    next: { revalidate: 3600 }
-  });
-  
-  if (!res.ok) return [];
-  return res.json();
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/KutraCorporation/${repoName}/contributors?per_page=100&anon=true`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36'
+      },
+      next: { revalidate: 3600 }
+    });
+
+    if (!res.ok) {
+      console.error(`GitHub API Error (${repoName}): ${res.status} - ${res.statusText}`);
+      return [];
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error(`Error: (${repoName}):`, error);
+    return [];
+  }
 }
 
 interface PageProps {
@@ -47,28 +56,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const product = products.find((p) => p.id === id);
 
   if (!product) return {};
-  const sharedT = await getTranslations("products");
+  const sharedT = await getTranslations({ locale, namespace: "products" });
 
-  const url = getLocalizedUrl(locale, `projects/${product.id}`);
+  const url = getLangBaseUrl(locale) + `/projects/${product.id}/contributors`;
+  const languages = Object.fromEntries(
+    i18n.locales.map((lang) => [lang, getLocalizedUrl(lang, `projects/${product.id}/contributors`)])
+  );
+
+  const baseMetadata = generateSiteMetadata({
+    title: `${product.name} - ${sharedT("contributors")}`,
+    description: product.description,
+    url,
+    locale,
+  });
 
   return {
-    title: product.name + " - " + sharedT("contributors"),
-    description: product.description,
+    ...baseMetadata,
     alternates: {
-      canonical: url,
+      ...baseMetadata.alternates,
       languages: {
-        'tr-TR': getLocalizedUrl('tr', `projects/${product.id}/contributors`),
-        'en-US': getLocalizedUrl('en', `projects/${product.id}/contributors`),
-        'x-default': getLocalizedUrl('en', `projects/${product.id}/contributors`),
-      }
+        "x-default": getLocalizedUrl("en", `projects/${product.id}/contributors`),
+        ...languages,
+      },
     },
-    openGraph: {
-      title: product.name + " - " + sharedT("contributors"),
-      description: product.description,
-      url: url,
-      type: 'website',
-    }
-  }
+  };
 }
 
 export default async function ProductContributorsPage({ params }: PageProps) {

@@ -73,12 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     publisher: "Kutra Corporation",
     formatDetection: { telephone: false },
     alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        'x-default': `${baseUrl}en`,
-        'en': `${baseUrl}en`,
-        'tr': `${baseUrl}tr`,
-      },
+      canonical: canonicalUrl
     },
     appleWebApp: {
       capable: true,

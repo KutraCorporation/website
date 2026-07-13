@@ -38,19 +38,32 @@ export function isValidDomain(domain: string): boolean {
 }
 
 /**
- * Sanitizes a string to prevent injection attacks
+ * Sanitizes a string to prevent injection attacks.
+ * Uses iterative replacement to defeat nested/bypassed patterns.
  */
 export function sanitizeInput(input: string): string {
     if (!input || typeof input !== 'string') {
         return '';
     }
-    
-    return input
+
+    let result = input
         .replace(/[<>'";&]/g, '') // Remove dangerous characters
-        .replace(/javascript:/gi, '') // Remove javascript: protocol
         .replace(/on\w+=/gi, '') // Remove event handlers
         .trim();
+
+    // Iteratively strip dangerous URL schemes to handle nested bypasses
+    // e.g. "jajavascriptscriptcript:" → "javascript:" → ""
+    const SCHEME_PATTERN = /(?:java|vb|live)script\s*:|data\s*:/gi;
+    let previous: string;
+    do {
+        previous = result;
+        result = result.replace(SCHEME_PATTERN, '');
+    } while (result !== previous);
+
+    return result;
 }
+
+const SAFE_PROTOCOLS = ['http:', 'https:', 'mailto:'];
 
 /**
  * Validates that a URL is safe (same origin or allowed list)
@@ -58,18 +71,18 @@ export function sanitizeInput(input: string): string {
 export function isValidRedirectUrl(url: string, allowedDomains: string[]): boolean {
     try {
         const parsedUrl = new URL(url);
-        
-        // Allow relative URLs
-        if (!parsedUrl.protocol || parsedUrl.protocol === '') {
-            return true;
+
+        // Reject dangerous schemes (javascript:, data:, vbscript:, etc.)
+        if (!SAFE_PROTOCOLS.includes(parsedUrl.protocol)) {
+            return false;
         }
-        
+
         // Allow same origin
-        if (parsedUrl.origin === process.env.NEXT_PUBLIC_APP_URL || 
+        if (parsedUrl.origin === process.env.NEXT_PUBLIC_APP_URL ||
             parsedUrl.origin === 'http://localhost:3000') {
             return true;
         }
-        
+
         // Check against allowed domains
         return allowedDomains.some(domain => parsedUrl.hostname === domain || parsedUrl.hostname.endsWith(`.${domain}`));
     } catch {

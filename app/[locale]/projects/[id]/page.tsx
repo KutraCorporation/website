@@ -1,7 +1,8 @@
-import { products, getLocalizedUrl } from "@/lib/utils";
+import { products, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata } from "@/lib/utils";
 import { ProductDetailContent } from "@/components/product-details";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { i18n } from "@/i18n/i18n";
 
 interface PageProps {
   params: Promise<{
@@ -16,26 +17,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!product) return {};
 
-  const url = getLocalizedUrl(locale, `projects/${product.id}`);
+  const url = getLangBaseUrl(locale) + `/projects/${product.id}`;
+  const languages = Object.fromEntries(
+    i18n.locales.map((lang) => [lang, getLocalizedUrl(lang, `projects/${product.id}`)])
+  );
 
-  return {
+  const baseMetadata = generateSiteMetadata({
     title: product.name,
     description: product.description,
+    url,
+    locale,
+  });
+
+  return {
+    ...baseMetadata,
     alternates: {
-      canonical: url,
+      ...baseMetadata.alternates,
       languages: {
-        'tr-TR': getLocalizedUrl('tr', `projects/${product.id}`),
-        'en-US': getLocalizedUrl('en', `projects/${product.id}`),
-        'x-default': getLocalizedUrl('en', `projects/${product.id}`),
-      }
+        "x-default": getLocalizedUrl("en", `projects/${product.id}`),
+        ...languages,
+      },
     },
-    openGraph: {
-      title: product.name,
-      description: product.description,
-      url: url,
-      type: 'website',
-    }
-  }
+  };
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {

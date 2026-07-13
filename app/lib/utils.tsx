@@ -4,6 +4,11 @@ import type { Product } from "@/lib/types/Product";
 import type { TeamDetail } from "@/lib/types/Team";
 import { Mail } from "lucide-react";
 import * as Icons from "@/lib/icons";
+import { Metadata } from 'next';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 export const getBaseUrl = () => {
   const rawUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
@@ -26,9 +31,42 @@ export const getLocalizedUrl = (locale: string, path = "") => {
 
 const baseUrl = getBaseUrl();
 
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+const generateSiteMetadata = ({
+  title,
+  description,
+  url,
+  locale,
+  images = [],
+}: {
+  title: string;
+  description: string;
+  url: string;
+  locale: string;
+  images?: { url: string; width?: number; height?: number; alt?: string }[];
+}): Metadata => {
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Kutra Corporation",
+      locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+      type: 'website',
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: "@KutraCorporation",
+      creator: "@KutraCorporation",
+      title,
+      description,
+      images: images.map(img => img.url),
+    },
+  };
+};
 
 const products: Product[] = [
   /*{
@@ -56,7 +94,8 @@ const products: Product[] = [
     links: [
       { id: 1, name: "Contracts Github", link: "https://github.com/KutraCorporation/certwallet-contracts" },
     ],
-  },/*
+  },
+  /*
   {
     id: "chain",
     name: "Chain Browser",
@@ -142,7 +181,11 @@ function socialAccountUrl(_type: string, url: string, _title: string, iconClass?
       };
     break;
 
-    default: output = {}; break;
+    default: 
+      output = {
+        label: `Visit ${_title}'s profile on ${_type.charAt(0).toUpperCase() + _type.slice(1)}`,
+      };
+    break;
   }
   return output;
 };
@@ -157,9 +200,13 @@ function sanitizeId(name: string){
     .replace(/\s+/g, '-');
 };
 
+const truncateDescription = (text: string, limit = 160) => {
+  return text.length > limit ? text.substring(0, limit - 3) + "..." : text;
+};
+
 export {
   baseUrl,
   getLangBaseUrl,
   Icons, teams, products,
-  sanitizeId, socialAccountUrl, cn
+  sanitizeId, socialAccountUrl, cn, generateSiteMetadata, truncateDescription
 };

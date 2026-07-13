@@ -1,7 +1,27 @@
+import React from 'react';
+import type { ReactNode } from 'react';
 import ProductsPageContent from "@/components/ProductsPageContent";
-import { products, baseUrl, getLocalizedUrl } from "@/lib/utils";
+import { products, baseUrl, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata } from "@/lib/utils";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { i18n } from '@/i18n/i18n';
+
+function safeJsonLd(data: unknown): string {
+  const json = JSON.stringify(data);
+  let safe = '';
+  for (const ch of json) {
+    if (ch === '<') {
+      safe += '\\u003c';
+    } else if (ch === '>') {
+      safe += '\\u003e';
+    } else if (ch === '&') {
+      safe += '\\u0026';
+    } else {
+      safe += ch;
+    }
+  }
+  return safe;
+}
 
 const PAGE_URL = `${getLocalizedUrl('en', 'projects')}/`;
 
@@ -44,17 +64,27 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations("ecosystem");
-  const pageUrl = getLocalizedUrl(locale, "projects");
+  const t = await getTranslations({ locale, namespace: "ecosystem" });
+  const pageUrl = getLangBaseUrl(locale) + "/projects";
+
+  const languages = Object.fromEntries(
+    i18n.locales.map((lang) => [lang, getLocalizedUrl(lang, "projects")])
+  );
+
+  const baseMetadata = generateSiteMetadata({
+    title: t("title"),
+    description: t("description"),
+    url: pageUrl,
+    locale,
+  });
 
   return {
-    title: t("title"),
+    ...baseMetadata,
     alternates: {
-      canonical: pageUrl,
+      ...baseMetadata.alternates,
       languages: {
-        "x-default": getLocalizedUrl('en', "projects"),
-        "en": getLocalizedUrl('en', "projects"),
-        "tr": getLocalizedUrl('tr', "projects"),
+        "x-default": getLocalizedUrl("en", "projects"),
+        ...languages,
       },
     },
   };
@@ -66,7 +96,7 @@ export default function Products() {
       <script
         id="kutra-product-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema).replace(/</g, '\u003c') }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(combinedSchema) }}
       />
       <ProductsPageContent products={products.slice(0, 6)} />
     </>
