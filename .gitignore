@@ -1,3 +1,6 @@
+.env
+.dev.vars
+
 **/.next
 **/.wrangler
 **/.open-next

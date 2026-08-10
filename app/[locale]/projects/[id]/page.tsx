@@ -38,6 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         ...languages,
       },
     },
+    appLinks: {
+      android: { package: "com.kutra." + product.id, app_name: product.name, url: "https://play.google.com/store/apps/details?id=com.kutra." + product.id }
+    }
   };
 }
 

@@ -29,7 +29,6 @@ export default function ProductCard({ product }: { product: Product }) {
           "focus-within:ring-2 focus-within:ring-(--accent-cyan)/40 focus-within:ring-offset-2 focus-within:ring-offset-[#0d0d0d]"
         )}
         key={product.id}
-        aria-hidden="true"
         aria-labelledby={`${product.id}-card-heading`}
       >
         <div aria-label={`${product.name} image`} title={`${product.name} image`} className="relative aspect-[4/3] overflow-hidden flex items-center justify-center bg-[#0d0d0d]/80">

@@ -20,6 +20,7 @@ export async function GET(request: Request, { params }: { params: { locale: stri
   const urls = [
     { loc: getLocalizedUrl(locale, '/about'), changefreq: 'monthly', priority: '0.8' },
     { loc: getLocalizedUrl(locale, '/about/overview'), changefreq: 'monthly', priority: '0.8' },
+    { loc: getLocalizedUrl(locale, '/about/contact'), changefreq: 'monthly', priority: '0.8' },
     { loc: getLocalizedUrl(locale, '/about/team'), changefreq: 'monthly', priority: '0.8' },
     ...projectUrls,
     ...projectContributorsUrls,
@@ -33,7 +34,7 @@ export async function GET(request: Request, { params }: { params: { locale: stri
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>${baseUrl}img/logo.png</image:loc>
+      <image:loc>${baseUrl}img/logo.webp</image:loc>
       <image:title>Kutra Corporation Logo</image:title>
     </image:image>
   </url>${urls.map((u) => `

@@ -12,7 +12,7 @@
   },
   "footer": {
     "tagline": "Sınırların Ötesinde",
-    "corporate": "Kurumsal",
+    "company": "Şirket",
     "overview": "Genel Bakış",
     "team": "Takım",
     "contact": "İletişim",
@@ -56,10 +56,6 @@
       }
     }
   },
-  "productsPage": {
-    "title": "Projeler",
-    "subtitle": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin."
-  },
   "products": {
     "title": "Projeler",
     "subtitle": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin.",
@@ -67,6 +63,7 @@
     "linksHeading": "İlgili Bağlantılar",
     "contributors": "Katkıda Bulunanlar",
     "contributors_uba_text": "Katkıda Bulundu",
+    "download": "İndir",
     "categories": {
       "Security": "Güvenlik",
       "Productivity": "Verimlilik",

@@ -103,6 +103,10 @@ function applyRateLimiting(request: NextRequest): NextResponse | null {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  if (pathname.startsWith('/.well-known')) {
+    return NextResponse.next();
+  }
+
   if (pathname.startsWith('/api/')) {
     const rateLimitResponse = applyRateLimiting(request);
     if (rateLimitResponse) return rateLimitResponse;

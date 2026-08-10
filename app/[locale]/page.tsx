@@ -33,7 +33,7 @@ const combinedSchema = {
       "logo": {
         "@type": "ImageObject",
         "@id": `${baseUrl}/#logo`,
-        "url": `${baseUrl}/img/logo.png`,
+        "url": `${baseUrl}/img/logo.webp`,
       },
       "sameAs": [
         "https://x.com/KutraCorporation",

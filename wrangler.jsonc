@@ -10,7 +10,17 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-   "observability": {
+  "images": {
+    "binding": "IMAGES",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "website",
+      "database_id": "f059a4e2-a040-40cb-88a0-5c1d785e2d37"
+    }
+  ],
+  "observability": {
     "logs": {
       "enabled": true,
       "invocation_logs": true

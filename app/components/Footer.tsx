@@ -22,7 +22,7 @@ export default function Footer() {
             <Link
               href={langBaseUrl}
               translate="no"
-              aria-label={"Kutra Home page"}
+              aria-label={"Kutra - Back to homepage"}
               className="inline-flex gap-2.5 items-center mb-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
             >
               <span className="font-black text-2xl tracking-tighter text-[#e8e8e8]">Kutra</span>
@@ -55,15 +55,16 @@ export default function Footer() {
             </nav>
           </div>
           <div className="lg:col-span-1">
-            <Link href={`${langBaseUrl}/about`} className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase">{t('corporate')}</Link>
-            <nav className="flex flex-col mt-6 gap-3" aria-label={t('corporate')}>
+            <Link href={`${langBaseUrl}/about`} className="text-[#b8b8b8] hover:text-owt1 text-sm leading-relaxed max-w-sm uppercase">{t('company')}</Link>
+            <nav className="flex flex-col mt-6 gap-3" aria-label={t('company')}>
               <Link href={`${langBaseUrl}/about/overview`}>{t('overview')}</Link>
               <Link href={`${langBaseUrl}/about/team`}>{t('team')}</Link>
+              <Link href={`${langBaseUrl}/about/contact`}>{t('contact')}</Link>
               <Link href={`${langBaseUrl}/projects`}>{t('products')}</Link>
             </nav>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#737373]">
+        <div className="pt-8 border-t border-white/6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#a1a1a1]">
           <div className="float-left">
             <p translate="no">{new Date().getFullYear() + ' © ' + t('copyright')}</p>
           </div>

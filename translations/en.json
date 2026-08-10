@@ -12,7 +12,7 @@
   },
   "footer": {
     "tagline": "Beyond Boundaries",
-    "corporate": "Corporate",
+    "company": "Company",
     "overview": "Overview",
     "team": "Team",
     "contact": "Contact",
@@ -55,10 +55,6 @@
         "desc": "Read about our security commitments, data privacy policies, and compliance certifications."
       }
     }
-  },
-  "productsPage": {
-    "title": "Projects",
-    "subtitle": "Explore our ecosystem applications designed for security, efficiency, and Web3."
   },
   "products": {
     "title": "Projects",

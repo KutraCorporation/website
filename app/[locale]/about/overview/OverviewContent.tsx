@@ -94,7 +94,7 @@ export default function OverviewContent() {
                         <motion.h2 variants={itemVariants} className="text-2xl font-bold text-[#e8e8e8] text-center">{t("pillars.title")}</motion.h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {[
-                                { icon: Shield, color: "text-[var(--accent-cyan)]", bg: "bg-cyan-500/5 border-cyan-500/10", key: "security" },
+                                { icon: Shield, color: "text-[var(--accent-cyan)]", bg: "bg-owt1/5 border-owt1/10", key: "security" },
                                 { icon: Sparkles, color: "text-[#a855f7]", bg: "bg-purple-500/5 border-purple-500/10", key: "ux" },
                                 { icon: Network, color: "text-emerald-400", bg: "bg-emerald-500/5 border-emerald-500/10", key: "decentralization" }
                             ].map((pillar, idx) => (
@@ -151,7 +151,7 @@ export default function OverviewContent() {
                         
                         <div className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12 pb-8">
                             {[
-                                { phase: "Phase 1", color: "from-[var(--accent-cyan)] to-cyan-500 shadow-cyan-500/50", key: "p1" },
+                                { phase: "Phase 1", color: "from-owt1 to-owt1/70 shadow-owt1/50", key: "p1" },
                                 { phase: "Phase 2", color: "from-[#a855f7] to-purple-600 shadow-purple-500/50", key: "p2" },
                                 { phase: "Phase 3", color: "from-emerald-400 to-emerald-500 shadow-emerald-400/50", key: "p3" }
                             ].map((step, idx) => (

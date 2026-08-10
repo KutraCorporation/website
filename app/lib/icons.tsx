@@ -1,3 +1,5 @@
+import { Mail } from "lucide-react";
+
 export function Github({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -37,3 +39,65 @@ export function Discord({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function socialAccountUrl(_type: string, url: string, _title: string, iconClass?: string) {
+  let output: { icon?: React.ReactNode, label?: string, url?: string } = {};
+
+  switch (_type) {
+    case "email":
+      output = {
+        icon: <Mail className={iconClass} />,
+        label: _title + " of Mail Adress",
+        url: "mailto:" + url
+      };
+    break;
+
+    case "github":
+      output = {
+        icon: <Github className={iconClass} />,
+        label: _title + " of Github",
+        url: "https://github.com/" + url
+      };
+    break;
+
+
+    case "linkedin":
+      output = {
+        icon: <Linkedin className={iconClass} />,
+        label: _title + " of Linkedin",
+        url: "https://linkedin.com/in/" + url
+      };
+    break;
+
+    case "twitter":
+      output = {
+        icon: <Twitter className={iconClass} />,
+        label: _title + " of X (Twitter)",
+        url: "https://x.com/" + url
+      };
+    break;
+
+    case "youtube":
+      output = {
+        icon: <Youtube className={iconClass} />,
+        label: _title + " of Youtube",
+        url: "https://youtube.com/" + url
+      };
+    break;
+
+    case "discord":
+      output = {
+        icon: <Discord className={iconClass} />,
+        label: _title + " of Discord",
+        url: "https://discord.gg/" + url
+      };
+    break;
+
+    default: 
+      output = {
+        label: `Visit ${_title}'s profile on ${_type.charAt(0).toUpperCase() + _type.slice(1)}`,
+      };
+    break;
+  }
+  return output;
+};

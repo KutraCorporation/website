@@ -22,7 +22,7 @@
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
     --color-owt: #0f172a;
-    --color-owt1: #00b8db;
+    --color-owt1: #119fc3;
     --color-owt2: #012a4a;
     --color-owt3: #01497c;
     --color-owt4: #014f86;
@@ -151,7 +151,7 @@
     }
 
     .text-gradient {
-        @apply bg-clip-text text-transparent bg-linear-to-r from-white via-cyan-100 to-cyan-300;
+        @apply bg-clip-text text-transparent bg-linear-to-r from-white via-owt1/80 to-owt1;
     }
 
     .noise-overlay {
@@ -175,7 +175,7 @@
     .hero-mesh {
         background-color: #0a0a0a;
         background-image:
-            radial-gradient(at 50% 0%, rgba(0, 212, 255, 0.06) 0, transparent 50%),
+            radial-gradient(at 50% 0%, rgba(17, 159, 195, 0.06) 0, transparent 50%),
             radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.04) 0, transparent 50%);
     }
 
@@ -189,7 +189,7 @@
 
     .section-divider {
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgba(17, 159, 195, 0.2), transparent);
         opacity: 0.8;
     }
 
@@ -303,8 +303,8 @@
     --card-foreground: oklch(0.141 0.005 285.823);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.141 0.005 285.823);
-    --primary: oklch(0.21 0.006 285.885);
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: #119fc3;
+    --primary-foreground: #0a0a0a;
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
     --muted: oklch(0.967 0.001 286.375);
@@ -314,7 +314,7 @@
     --destructive: oklch(0.577 0.245 27.325);
     --border: oklch(0.92 0.004 286.32);
     --input: oklch(0.92 0.004 286.32);
-    --ring: oklch(0.705 0.015 286.067);
+    --ring: #119fc3;
     --chart-1: oklch(0.646 0.222 41.116);
     --chart-2: oklch(0.6 0.118 184.704);
     --chart-3: oklch(0.398 0.07 227.392);
@@ -338,7 +338,7 @@
     --card-foreground: #e8e8e8;
     --popover: #121212;
     --popover-foreground: #e8e8e8;
-    --primary: #00b8d4;
+    --primary: #119fc3;
     --primary-foreground: #0a0a0a;
     --secondary: #1a1a1a;
     --secondary-foreground: #e8e8e8;
@@ -349,7 +349,7 @@
     --destructive: oklch(0.704 0.191 22.216);
     --border: rgba(255, 255, 255, 0.08);
     --input: rgba(255, 255, 255, 0.1);
-    --ring: #00d4ff;
+    --ring: #119fc3;
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
@@ -357,15 +357,15 @@
     --chart-5: oklch(0.645 0.246 16.439);
     --sidebar: #111111;
     --sidebar-foreground: #e8e8e8;
-    --sidebar-primary: #00d4ff;
+    --sidebar-primary: #119fc3;
     --sidebar-primary-foreground: #0a0a0a;
     --sidebar-accent: #1a1a1a;
     --sidebar-accent-foreground: #e8e8e8;
     --sidebar-border: rgba(255, 255, 255, 0.08);
-    --sidebar-ring: #00d4ff;
+    --sidebar-ring: #119fc3;
     /* ProjBrand accent tokens */
-    --accent-cyan: #00d4ff;
-    --accent-cyan-muted: rgba(0, 212, 255, 0.15);
+    --accent-cyan: #119fc3;
+    --accent-cyan-muted: rgba(17, 159, 195, 0.15);
     --accent-purple: #a855f7;
     --accent-purple-muted: rgba(168, 85, 247, 0.15);
 }

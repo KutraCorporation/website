@@ -2,7 +2,6 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import type { Product } from "@/lib/types/Product";
 import type { TeamDetail } from "@/lib/types/Team";
-import { Mail } from "lucide-react";
 import * as Icons from "@/lib/icons";
 import { Metadata } from 'next';
 
@@ -30,6 +29,11 @@ export const getLocalizedUrl = (locale: string, path = "") => {
 };
 
 const baseUrl = getBaseUrl();
+
+const getContactEmail = () => {
+  const hostname = new URL(getBaseUrl()).hostname;
+  return `info@${hostname}`;
+};
 
 const generateSiteMetadata = ({
   title,
@@ -129,66 +133,8 @@ const teams: TeamDetail[] = [
 ];
 
 function socialAccountUrl(_type: string, url: string, _title: string, iconClass?: string) {
-  let output: { icon?: React.ReactNode, label?: string, url?: string } = {};
-
-  switch (_type) {
-    case "email":
-      output = {
-        icon: <Mail className={iconClass} />,
-        label: _title + " of Mail Adress",
-        url: "mailto:" + url
-      };
-    break;
-
-    case "github":
-      output = {
-        icon: <Icons.Github className={iconClass} />,
-        label: _title + " of Github",
-        url: "https://github.com/" + url
-      };
-    break;
-
-
-    case "linkedin":
-      output = {
-        icon: <Icons.Linkedin className={iconClass} />,
-        label: _title + " of Linkedin",
-        url: "https://linkedin.com/in/" + url
-      };
-    break;
-
-    case "twitter":
-      output = {
-        icon: <Icons.Twitter className={iconClass} />,
-        label: _title + " of X (Twitter)",
-        url: "https://x.com/" + url
-      };
-    break;
-
-    case "youtube":
-      output = {
-        icon: <Icons.Youtube className={iconClass} />,
-        label: _title + " of Youtube",
-        url: "https://youtube.com/" + url
-      };
-    break;
-
-    case "discord":
-      output = {
-        icon: <Icons.Discord className={iconClass} />,
-        label: _title + " of Discord",
-        url: "https://discord.gg/" + url
-      };
-    break;
-
-    default: 
-      output = {
-        label: `Visit ${_title}'s profile on ${_type.charAt(0).toUpperCase() + _type.slice(1)}`,
-      };
-    break;
-  }
-  return output;
-};
+  return Icons.socialAccountUrl(_type, url, _title, iconClass);
+}
 
 function sanitizeId(name: string){
   return name
@@ -207,6 +153,7 @@ const truncateDescription = (text: string, limit = 160) => {
 export {
   baseUrl,
   getLangBaseUrl,
+  getContactEmail,
   Icons, teams, products,
   sanitizeId, socialAccountUrl, cn, generateSiteMetadata, truncateDescription
 };

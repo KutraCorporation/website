@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from "lucide-react";
+import { AppWindow, Box } from "lucide-react";
 import { useTranslations, useMessages } from "next-intl";
 import type { Product } from "@/lib/types/Product";
 import Img from "./Img";
@@ -103,12 +103,9 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             </div>
           </div>
         </div>
-
         {details && details.length > 0 && (
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-white">
-              {sharedT("detailsHeading")}
-            </h2>
+            <h2 className="text-2xl font-semibold text-white">{sharedT("detailsHeading")}</h2>
             <ul className="list-disc list-inside space-y-2 text-sm text-gray-400">
               {details.map((detail, index) => (
                 <li key={index}>{detail}</li>
@@ -116,6 +113,35 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             </ul>
           </div>
         )}
+        <hr/>
+        <section id="download" aria-label={`${product.name + " for " + sharedT('download')}`}>
+          <h2 className="text-2xl font-semibold text-white">{sharedT('download')}</h2>
+          <div className="bg-[var(--accent-cyan)] w-full h-0.5"></div>
+          <div className="mt-3 flex flex-row gap-3">
+            
+            <section id="appAndroid" className="flex gap-3 items-center border-0 rounded-xl bg-[#0a0a0a] p-4 shadow-lg shadow-[var(--accent-cyan)]/20 transition-all">
+              <AppWindow className="w-16 h-16 text-green-500" aria-hidden />
+              <b>Android</b>
+            </section>
+            <section id="appiOS" className="flex gap-3 items-center border-0 rounded-xl bg-[#0a0a0a] p-4 shadow-lg shadow-[var(--accent-cyan)]/20 transition-all">
+              <AppWindow className="w-16 h-16 text-green-500" aria-hidden />
+              <b>iOS</b>
+            </section>
+            <section id="appMacos" className="flex gap-3 items-center border-0 rounded-xl bg-[#0a0a0a] p-4 shadow-lg shadow-[var(--accent-cyan)]/20 transition-all">
+              <AppWindow className="w-16 h-16 text-green-500" aria-hidden />
+              <b>MacOS</b>
+            </section>
+            <section id="appLinux" className="flex gap-3 items-center border-0 rounded-xl bg-[#0a0a0a] p-4 shadow-lg shadow-[var(--accent-cyan)]/20 transition-all">
+              <AppWindow className="w-16 h-16 text-green-500" aria-hidden />
+              <b>Linux</b>
+            </section>
+            <section id="appWin" className="flex gap-3 items-center border-0 rounded-xl bg-[#0a0a0a] p-4 shadow-lg shadow-[var(--accent-cyan)]/20 transition-all">
+              <AppWindow className="w-16 h-16 text-green-500" aria-hidden />
+              <b>Windows</b>
+            </section>
+
+          </div>
+        </section>
       </div>
     </div>
   );

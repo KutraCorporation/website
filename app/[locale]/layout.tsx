@@ -14,8 +14,6 @@ export const viewport: Viewport = {
   themeColor: '#0EB1D4',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 type Props = {
@@ -66,11 +64,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     icons: {
-      icon: baseUrl + 'img/logo.png',
+      icon: baseUrl + 'img/logo.webp',
     },
     authors: [{ name: "Kutra Corporation", url: `${baseUrl}humans.txt` }],
     creator: "Kutra Corporation",
     publisher: "Kutra Corporation",
+    pinterest: { richPin: true },
     formatDetection: { telephone: false },
     alternates: {
       canonical: canonicalUrl

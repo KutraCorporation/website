@@ -6,7 +6,9 @@ import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 const isCloudflareBuild = process.env.CF_PAGES === '1' || process.env.NODE_ENV === 'production';
 
 if (process.env.NODE_ENV === 'development') {
-  initOpenNextCloudflareForDev();
+  initOpenNextCloudflareForDev({
+    experimental: { remoteBindings: true }
+  });
 }
 
 const withBundleAnalyzer = createBundleAnalyzer({
@@ -52,6 +54,10 @@ const nextConfig: NextConfig = {
             value: 'on',
           },
           {
+            key: 'X-Clacks-Overhead',
+            value: 'GNU Terry Pratchett',
+          },
+          {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
           },
@@ -72,14 +78,6 @@ const nextConfig: NextConfig = {
             value: 'geolocation=(), microphone=(), camera=(), payment=()',
           },
           {
-            key: 'Cross-Origin-Opener-Policy',
-            value: 'same-origin',
-          },
-          {
-            key: 'Cross-Origin-Embedder-Policy',
-            value: 'credentialless',
-          },
-          {
             key: 'Content-Security-Policy',
             value:  [
               "default-src 'self';",
@@ -87,7 +85,8 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline';",
               "img-src 'self' data: https:;",
               "font-src 'self' data:;",
-              "object-src 'none';"
+              "object-src 'none';",
+              "frame-ancestors 'none';"
             ].join(' ')
           },
         ],

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import ContributorCard from "@/components/ContributorCard";
 import { Metadata } from "next";
 import { i18n } from "@/i18n/i18n";
+import { signWebBotAuth } from "@/lib/web-bot-auth";
 
 type Contributor = {
   login?: string;
@@ -22,13 +23,21 @@ async function getContributors(id: string) {
   };
 
   const repoName = repoMap[id] || id;
+  const url = `https://api.github.com/repos/KutraCorporation/${repoName}/contributors?per_page=100&anon=true`;
 
   try {
-    const res = await fetch(`https://api.github.com/repos/KutraCorporation/${repoName}/contributors?per_page=100&anon=true`, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36'
-      },
+    const baseHeaders: Record<string, string> = {
+      'Accept': 'application/vnd.github.v3+json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+    };
+
+    const privKey = process.env.WEB_BOT_AUTH_PRIVATE_KEY;
+    const botHeaders = privKey
+      ? await signWebBotAuth({ url, privateKey: privKey })
+      : {};
+
+    const res = await fetch(url, {
+      headers: { ...baseHeaders, ...botHeaders },
       next: { revalidate: 3600 }
     });
 

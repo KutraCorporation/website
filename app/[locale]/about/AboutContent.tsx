@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { baseUrl } from "@/lib/utils";
-import { Book, ArrowRight, UsersRound } from "lucide-react";
+import { Book, ArrowRight, UsersRound, Mail } from "lucide-react";
 
 export default function AboutContent() {
     const t = useTranslations("about");
@@ -77,6 +77,7 @@ export default function AboutContent() {
                         {[
                             { title: t('cards.overview.title'), href: baseUrl + "about/overview", icon: Book, desc: t('cards.overview.desc') },
                             { title: t('cards.team.title'), href: baseUrl + "about/team", icon: UsersRound, desc: t('cards.team.desc') },
+                            { title: t('cards.contact.title'), href: baseUrl + "about/contact", icon: Mail, desc: t('cards.contact.desc') },
                         ].map((item, i) => (
                             <a 
                                 key={i} 

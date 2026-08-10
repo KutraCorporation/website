@@ -106,10 +106,12 @@ export default memo(function Header() {
           >
             <div className="relative w-9 h-9 md:w-10 md:h-10 overflow-hidden rounded-xl border border-white/10 shadow-lg group-hover:scale-110 transition-transform duration-300">
               <Img
-                src="/img/logo.png"
+                src="/img/logo.webp"
                 altText="Kutra Corporation Logo"
                 imgClass="w-full h-full object-cover"
                 priority={true}
+                width={48}
+                height={48}
               />
             </div>
             <span className="font-black text-xl md:text-2xl tracking-tighter text-white">
