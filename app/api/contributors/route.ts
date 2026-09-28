@@ -4,12 +4,14 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const repoName = searchParams.get('repo');
 
-    if (!repoName) {
-        return NextResponse.json({ error: 'Repo ismi gerekli' }, { status: 400 });
+    if (!repoName || !/^[A-Za-z0-9._-]{1,100}$/.test(repoName)) {
+        return NextResponse.json({ error: 'Geçersiz repo ismi' }, { status: 400 });
     }
 
+    const safeRepoName = encodeURIComponent(repoName);
+
     try {
-        const response = await fetch(`https://api.github.com/repos/KutraCorporation/${repoName}/contributors?per_page=100`, {
+        const response = await fetch(`https://api.github.com/repos/KutraCorporation/${safeRepoName}/contributors?per_page=100`, {
             headers: {
                 Accept: 'application/vnd.github.v3+json',
                 // Eğer isterseniz buraya GitHub Token ekleyerek rate limit'i artırabilirsiniz:
