@@ -1,26 +1,10 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
-import { getTranslations } from "next-intl/server"; // Burayı güncelledik
+import { getTranslations } from "next-intl/server";
 import EcosystemSection from "@/components/EcosystemSection";
-import { products, baseUrl, getLangBaseUrl, teams, sanitizeId, getLocalizedUrl, generateSiteMetadata } from "@/lib/utils";
+import CommunitySection from "@/components/CommunitySection";
+import { products, baseUrl, getLangBaseUrl, teams, sanitizeId, getLocalizedUrl, generateSiteMetadata, safeJsonLd } from "@/lib/utils";
 import { i18n } from "@/i18n/i18n";
-
-function safeJsonLd(data: unknown): string {
-  const json = JSON.stringify(data);
-  let safe = '';
-  for (const ch of json) {
-    if (ch === '<') {
-      safe += '\\u003c';
-    } else if (ch === '>') {
-      safe += '\\u003e';
-    } else if (ch === '&') {
-      safe += '\\u0026';
-    } else {
-      safe += ch;
-    }
-  }
-  return safe;
-}
 
 const combinedSchema = {
   "@context": "https://schema.org",
@@ -70,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const baseMetadata = generateSiteMetadata({
     title: `${t('tagline')} - Kutra ${locale === "en" ? "" : locale.toUpperCase()}`,
-    description: "Kutra, Türkiye'nin en genç teknoloji ekosistemi olarak Next.js, Node.js ve yapay zeka ile modern uygulamalar geliştirir.",
+    description: t('metaDescription'),
     url: pageUrl,
     locale,
     images: [{ url: `${baseUrl}img/hero-bg.png`, width: 1200, height: 630, alt: 'Kutra' }]
@@ -103,6 +87,7 @@ export default function Home() {
           </div>
         </section>
         <EcosystemSection products={products.slice(0, 8)} /> 
+        <CommunitySection />
       </div>
     </>
   );

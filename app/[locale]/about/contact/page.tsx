@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getLangBaseUrl, getLocalizedUrl, generateSiteMetadata, baseUrl, getContactEmail } from "@/lib/utils";
+import { getLangBaseUrl, getLocalizedUrl, generateSiteMetadata, baseUrl, getContactEmail, safeJsonLd, breadcrumbSchema } from "@/lib/utils";
 import { i18n } from "@/i18n/i18n";
 import ContactContent from "./ContactContent";
 
@@ -49,7 +49,7 @@ export default function ContactPage() {
       email: getContactEmail(),
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Istanbul",
+        addressLocality: "Antalya",
         addressCountry: "TR",
       },
     },
@@ -58,8 +58,20 @@ export default function ContactPage() {
   return (
     <>
       <script
+        id="kutra-contact-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(contactSchema) }}
+      />
+      <script
+        id="kutra-contact-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+            { name: "Contact", path: "/about/contact" },
+          ])),
+        }}
       />
       <ContactContent />
     </>

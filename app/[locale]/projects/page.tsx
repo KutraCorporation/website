@@ -1,25 +1,8 @@
 import ProductsPageContent from "@/components/ProductsPageContent";
-import { products, baseUrl, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata } from "@/lib/utils";
+import { products, baseUrl, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata, safeJsonLd, breadcrumbSchema } from "@/lib/utils";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { i18n } from '@/i18n/i18n';
-
-function safeJsonLd(data: unknown): string {
-  const json = JSON.stringify(data);
-  let safe = '';
-  for (const ch of json) {
-    if (ch === '<') {
-      safe += '\\u003c';
-    } else if (ch === '>') {
-      safe += '\\u003e';
-    } else if (ch === '&') {
-      safe += '\\u0026';
-    } else {
-      safe += ch;
-    }
-  }
-  return safe;
-}
 
 const PAGE_URL = `${getLocalizedUrl('en', 'projects')}/`;
 
@@ -95,6 +78,16 @@ export default function Products() {
         id="kutra-product-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(combinedSchema) }}
+      />
+      <script
+        id="kutra-projects-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+          ])),
+        }}
       />
       <ProductsPageContent products={products.slice(0, 6)} />
     </>

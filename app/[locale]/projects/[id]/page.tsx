@@ -1,4 +1,4 @@
-import { products, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata } from "@/lib/utils";
+import { products, baseUrl, getLocalizedUrl, getLangBaseUrl, generateSiteMetadata, safeJsonLd, breadcrumbSchema } from "@/lib/utils";
 import { ProductDetailContent } from "@/components/product-details";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -45,8 +45,57 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
-  const id = (await params).id;
+  const { locale, id } = await params;
   const product = products.find((p) => p.id === id);
   if (!product) notFound();
-  return <ProductDetailContent product={product} />;
+
+  const productUrl = getLocalizedUrl(locale, `projects/${product.id}`);
+
+  const categoryMap: Record<string, string> = {
+    Security: 'SecurityApplication',
+    Productivity: 'BusinessApplication',
+    Web3: 'WebApplication',
+    Education: 'EducationalApplication',
+  };
+  const appCategory = categoryMap[product.categories?.[0] ?? ''] ?? 'SoftwareApplication';
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": product.name,
+    "url": productUrl,
+    "description": product.description,
+    "applicationCategory": appCategory,
+    "operatingSystem": "Android, iOS, Web, Windows, Linux",
+    "publisher": { "@id": `${baseUrl}/#organization` },
+    "author": { "@id": `${baseUrl}/#organization` },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+  };
+
+  return (
+    <>
+      <script
+        id={`software-schema-${product.id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(softwareSchema) }}
+      />
+      <script
+        id={`breadcrumb-schema-${product.id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+            { name: product.name, path: `/projects/${product.id}` },
+          ])),
+        }}
+      />
+      <ProductDetailContent product={product} />
+    </>
+  );
 }

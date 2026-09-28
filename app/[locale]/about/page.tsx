@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getLangBaseUrl, getLocalizedUrl, generateSiteMetadata } from "@/lib/utils";
+import { getLangBaseUrl, getLocalizedUrl, generateSiteMetadata, safeJsonLd, breadcrumbSchema } from "@/lib/utils";
 import { i18n } from "@/i18n/i18n";
 import AboutContent from "./AboutContent";
 
@@ -37,5 +37,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function AboutPage() {
-  return <AboutContent />;
+  return (
+    <>
+      <script
+        id="kutra-about-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ])),
+        }}
+      />
+      <AboutContent />
+    </>
+  );
 }

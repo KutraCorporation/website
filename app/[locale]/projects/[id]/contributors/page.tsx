@@ -1,4 +1,4 @@
-import { getLocalizedUrl, getLangBaseUrl, products, generateSiteMetadata } from "@/lib/utils";
+import { getLocalizedUrl, getLangBaseUrl, products, generateSiteMetadata, safeJsonLd, breadcrumbSchema } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import ContributorCard from "@/components/ContributorCard";
@@ -101,15 +101,29 @@ export default async function ProductContributorsPage({ params }: PageProps) {
   const contributors: Contributor[] = await getContributors(product.id);
 
   return (
-    <div className="mx-auto max-w-6xl p-8">
-      <h1 className="text-4xl font-bold text-center mb-10">
-        {t("name")} - {sharedT("contributors")}
-      </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-        {contributors.map((contributor) => (
-          <ContributorCard key={contributor.id} contributor={contributor} />
-        ))}
+    <>
+      <script
+        id={`contributors-breadcrumb-${product.id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+            { name: product.name, path: `/projects/${product.id}` },
+            { name: "Contributors", path: `/projects/${product.id}/contributors` },
+          ])),
+        }}
+      />
+      <div className="mx-auto max-w-6xl p-8">
+        <h1 className="text-4xl font-bold text-center mb-10">
+          {t("name")} - {sharedT("contributors")}
+        </h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {contributors.map((contributor) => (
+            <ContributorCard key={contributor.id} contributor={contributor} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

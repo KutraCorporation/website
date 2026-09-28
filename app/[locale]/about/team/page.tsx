@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { teams as teamRawData, socialAccountUrl, baseUrl, sanitizeId, getLangBaseUrl, getLocalizedUrl, generateSiteMetadata } from "@/lib/utils";
+import { teams as teamRawData, socialAccountUrl, baseUrl, sanitizeId, getLangBaseUrl, getLocalizedUrl, generateSiteMetadata, safeJsonLd, breadcrumbSchema } from "@/lib/utils";
 import { i18n } from "@/i18n/i18n";
 
 type Props = {
@@ -67,8 +67,20 @@ export default async function TeamPage() {
   return (
     <>
       <script
+        id="kutra-team-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamSchemaData) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(teamSchemaData) }}
+      />
+      <script
+        id="kutra-team-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+            { name: "Team", path: "/about/team" },
+          ])),
+        }}
       />
       <div>
         <section id="team">
