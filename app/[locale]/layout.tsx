@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { LocaleProvider } from "@/components/LocaleProvider";
+import LocaleProvider from "@/components/LocaleProvider";
 import { baseUrl } from "@/lib/utils";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -14,6 +14,7 @@ export const viewport: Viewport = {
   themeColor: '#0EB1D4',
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
 };
 
 type Props = {
@@ -34,6 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     console.error('Headers error:', error);
   }
 
+  const braveToken = process.env.BRAVE_REWARDS_VERIFICATION_TOKEN;
+  const monetizationPointer = process.env.WEB_MONETIZATION_PAYMENT_POINTER;
+
   const localePrefix = `/${cleanLocale}`;
   if (pathname.startsWith(localePrefix)) {
     pathname = pathname.slice(localePrefix.length) || '/';
@@ -52,6 +56,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       template: `%s | Kutra ${upperLocale}`,
     },
     description: "Kutra, modern teknolojiler ve yapay zeka ile uçtan uca dijital çözümler sunar.",
+    applicationName: "Kutra",
+    manifest: "/manifest.webmanifest",
     robots: {
       index: true,
       follow: true,
@@ -65,19 +71,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     icons: {
       icon: baseUrl + 'img/logo.webp',
+      apple: baseUrl + 'img/logo.webp',
+      shortcut: baseUrl + 'img/logo.webp',
     },
     authors: [{ name: "Kutra Corporation", url: `${baseUrl}humans.txt` }],
     creator: "Kutra Corporation",
     publisher: "Kutra Corporation",
     pinterest: { richPin: true },
-    formatDetection: { telephone: false },
+    formatDetection: { telephone: false, address: false, email: false },
     alternates: {
       canonical: canonicalUrl
+    },
+    openGraph: {
+      type: 'website',
+      siteName: 'Kutra Corporation',
+      locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+      url: canonicalUrl,
+      images: [{ url: `${baseUrl}img/hero-bg.png`, width: 1200, height: 630, alt: 'Kutra Corporation' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@KutraCorporation',
+      creator: '@KutraCorporation',
+      images: [`${baseUrl}img/hero-bg.png`],
     },
     appleWebApp: {
       capable: true,
       title: "Kutra Ecosystem",
       statusBarStyle: "black-translucent",
+    },
+    other: {
+      ...(braveToken ? { 'brave-site-verification': braveToken } : {}),
+      ...(monetizationPointer ? { monetization: monetizationPointer } : {}),
     },
   };
 }
@@ -100,6 +125,9 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://www.linkedin.com" />
       </head>
       <body className="min-h-screen font-inter antialiased bg-background text-foreground" suppressHydrationWarning>
+        <a href="#main-content" className="skip-link">
+          {currentLocale === 'tr' ? 'İçeriğe atla' : 'Skip to main content'}
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
