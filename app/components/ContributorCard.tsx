@@ -43,7 +43,7 @@ export default async function ContributorCard({ contributor }: { contributor: Co
           {contributor.contributions + " " + sharedT("contributors_uba_text")}
         </span>
       </div>
-      <ExternalLink className="w-3 h-3 text-[#555] group-hover:text-(--accent-cyan) transition-colors shrink-0" />
+      <ExternalLink className="w-3 h-3 text-[#555] group-hover:text-(--accent-cyan) transition-colors shrink-0" aria-hidden />
     </a>
   );
 }

@@ -74,11 +74,17 @@ export default memo(function Header() {
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.inset = "0";
+      // Move focus into the menu for keyboard/screen reader users (WCAG 2.4.3)
+      requestAnimationFrame(() => {
+        menuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+      });
     } else {
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.inset = "";
       setLangOpen(false);
+      // Return focus to the toggle button when the menu closes
+      buttonRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = "";
@@ -98,12 +104,12 @@ export default memo(function Header() {
       >
         <div className="container mx-auto flex items-center justify-between h-16 md:h-18 px-5 md:px-6">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex gap-2.5 items-center group shrink-0"
-            aria-label="Kutra Home page"
-            translate="no"
-          >
+            <Link
+              href="/"
+              className="flex gap-2.5 items-center group shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+              aria-label="Kutra Home page"
+              translate="no"
+            >
             <div className="relative w-9 h-9 md:w-10 md:h-10 overflow-hidden rounded-xl border border-white/10 shadow-lg group-hover:scale-110 transition-transform duration-300">
               <Img
                 src="/img/logo.webp"
@@ -126,14 +132,17 @@ export default memo(function Header() {
           >
             <Link
               href="/projects"
-              className="hidden md:inline-flex text-sm font-medium text-slate-300 hover:text-white px-4 py-2 rounded-lg hover:bg-white/[0.06] transition-all duration-200"
+              className="hidden md:inline-flex text-sm font-medium text-slate-300 hover:text-white px-4 py-2 rounded-lg hover:bg-white/[0.06] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               {t("products")}
             </Link>
 
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger className="inline-flex items-center gap-2 text-sm font-medium px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.06] transition-all duration-200 outline-none data-[state=open]:bg-white/[0.06]">
-                <Globe className="w-4 h-4 opacity-60" />
+              <DropdownMenu.Trigger
+                aria-label={t("changeLanguage")}
+                className="inline-flex items-center gap-2 text-sm font-medium px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.06] transition-all duration-200 outline-none data-[state=open]:bg-white/[0.06] focus-visible:ring-2 focus-visible:ring-white/40"
+              >
+                <Globe className="w-4 h-4 opacity-60" aria-hidden />
                 <span>{localeLabels[locale] ?? locale.toUpperCase()}</span>
                 <span
                   aria-hidden
@@ -152,6 +161,8 @@ export default memo(function Header() {
                     <DropdownMenu.Item
                       key={l}
                       onSelect={() => handleLocaleChange(l as Locale)}
+                      aria-current={locale === l ? "true" : undefined}
+                      lang={l}
                       className={`mt-1 px-3 py-2.5 text-sm rounded-lg cursor-pointer outline-none transition-colors ${
                         locale === l
                           ? "bg-white/[0.08] text-white font-semibold"
@@ -174,8 +185,9 @@ export default memo(function Header() {
         onClick={() => setOpen((v) => !v)}
         aria-controls="mobile-menu"
         aria-expanded={open}
-        aria-label={open ? "Close menu" : "Open menu"}
-        className={`md:hidden fixed top-3 right-5 z-110 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-white transition-colors duration-200 ${
+        aria-haspopup="dialog"
+        aria-label={open ? t("closeMenu") : t("openMenu")}
+        className={`md:hidden fixed top-3 right-5 z-110 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 ${
           open ? "bg-white/[0.08]" : "hover:bg-white/[0.08]"
         }`}
       >
@@ -201,6 +213,10 @@ export default memo(function Header() {
       <div
         id="mobile-menu"
         ref={menuRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t("mobileNav")}
+        inert={!open}
         className={`md:hidden fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-2xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           open
             ? "opacity-100 pointer-events-auto"
@@ -208,11 +224,11 @@ export default memo(function Header() {
         }`}
       >
         <div className="flex flex-col h-full pt-20 px-6 pb-8">
-          <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+          <nav className="flex flex-col gap-1" aria-label={t("mobileNav")}>
             <Link
               onClick={() => setOpen(false)}
               href="/projects"
-              className="text-2xl font-bold text-white py-4 px-3 rounded-xl hover:bg-white/[0.06] transition-colors"
+              className="text-2xl font-bold text-white py-4 px-3 rounded-xl hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               {t("products")}
             </Link>
@@ -222,10 +238,12 @@ export default memo(function Header() {
           <div className="mt-auto pt-6 border-t border-white/[0.06]">
             <button
               onClick={() => setLangOpen((v) => !v)}
-              className="flex items-center justify-between w-full px-3 py-3 rounded-xl text-left hover:bg-white/[0.06] transition-colors"
+              aria-expanded={langOpen}
+              aria-label={t("changeLanguage")}
+              className="flex items-center justify-between w-full px-3 py-3 rounded-xl text-left hover:bg-white/[0.06] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <div className="flex items-center gap-3">
-                <Globe className="w-5 h-5 text-slate-400" />
+                <Globe className="w-5 h-5 text-slate-400" aria-hidden />
                 <span className="text-sm font-medium text-white">{localeLabels[locale] ?? locale.toUpperCase()}</span>
               </div>
               <span
@@ -248,6 +266,8 @@ export default memo(function Header() {
                       handleLocaleChange(l as Locale);
                       setOpen(false);
                     }}
+                    aria-current={locale === l ? "true" : undefined}
+                    lang={l}
                     className={`px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 min-h-[44px] ${
                       locale === l
                         ? "bg-white text-[#0a0a0a]"

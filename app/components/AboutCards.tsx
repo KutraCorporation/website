@@ -5,8 +5,8 @@ export default function AboutCards() {
     return (
         <>
             <div className="text-center group border-2 border-white/20 rounded-xl p-8 backdrop-blur-xl hover:border-owt1/20 hover:bg-owt1/10 hover:text-owt1 transition-all duration-300">
-                <Link href="/about/team">
-                    <Users className="w-12 h-12 text-current text-center mx-auto"/>
+                <Link href="/about/team" aria-label="Kutra Team">
+                    <Users className="w-12 h-12 text-current text-center mx-auto" aria-hidden />
                     <span className="mt-5">Team</span>
                 </Link>
             </div>
