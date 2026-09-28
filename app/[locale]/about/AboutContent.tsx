@@ -1,23 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
 import { baseUrl } from "@/lib/utils";
 import { Book, ArrowRight, UsersRound, Mail } from "lucide-react";
 
 export default function AboutContent() {
     const t = useTranslations("about");
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return <div className="min-h-screen bg-black" />;
-    }
 
     return (
         <div className="flex flex-col min-h-screen bg-black overflow-hidden">
@@ -56,12 +46,12 @@ export default function AboutContent() {
                                 transition={{ delay: 0.4, duration: 0.5 }}
                                 className="flex flex-wrap items-center gap-4 pt-2"
                             >
-                                <Link 
-                                    href="/projects" 
-                                    className="inline-flex items-center gap-2 rounded-xl px-6 sm:px-8 h-12 font-bold bg-[var(--accent-cyan)] text-[#0a0a0a] hover:opacity-90 shadow-lg shadow-[var(--accent-cyan)]/25 transition-all"
+                                <Link
+                                    href="/projects"
+                                    className="inline-flex items-center gap-2 rounded-xl px-6 sm:px-8 h-12 font-bold bg-[var(--accent-cyan)] text-[#0a0a0a] hover:opacity-90 shadow-lg shadow-[var(--accent-cyan)]/25 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                                 >
                                     {t("ctaExplore")}
-                                    <ArrowRight className="w-4 h-4" />
+                                    <ArrowRight className="w-4 h-4" aria-hidden />
                                 </Link>
                             </motion.div>
                         </motion.div>
@@ -79,14 +69,15 @@ export default function AboutContent() {
                             { title: t('cards.team.title'), href: baseUrl + "about/team", icon: UsersRound, desc: t('cards.team.desc') },
                             { title: t('cards.contact.title'), href: baseUrl + "about/contact", icon: Mail, desc: t('cards.contact.desc') },
                         ].map((item, i) => (
-                            <a 
-                                key={i} 
+                            <a
+                                key={i}
                                 href={item.href}
-                                className="group relative flex flex-col justify-between overflow-hidden bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/5 hover:border-purple-500/30 transition-all duration-300 text-left min-h-[160px]"
+                                aria-label={`${item.title} - ${item.desc}`}
+                                className="group relative flex flex-col justify-between overflow-hidden bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/5 hover:border-purple-500/30 transition-all duration-300 text-left min-h-[160px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-b from-[#a855f7]/0 to-[#a855f7]/[0.02] opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                                <div className="absolute inset-0 bg-gradient-to-b from-[#a855f7]/0 to-[#a855f7]/[0.02] opacity-0 group-hover:opacity-100 transition-all duration-300" aria-hidden />
                                 <div className="relative z-10 space-y-4">
-                                    <item.icon className="w-8 h-8 text-[#b5b5b5] group-hover:text-[var(--accent-cyan)] transition-colors" />
+                                    <item.icon className="w-8 h-8 text-[#b5b5b5] group-hover:text-[var(--accent-cyan)] transition-colors" aria-hidden />
                                     <div className="space-y-1">
                                         <h3 className="text-lg font-bold text-[#e8e8e8] group-hover:text-white transition-colors">{item.title}</h3>
                                         <p className="text-xs text-[#b5b5b5] font-light leading-relaxed">{item.desc}</p>

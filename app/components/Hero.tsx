@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
 
