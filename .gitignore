@@ -1,6 +1,7 @@
 .env
 .dev.vars
 
+**/.idea
 **/.next
 **/.wrangler
 **/.open-next

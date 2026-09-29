@@ -1,21 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Shield, Sparkles, Network, Code2, Cpu, Database, ChevronRight, Milestone } from "lucide-react";
 
 export default function OverviewContent() {
     const t = useTranslations("overviewPage");
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return <div className="min-h-screen bg-black" />;
-    }
 
     const containerVariants = {
         hidden: {},
@@ -48,7 +38,7 @@ export default function OverviewContent() {
                         transition={{ duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-semibold text-[#b5b5b5] mb-2"
                     >
-                        <Milestone className="w-3.5 h-3.5 text-[var(--accent-cyan)]" />
+                        <Milestone className="w-3.5 h-3.5 text-[var(--accent-cyan)]" aria-hidden />
                         <span>KUTRA ECOSYSTEM</span>
                     </motion.div>
                     <motion.h1
@@ -104,7 +94,7 @@ export default function OverviewContent() {
                                     className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between min-h-[200px]"
                                 >
                                     <div className={`p-3 rounded-xl ${pillar.bg} border w-fit ${pillar.color} mb-6`}>
-                                        <pillar.icon className="w-6 h-6" />
+                                        <pillar.icon className="w-6 h-6" aria-hidden />
                                     </div>
                                     <div className="space-y-2">
                                         <h3 className="text-lg font-bold text-[#e8e8e8]">{t(`pillars.${pillar.key}.title`)}</h3>
@@ -134,7 +124,7 @@ export default function OverviewContent() {
                             ].map((tech, idx) => (
                                 <div key={idx} className="flex gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 items-center">
                                     <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-[#e8e8e8] shrink-0">
-                                        <tech.icon className="w-5 h-5" />
+                                        <tech.icon className="w-5 h-5" aria-hidden />
                                     </div>
                                     <div className="space-y-0.5">
                                         <span className="text-xs font-semibold text-[#b5b5b5] uppercase tracking-wider">{tech.label}</span>
@@ -149,13 +139,13 @@ export default function OverviewContent() {
                     <div className="space-y-12">
                         <motion.h2 variants={itemVariants} className="text-2xl font-bold text-[#e8e8e8] text-center">{t("roadmap.title")}</motion.h2>
                         
-                        <div className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12 pb-8">
+                        <ol className="relative border-l border-white/10 ml-4 md:ml-32 space-y-12 pb-8">
                             {[
                                 { phase: "Phase 1", color: "from-owt1 to-owt1/70 shadow-owt1/50", key: "p1" },
                                 { phase: "Phase 2", color: "from-[#a855f7] to-purple-600 shadow-purple-500/50", key: "p2" },
                                 { phase: "Phase 3", color: "from-emerald-400 to-emerald-500 shadow-emerald-400/50", key: "p3" }
                             ].map((step, idx) => (
-                                <motion.div
+                                <motion.li
                                     key={idx}
                                     variants={itemVariants}
                                     className="relative pl-8 md:pl-12 group"
@@ -174,15 +164,15 @@ export default function OverviewContent() {
                                     <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-white/20 group-hover:bg-white/[0.03] transition-all duration-300 space-y-2">
                                         <h3 className="text-lg font-bold text-[#e8e8e8] group-hover:text-white transition-colors flex items-center gap-2">
                                             {t(`roadmap.${step.key}.title`)}
-                                            <ChevronRight className="w-4 h-4 text-[#525252] group-hover:text-[var(--accent-cyan)] group-hover:translate-x-0.5 transition-all" />
+                                            <ChevronRight className="w-4 h-4 text-[#525252] group-hover:text-[var(--accent-cyan)] group-hover:translate-x-0.5 transition-all" aria-hidden />
                                         </h3>
                                         <p className="text-sm text-[#b5b5b5] font-light leading-relaxed">
                                             {t(`roadmap.${step.key}.desc`)}
                                         </p>
                                     </div>
-                                </motion.div>
+                                </motion.li>
                             ))}
-                        </div>
+                        </ol>
                     </div>
 
                 </motion.div>

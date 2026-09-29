@@ -42,25 +42,19 @@ export function isValidDomain(domain: string): boolean {
  * Uses iterative replacement to defeat nested/bypassed patterns.
  */
 export function sanitizeInput(input: string): string {
-    if (!input || typeof input !== 'string') {
-        return '';
-    }
+    if (!input) return '';
 
-    let result = input
-        .replace(/[<>'";&]/g, '') // Remove dangerous characters
-        .replace(/on\w+=/gi, '') // Remove event handlers
-        .trim();
+    let result = input;
+    let previous;
 
-    // Iteratively strip dangerous URL schemes to handle nested bypasses
-    // e.g. "jajavascriptscriptcript:" → "javascript:" → ""
-    const SCHEME_PATTERN = /(?:java|vb|live)script\s*:|data\s*:/gi;
-    let previous: string;
     do {
         previous = result;
-        result = result.replace(SCHEME_PATTERN, '');
+        result = result
+            .replace(/[<>'";&]/g, '')
+            .replace(/on\w+=/gi, '');
     } while (result !== previous);
 
-    return result;
+    return result.trim();
 }
 
 const SAFE_PROTOCOLS = ['http:', 'https:', 'mailto:'];

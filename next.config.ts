@@ -1,4 +1,5 @@
 import { NextConfig } from 'next';
+import path from 'path';
 import createNextIntlPlugin from 'next-intl/plugin';
 import createBundleAnalyzer from '@next/bundle-analyzer';
 import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
@@ -7,7 +8,7 @@ const isCloudflareBuild = process.env.CF_PAGES === '1' || process.env.NODE_ENV =
 
 if (process.env.NODE_ENV === 'development') {
   initOpenNextCloudflareForDev({
-    experimental: { remoteBindings: true }
+    remoteBindings: true
   });
 }
 
@@ -22,7 +23,7 @@ const nextConfig: NextConfig = {
     webpackBuildWorker: true,
   },
   turbopack: {
-    root: process.cwd(),
+    root: path.join(__dirname, "../.."),
   },
   compress: true,
   typedRoutes: true,

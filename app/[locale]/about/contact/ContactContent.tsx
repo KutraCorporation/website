@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, FormEvent, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, FormEvent, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useLocaleContext } from "@/components/LocaleProvider";
 import {
@@ -17,19 +17,10 @@ import { Icons, getContactEmail } from "@/lib/utils";
 export default function ContactContent() {
     const t = useTranslations("contactPage");
     const { locale } = useLocaleContext();
-    const [mounted, setMounted] = useState(false);
     const [status, setStatus] = useState<"idle" | "verifying" | "sending" | "success" | "error">("idle");
     const [emailError, setEmailError] = useState<string | null>(null);
     const [focused, setFocused] = useState<string | null>(null);
     const formRef = useRef<HTMLFormElement>(null);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return <div className="min-h-screen bg-black" />;
-    }
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -97,8 +88,7 @@ export default function ContactContent() {
     ];
 
     const socialLinks = [
-        { icon: Icons.Github, label: "GitHub", href: "https://github.com/KutraCorporation" },
-        { icon: Icons.Linkedin, label: "LinkedIn", href: "https://linkedin.com/company/kutracorporation" },
+        { icon: Icons.Github, label: "GitHub", href: "https://github.com/KutraCorporation" }
     ];
 
     return (
@@ -121,7 +111,7 @@ export default function ContactContent() {
                         transition={{ duration: 0.5 }}
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-semibold text-[#b5b5b5] mb-6"
                     >
-                        <MessageSquare className="w-3.5 h-3.5 text-[var(--accent-cyan)]" />
+                        <MessageSquare className="w-3.5 h-3.5 text-[var(--accent-cyan)]" aria-hidden />
                         <span>{t("info.title").toUpperCase()}</span>
                     </motion.div>
 
@@ -174,7 +164,7 @@ export default function ContactContent() {
                                                 htmlFor={field.name}
                                                 className="text-xs font-semibold text-[#b5b5b5] uppercase tracking-wider flex items-center gap-1.5"
                                             >
-                                                <field.icon className="w-3 h-3 text-[#525252]" />
+                                                <field.icon className="w-3 h-3 text-[#525252]" aria-hidden />
                                                 {t(`form.${field.name}`)}
                                             </label>
                                             <input
@@ -183,9 +173,12 @@ export default function ContactContent() {
                                                 type={field.type}
                                                 required
                                                 placeholder={field.placeholder}
+                                                autoComplete={field.name === "email" ? "email" : "name"}
+                                                aria-invalid={field.name === "email" && emailError ? true : undefined}
+                                                aria-describedby={field.name === "email" && emailError ? "email-error" : undefined}
                                                 onFocus={() => { setFocused(field.name); setEmailError(null); }}
                                                 onBlur={() => setFocused(null)}
-                                                className={`w-full h-12 px-4 rounded-xl bg-white/[0.03] border text-[#e8e8e8] placeholder:text-[#525252] focus:outline-none transition-all duration-300 text-sm ${
+                                                className={`w-full h-12 px-4 rounded-xl bg-white/[0.03] border text-[#e8e8e8] placeholder:text-[#525252] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)]/60 transition-all duration-300 text-sm ${
                                                     field.name === "email" && emailError
                                                         ? "border-red-500/50 shadow-[0_0_20px_-5px_rgba(239,68,68,0.15)]"
                                                         : focused === field.name
@@ -194,7 +187,7 @@ export default function ContactContent() {
                                                 }`}
                                             />
                                             {field.name === "email" && emailError && (
-                                                <p className="text-xs text-red-400 font-medium mt-1">{emailError}</p>
+                                                <p id="email-error" role="alert" className="text-xs text-red-400 font-medium mt-1">{emailError}</p>
                                             )}
                                         </div>
                                     ))}
@@ -205,15 +198,16 @@ export default function ContactContent() {
                                         htmlFor="subject"
                                         className="text-xs font-semibold text-[#b5b5b5] uppercase tracking-wider flex items-center gap-1.5"
                                     >
-                                        <MessageSquare className="w-3 h-3 text-[#525252]" />
-                                        {t("form.subject")}
-                                    </label>
-                                    <input
-                                        id="subject"
-                                        name="subject"
-                                        type="text"
-                                        required
-                                        placeholder={t("form.placeholderSubject")}
+                                                <MessageSquare className="w-3 h-3 text-[#525252]" aria-hidden />
+                                                {t("form.subject")}
+                                            </label>
+                                            <input
+                                                id="subject"
+                                                name="subject"
+                                                type="text"
+                                                required
+                                                autoComplete="off"
+                                                placeholder={t("form.placeholderSubject")}
                                         onFocus={() => setFocused("subject")}
                                         onBlur={() => setFocused(null)}
                                         className={`w-full h-12 px-4 rounded-xl bg-white/[0.03] border text-[#e8e8e8] placeholder:text-[#525252] focus:outline-none transition-all duration-300 text-sm ${
@@ -229,15 +223,15 @@ export default function ContactContent() {
                                         htmlFor="message"
                                         className="text-xs font-semibold text-[#b5b5b5] uppercase tracking-wider flex items-center gap-1.5"
                                     >
-                                        <Mail className="w-3 h-3 text-[#525252]" />
-                                        {t("form.message")}
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        required
-                                        rows={5}
-                                        placeholder={t("form.placeholderMessage")}
+                                                <Mail className="w-3 h-3 text-[#525252]" aria-hidden />
+                                                {t("form.message")}
+                                            </label>
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                required
+                                                rows={5}
+                                                placeholder={t("form.placeholderMessage")}
                                         onFocus={() => setFocused("message")}
                                         onBlur={() => setFocused(null)}
                                         className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border text-[#e8e8e8] placeholder:text-[#525252] focus:outline-none transition-all duration-300 text-sm resize-none min-h-[140px] ${
@@ -249,40 +243,42 @@ export default function ContactContent() {
                                 </div>
 
                                 <div className="flex items-center justify-between pt-2">
-                                    <AnimatePresence mode="wait">
-                                        {status === "success" && (
-                                            <motion.div
-                                                initial={{ opacity: 0, x: -10 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                exit={{ opacity: 0 }}
-                                                className="flex items-center gap-2 text-sm text-emerald-400 font-medium"
-                                            >
-                                                <CheckCircle2 className="w-4 h-4" />
-                                                {t("form.success")}
-                                            </motion.div>
-                                        )}
-                                        {status === "error" && (
-                                            <motion.div
-                                                initial={{ opacity: 0, x: -10 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                exit={{ opacity: 0 }}
-                                                className="flex items-center gap-2 text-sm text-red-400 font-medium"
-                                            >
-                                                <AlertCircle className="w-4 h-4" />
-                                                {t("form.error")}
-                                            </motion.div>
-                                        )}
-                                        {status === "idle" && <div />}
-                                    </AnimatePresence>
+                                    <div role="status" aria-live="polite" className="min-h-[1.25rem]">
+                                        <AnimatePresence mode="wait">
+                                            {status === "success" && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0 }}
+                                                    className="flex items-center gap-2 text-sm text-emerald-400 font-medium"
+                                                >
+                                                    <CheckCircle2 className="w-4 h-4" aria-hidden />
+                                                    {t("form.success")}
+                                                </motion.div>
+                                            )}
+                                            {status === "error" && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0 }}
+                                                    className="flex items-center gap-2 text-sm text-red-400 font-medium"
+                                                >
+                                                    <AlertCircle className="w-4 h-4" aria-hidden />
+                                                    {t("form.error")}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
 
                                     <button
                                         type="submit"
                                         disabled={status === "sending" || status === "verifying"}
-                                        className="inline-flex items-center gap-2.5 rounded-xl px-7 h-12 font-bold bg-[var(--accent-cyan)] text-[#0a0a0a] hover:brightness-110 hover:shadow-[0_0_30px_-5px_rgba(0,212,255,0.4)] active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-sm group/btn"
+                                        aria-busy={status === "sending" || status === "verifying"}
+                                        className="inline-flex items-center gap-2.5 rounded-xl px-7 h-12 font-bold bg-[var(--accent-cyan)] text-[#0a0a0a] hover:brightness-110 hover:shadow-[0_0_30px_-5px_rgba(0,212,255,0.4)] active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 text-sm group/btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                                     >
                                         {status === "verifying" ? (
                                             <>
-                                                <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                                                <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden>
                                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                                                 </svg>
@@ -290,7 +286,7 @@ export default function ContactContent() {
                                             </>
                                         ) : status === "sending" ? (
                                             <>
-                                                <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                                                <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden>
                                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                                                 </svg>
@@ -299,7 +295,7 @@ export default function ContactContent() {
                                         ) : (
                                             <>
                                                 {t("form.send")}
-                                                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+                                                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" aria-hidden />
                                             </>
                                         )}
                                     </button>
@@ -330,14 +326,19 @@ export default function ContactContent() {
                                             className="flex gap-4 items-start group/item"
                                         >
                                             <div className={`p-2.5 rounded-xl ${item.bg} border ${item.color} shrink-0 group-hover/item:scale-105 transition-transform duration-300`}>
-                                                <item.icon className="w-5 h-5" />
+                                                <item.icon className="w-5 h-5" aria-hidden />
                                             </div>
                                             <div className="space-y-0.5 pt-0.5">
                                                 <span className="text-xs font-semibold text-[#b5b5b5] uppercase tracking-wider">
                                                     {t(`info.${item.key}.title`)}
                                                 </span>
                                                 <p className="text-sm text-[#e8e8e8] font-medium leading-relaxed">
-                                                    {item.value}
+                                                    <a
+                                                        href={`mailto:${item.value}`}
+                                                        className="hover:text-[var(--accent-cyan)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] rounded"
+                                                    >
+                                                        {item.value}
+                                                    </a>
                                                 </p>
                                             </div>
                                         </motion.div>
@@ -360,7 +361,7 @@ export default function ContactContent() {
                                         rel="noopener noreferrer"
                                         className="min-h-[44px] min-w-[44px] w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#b8b8b8] hover:text-[var(--accent-cyan)] hover:border-[var(--accent-cyan)]/30 hover:bg-[var(--accent-cyan)]/5 transition-all duration-300"
                                     >
-                                        <link.icon className="w-5 h-5" />
+                                        <link.icon className="w-5 h-5" aria-hidden />
                                     </a>
                                 ))}
                             </div>

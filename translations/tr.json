@@ -2,12 +2,14 @@
   "hero": {
     "headline": "Kutra",
     "tagline": "Sınırların Ötesinde",
-    "subhead": "Türkiye'nin En Genç Teknoloji Ekosistemi",
+    "subhead": "Farklı diller, tek vizyon: Kutra'da genç zihinler geleceği birlikte kodluyor.",
+    "metaDescription": "Kutra; dünyanın dört bir yanından gelen genç zihinlerin güvenlik, yapay zeka ve Web3 alanında geleceği birlikte inşa ettiği global teknoloji ekosistemidir.",
     "ctaPrimary": "Ekosistemi Keşfet",
     "ctaSecondary": "Kutra ID ile Başla"
   },
   "ecosystem": {
     "title": "Projeler",
+    "description": "Güvenlik, verimlilik ve Web3 için tasarlanmış ekosistem uygulamalarımızı keşfedin.",
     "viewAll": "Tüm Projeleri Gör"
   },
   "footer": {
@@ -30,7 +32,11 @@
     "projbrandOn": "Kutra - {platform}"
   },
   "header": {
-    "products": "Projeler"
+    "products": "Projeler",
+    "changeLanguage": "Dili değiştir",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "mobileNav": "Mobil gezinme"
   },
   "about": {
     "headline": "Derin Çözümler,",
@@ -64,6 +70,7 @@
     "contributors": "Katkıda Bulunanlar",
     "contributors_uba_text": "Katkıda Bulundu",
     "download": "İndir",
+    "viewTerms": "Ürün Sözleşmeleri",
     "categories": {
       "Security": "Güvenlik",
       "Productivity": "Verimlilik",
@@ -159,13 +166,42 @@
       },
       "location": {
         "title": "Konum",
-        "value": "İstanbul, Türkiye"
+        "value": "Antalya, Türkiye"
       },
       "hours": {
         "title": "Çalışma Saatleri",
         "value": "Pazartesi - Cuma, 09:00 - 18:00"
       }
     }
+  },
+  "openSourcePage": {
+    "title": "Açık Kaynak Projelerimiz",
+    "subtitle": "Kutra Corporation olarak geliştirdiğimiz açık kaynak kodlu projelere göz atın, detayları inceleyin ve katkıda bulunun.",
+    "fetchError": "Repolar çekilirken bir hata oluştu.",
+    "noProjects": "Henüz gösterilecek proje bulunamadı.",
+    "noDescription": "Bu proje için henüz bir açıklama girilmemiş.",
+    "noDescriptionModal": "Açıklama bulunmuyor.",
+    "projectLabel": "{visibility} Proje",
+    "archived": "Arşivlenmiş",
+    "topicsHeading": "Etiketler & Teknolojiler",
+    "starsWatch": "Yıldız / Watch",
+    "forksCount": "Fork Sayısı",
+    "openIssues": "Açık Sorunlar",
+    "defaultBranch": "Varsayılan Dal",
+    "repoSize": "Proje Boyutu",
+    "createdAt": "Oluşturulma",
+    "updatedAt": "Güncelleme",
+    "cloneUrl": "Klonlama URL",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı! ✓",
+    "contributorsHeading": "Katkıda Bulunanlar",
+    "contributorsError": "Katkıda bulunanlar yüklenemedi.",
+    "noContributors": "Bu projede henüz katkıda bulunan bulunamadı.",
+    "contributionsCount": "{count} katkı",
+    "liveSite": "🌐 Canlı Site →",
+    "close": "Kapat",
+    "loading": "Katkıda bulunanlar yükleniyor…",
+    "viewOnGithub": "GitHub'da İncele →"
   },
   "overviewPage": {
     "title": "Ekosistem Genel Bakış",
@@ -211,6 +247,320 @@
       "p3": {
         "title": "Aşama 3: Yapay Zeka Yardımcıları ve Alan Adı Sistemleri",
         "desc": "Simay yapay zeka asistanının entegrasyonu ve küresel adres çözümlemesi için Kutra merkeziyetsiz alan adlarının dağıtılması."
+      }
+    }
+  },
+  "community": {
+    "title": "Topluluk",
+    "subtitle": "Kutra, dünyanın dört bir yanından gelen parlak genç zihinlerin birlikte inşa ettiği bir ekosistemdir.",
+    "cards": {
+      "global": {
+        "title": "Global Topluluk",
+        "desc": "Farklı dillerden ve kültürlerden gelen katkıda bulunanlar tek çatı altında buluşuyor."
+      },
+      "build": {
+        "title": "Birlikte İnşa",
+        "desc": "Açık iş birliği kültürümüzle herkes fikirlerini gerçek ürünlere dönüştürebilir."
+      },
+      "opensource": {
+        "title": "Açık Kaynak",
+        "desc": "Projelerimiz GitHub'da açık; katkıların için seni bekliyoruz."
+      }
+    },
+    "cta": "Aramıza Katıl"
+  },
+  "privacyPage": {
+    "title": "Gizlilik Politikası",
+    "updated": "Son güncelleme: 21 Ağustos 2026",
+    "intro": "Kutra Corporation olarak gizliliğinize önem veriyoruz. Bu politika, ekosistemimizdeki ürün ve hizmetleri kullanırken hangi verileri topladığımızı, bu verileri nasıl kullandığımızı ve koruduğumuzu açıklar.",
+    "sections": [
+      {
+        "heading": "1. Topladığımız Veriler",
+        "paragraphs": [
+          "Hesap bilgileri: Kutra ID oluşturduğunuzda e-posta adresiniz gibi temel iletişim bilgilerini toplarız.",
+          "Kullanım verileri: Hizmetlerimizi nasıl kullandığınıza dair anonimleştirilmiş istatistikler; performans ve hata analizi için teknik veriler.",
+          "Cihaz bilgileri: Tarayıcı türü, işletim sistemi ve dil tercihleri gibi cihazınıza ait teknik bilgiler."
+        ]
+      },
+      {
+        "heading": "2. Verileri Nasıl Kullanıyoruz",
+        "paragraphs": [
+          "Hizmetlerimizi sunmak, sürdürmek ve geliştirmek için topladığımız verileri kullanırız.",
+          "Hesabınızın güvenliğini sağlamak, kimlik doğrulama işlemlerini gerçekleştirmek ve kötüye kullanımı önlemek için.",
+          "Size hizmet güncellemeleri, güvenlik uyarıları ve destek ile ilgili iletişimler göndermek için."
+        ]
+      },
+      {
+        "heading": "3. Çerezler ve İzleme Teknolojileri",
+        "paragraphs": [
+          "Sitemiz oturum yönetimi ve tercihlerinizi hatırlamak için zorunlu çerezleri kullanır.",
+          "Reklam amaçlı üçüncü taraf izleyiciler kullanmayız. Analitik veriler yalnızca toplu ve anonim olarak işlenir."
+        ]
+      },
+      {
+        "heading": "4. Veri Paylaşımı ve Üçüncü Taraflar",
+        "paragraphs": [
+          "Verilerinizi yasal yükümlülükler dışında üçüncü taraflara satmayız veya kiralamayız.",
+          "Yalnızca hizmetlerimizin çalışması için gerekli altyapı sağlayıcılarıyla (ör. bulut ve alan adı hizmetleri) sınırlı olarak paylaşabiliriz; bu taraflar da verilerinizi korumakla yükümlüdür."
+        ]
+      },
+      {
+        "heading": "5. Veri Güvenliği",
+        "paragraphs": [
+          "Tüm kullanıcı kimlik bilgileri kriptografik olarak korunur; sıfır bilgi (zero-knowledge) ilkelerini benimseriz.",
+          "Veriler aktarım sırasında TLS ile şifrelenir ve yetkisiz erişime karşı güvenli depolamada saklanır."
+        ]
+      },
+      {
+        "heading": "6. Saklama ve Silme",
+        "paragraphs": [
+          "Verilerinizi yalnızca hizmetin sunulması için gerekli süre boyunca veya yasal yükümlülükler gereği saklarız.",
+          "Hesabınızı sildiğinizde kişisel verileriniz, yasal saklama süreleri dışında kalıcı olarak silinir."
+        ]
+      },
+      {
+        "heading": "7. Haklarınız",
+        "paragraphs": [
+          "6698 sayılı KVKK ve GDPR kapsamında verilerinize erişme, düzeltme, silme ve işlemeye itiraz etme haklarına sahipsiniz.",
+          "Taleplerinizi info@kutra.co adresine iletebilirsiniz; başvurularınız en kısa sürede yanıtlanır."
+        ]
+      },
+      {
+        "heading": "8. Çocukların Gizliliği",
+        "paragraphs": [
+          "Hizmetlerimiz 13 yaşın altındaki çocuklara yönelik değildir ve bu yaştan küçük kullanıcıların verisini bilerek toplamayız."
+        ]
+      },
+      {
+        "heading": "9. Politika Değişiklikleri",
+        "paragraphs": [
+          "Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişiklikler sayfamızda duyurulur ve yayımlandıkları anda geçerli olur."
+        ]
+      }
+    ],
+    "contactNote": "Bu politika hakkında sorularınız için info@kutra.co adresinden bize ulaşabilirsiniz. Posta adresi: Antalya, Türkiye."
+  },
+  "termsPage": {
+    "title": "Kullanım Koşulları",
+    "updated": "Son güncelleme: 21 Ağustos 2026",
+    "intro": "Bu Kullanım Koşulları, Kutra Corporation tarafından sunulan web sitesi, uygulamalar ve ekosistem hizmetlerinin kullanımını düzenler. Hizmetlerimizi kullanarak bu koşulları kabul etmiş olursunuz.",
+    "sections": [
+      {
+        "heading": "1. Hizmetin Kapsamı",
+        "paragraphs": [
+          "Kutra; güvenli kimlik yönetimi, Web3 kimlik bilgisi altyapısı, merkeziyetsiz alan adları, tarayıcı ve yapay zeka destekli asistan çözümleri içeren bir teknoloji ekosistemidir.",
+          "Hizmetler dünya genelinde erişime açıktır; belirli özelliklerin kullanılabilirliği ülkeye göre değişebilir."
+        ]
+      },
+      {
+        "heading": "2. Hesap ve Kimlik Yönetimi",
+        "paragraphs": [
+          "Kutra ID hesabınızın güvenliğinden siz sorumlusunuz. Hesap bilgilerinizi üçüncü kişilerle paylaşmamalısınız.",
+          "Hesabınız üzerinden gerçekleştirilen işlemler sizin adınıza yapılmış sayılır."
+        ]
+      },
+      {
+        "heading": "3. Kabul Edilebilir Kullanım",
+        "paragraphs": [
+          "Hizmetleri yasa dışı faaliyetlerde bulunmak, başkalarının haklarını ihlal etmek veya sistemlerimizin güvenliğini zayıflatmak amacıyla kullanamazsınız.",
+          "Otomatik istismar, hizmet reddi saldırıları, veri kazıma ve tersine mühendislik girişimleri yasaktır."
+        ]
+      },
+      {
+        "heading": "4. Fikri Mülkiyet",
+        "paragraphs": [
+          "Ekosistemdeki yazılımlar, markalar ve içerikler Kutra Corporation'a aittir veya lisanslanmıştır.",
+          "Açık kaynak projelerimiz, ilgili depolarında belirtilen açık kaynak lisanslarına tabidir."
+        ]
+      },
+      {
+        "heading": "5. Web3 ve Blokzincir Hizmetleri",
+        "paragraphs": [
+          "Blokzincir üzerinde gerçekleştirdiğiniz işlemler geri alınamaz. Özel anahtarlarınızın ve kurtarma ifadelerinizin güvenliğinden yalnızca siz sorumlusunuz.",
+          "Kutra, merkeziyetsiz ağlardaki işlem ücretlerinden veya üçüncü taraf protokollerin davranışından sorumlu tutulamaz."
+        ]
+      },
+      {
+        "heading": "6. Feragatname ve Sorumluluk Sınırlaması",
+        "paragraphs": [
+          "Hizmetler 'olduğu gibi' sunulur. Ticari elverişlilik veya belirli bir amaca uygunluk dahil açık ya da zımni hiçbir garanti verilmez.",
+          "Yasal olarak izin verilen en geniş kapsamda, Kutra hizmetlerin kullanımından doğan dolaylı, arızi veya özel zararlardan sorumlu tutulamaz."
+        ]
+      },
+      {
+        "heading": "7. Hizmet Değişiklikleri ve Fesih",
+        "paragraphs": [
+          "Hizmetleri geliştirme, değiştirme veya durdurma hakkını saklı tutarız. Bu koşullara aykırı davranmanız hâlinde hesabınızı askıya alabilir veya sonlandırabiliriz.",
+          "Dilediğiniz zaman hesabınızı silerek hizmet kullanımını sonlandırabilirsiniz."
+        ]
+      },
+      {
+        "heading": "8. Uygulanacak Hukuk",
+        "paragraphs": [
+          "Bu koşullardan doğan uyuşmazlıklarda Türkiye Cumhuriyeti hukuku uygulanır ve Antalya mahkemeleri yetkilidir."
+        ]
+      },
+      {
+        "heading": "9. İletişim",
+        "paragraphs": [
+          "Koşullarla ilgili sorularınız için info@kutra.co adresine yazabilirsiniz."
+        ]
+      }
+    ],
+    "contactNote": "Kutra Corporation — Antalya, Türkiye. Bu koşulların güncellenmiş hâlleri yayımlandığı anda geçerli olur."
+  },
+  "productTerms": {
+    "title": "Ürün Sözleşmeleri",
+    "updated": "Son güncelleme: 21 Ağustos 2026",
+    "backToProduct": "Ürüne Dön",
+    "generalNote": "Bu ürüne özel koşullar, genel Kutra Kullanım Koşulları ve Gizlilik Politikası'nın eki niteliğindedir. Çelişki hâlinde ürüne özel koşullar önceliklidir.",
+    "contactNote": "Bu sözleşmelerle ilgili sorularınız için info@kutra.co adresine yazabilirsiniz.",
+    "generic": {
+      "intro": "Bu belge, söz konusu Kutra ürününün kullanımına ilişkin özel koşulları içerir.",
+      "sections": [
+        {
+          "heading": "Lisans",
+          "paragraphs": ["Ürün, kişisel ve ticari kullanım için devredilemez bir kullanım lisansıyla sunulur."]
+        },
+        {
+          "heading": "Veri İşleme",
+          "paragraphs": ["Verileriniz yalnızca hizmetin işleyişi için gereken kapsamda işlenir; ayrıntılar için genel Gizlilik Politikamıza bakınız."]
+        }
+      ]
+    },
+    "items": {
+      "authenticator": {
+        "intro": "Authenticator uygulamasının kullanımına özgü koşullar aşağıda belirtilmiştir.",
+        "sections": [
+          {
+            "heading": "Yedekleme ve Kurtarma",
+            "paragraphs": [
+              "Şifreli yedekleme ve geri yükleme özelliğini kullanmak için güçlü bir yedekleme parolası belirlemeniz gerekir. Parolanızı unutmanız hâlinde yedeklerinize erişilemez.",
+              "Kurtarma verilerinizin güvenliğinden yalnızca siz sorumlusunuz; parola kaybından doğan doğrulama kodu kayıplarında Kutra sorumlu tutulamaz."
+            ]
+          },
+          {
+            "heading": "Veri İşleme ve Sıfır Bilgi",
+            "paragraphs": [
+              "Doğrulama tokenlarınız varsayılan olarak yalnızca cihazınızda saklanır ve sunucularımıza gönderilmez.",
+              "Cihazlar arası eşleme açıksa verileriniz uçtan uca şifrelenerek aktarılır; Kutra içeriklerini okuyamaz."
+            ]
+          },
+          {
+            "heading": "Sorumluluk Sınırlaması",
+            "paragraphs": [
+              "Cihaz saatinizin yanlış olması veya cihaz kaybı gibi durumlarda doğrulama kodlarının zamanında üretilememesinden doğan zararlardan Kutra sorumlu değildir."
+            ]
+          }
+        ]
+      },
+      "certwallet": {
+        "intro": "CertWallet'ın blokzincir tabanlı kimlik bilgisi hizmetlerinin kullanımına özgü koşullar aşağıda belirtilmiştir.",
+        "sections": [
+          {
+            "heading": "Zincir Üzeri Kayıtlar",
+            "paragraphs": [
+              "Blokzincir üzerinde düzenlenen veya doğrulanan sertifikalar teknik olarak geri alınamaz. Yanlış bilgiyle oluşturulan kayıtların düzeltilmesi yeni bir işlem gerektirebilir."
+            ]
+          },
+          {
+            "heading": "Özel Anahtar Güvenliği",
+            "paragraphs": [
+              "Cüzdan özel anahtarlarınızın ve kurtarma ifadelerinizin güvenliği tamamen size aittir; Kutra bu bilgilere asla erişemez ve saklamaz.",
+              "Anahtar kaybı hâlinde zincir üzerindeki kimlik bilgilerinize erişim kalıcı olarak kaybedilebilir."
+            ]
+          },
+          {
+            "heading": "Kimlik Bilgilerinin Paylaşımı",
+            "paragraphs": [
+              "Doğrulanabilir kimlik bilgilerinizi hangi taraflarla paylaşacağınıza dair karar tamamen size aittir. Paylaştığınız bilgilerin doğruluğundan siz sorumlusunuz."
+            ]
+          },
+          {
+            "heading": "Ağ Ücretleri",
+            "paragraphs": [
+              "Sui Network gibi blokzincirlerde gerçekleştirilen işlemlerin ağ ücretleri üçüncü taraf ağlar tarafından belirlenir; Kutra bu ücretleri kontrol etmez."
+            ]
+          }
+        ]
+      },
+      "chain": {
+        "intro": "Chain Browser tarayıcısının kullanımına özgü koşullar aşağıda belirtilmiştir.",
+        "sections": [
+          {
+            "heading": "Cüzdan Entegrasyonu",
+            "paragraphs": [
+              "Tarayıcı içi cüzdanınıza ait özel anahtarlar cihazınızdan çıkmadan saklanır. İşlem imzalama talepleri her seferinde onayınıza sunulur."
+            ]
+          },
+          {
+            "heading": "dApp Erişimi",
+            "paragraphs": [
+              "Merkeziyetsiz uygulamalar (dApp) üçüncü taraflarca geliştirilir; bu uygulamaların içeriği, güvenliği ve işleyişinden Kutra sorumlu değildir.",
+              "Bir dApp'e cüzdan bağlantısı vermeden önce içeriğini değerlendirmek sizin sorumluluğunuzdadır."
+            ]
+          },
+          {
+            "heading": "Güvenlik Uyarıları",
+            "paragraphs": [
+              "Web2 ve Web3 sitelerinde karşılaşabileceğiniz dolandırıcılık girişimlerine karşı dikkatli olun. Tarayıcı temel korumalar sağlar ancak tüm riskleri ortadan kaldırmaz."
+            ]
+          }
+        ]
+      },
+      "domains": {
+        "intro": "Kutra merkeziyetsiz alan adı kayıt hizmetinin (.id, .kutra) kullanımına özgü koşullar aşağıda belirtilmiştir.",
+        "sections": [
+          {
+            "heading": "Alan Adı Kaydı",
+            "paragraphs": [
+              "Alan adları ilk gelen hak alır esasına göre kaydedilir. Aynı ad için eşzamanlı taleplerde blokzincir onayı belirleyicidir.",
+              "Marka ihlali iddiası bulunan kayıtlar için ihtilaf çözüm süreci yürütülebilir."
+            ]
+          },
+          {
+            "heading": "Yenileme ve Süre Sonu",
+            "paragraphs": [
+              "Kayıt süresi sonunda yenileme yapılmayan alan adları serbest hâle gelir. Süre bitimi hatırlatmaları bildirim olarak iletilir ancak teslim garantisi verilmez."
+            ]
+          },
+          {
+            "heading": "DNS ve Yönetim",
+            "paragraphs": [
+              "Alan adınıza eklediğiniz DNS kayıtlarının doğruluğundan ve yönlendirdiğiniz içerikten siz sorumlusunuz."
+            ]
+          },
+          {
+            "heading": "Askıya Alma",
+            "paragraphs": [
+              "Yasa dışı faaliyet, oltalama (phishing) veya başkalarının haklarını ihlal eden kullanımlar tespit edilirse ilgili alan adı askıya alınabilir."
+            ]
+          }
+        ]
+      },
+      "Simay": {
+        "intro": "Simay yapay zeka asistanının kullanımına özgü koşullar aşağıda belirtilmiştir.",
+        "sections": [
+          {
+            "heading": "Yapay Zeka Çıktıları",
+            "paragraphs": [
+              "Simay tarafından üretilen yanıtlar bilgi amaçlıdır; hukuki, tıbbi veya finansal profesyonel tavsiye yerine geçmez.",
+              "Yapay zeka çıktıları hatalı veya eksik olabilir; kritik kararlar öncesinde çıktıları doğrulamak sizin sorumluluğunuzdadır."
+            ]
+          },
+          {
+            "heading": "Uygulamalar Arası Erişim",
+            "paragraphs": [
+              "Simay, diğer uygulamalara yalnızca açıkça izin verdiğiniz kapsamda erişir. İzinler dilediğiniz zaman geri alınabilir."
+            ]
+          },
+          {
+            "heading": "Kullanım Sınırları",
+            "paragraphs": [
+              "Asistanı yasa dışı içerik üretmek, başkalarını rahatsız etmek veya sistem kaynaklarını istismar etmek amacıyla kullanmak yasaktır."
+            ]
+          }
+        ]
       }
     }
   }

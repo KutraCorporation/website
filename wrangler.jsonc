@@ -20,6 +20,11 @@
       "database_id": "f059a4e2-a040-40cb-88a0-5c1d785e2d37"
     }
   ],
+  "vars": {
+    "X402_NETWORK": "eip155:84532",
+    "X402_PRICE": "$0.01",
+    "X402_FACILITATOR_URL": "https://facilitator.payai.network"
+  },
   "observability": {
     "logs": {
       "enabled": true,

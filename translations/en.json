@@ -2,12 +2,14 @@
   "hero": {
     "headline": "Kutra",
     "tagline": "Beyond Boundaries",
-    "subhead": "Turkey's Youngest Technology Ecosystem",
+    "subhead": "Many languages, one vision: young minds at Kutra code the future together.",
+    "metaDescription": "Kutra is a global technology ecosystem where bright young minds from all around the world build the future together across security, AI and Web3.",
     "ctaPrimary": "Explore Ecosystem",
     "ctaSecondary": "Start with Kutra ID"
   },
   "ecosystem": {
     "title": "Projects",
+    "description": "Explore our ecosystem applications designed for security, efficiency, and Web3.",
     "viewAll": "View All Projects"
   },
   "footer": {
@@ -30,7 +32,11 @@
     "projbrandOn": "Kutra - {platform}"
   },
   "header": {
-    "products": "Projects"
+    "products": "Projects",
+    "changeLanguage": "Change language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mobileNav": "Mobile navigation"
   },
   "about": {
     "headline": "Deep Solutions,",
@@ -63,6 +69,8 @@
     "linksHeading": "Related Links",
     "contributors": "Contributors",
     "contributors_uba_text": "Contributions made ",
+    "download": "Download",
+    "viewTerms": "Product Agreements",
     "categories": {
       "Security": "Security",
       "Productivity": "Productivity",
@@ -158,13 +166,42 @@
       },
       "location": {
         "title": "Location",
-        "value": "Istanbul, Turkey"
+        "value": "Antalya, Turkey"
       },
       "hours": {
         "title": "Working Hours",
         "value": "Monday - Friday, 09:00 - 18:00"
       }
     }
+  },
+  "openSourcePage": {
+    "title": "Our Open Source Projects",
+    "subtitle": "Explore the open source projects we develop as Kutra Corporation, dive into the details, and contribute.",
+    "fetchError": "An error occurred while fetching repositories.",
+    "noProjects": "No projects to show yet.",
+    "noDescription": "No description has been added for this project yet.",
+    "noDescriptionModal": "No description available.",
+    "projectLabel": "{visibility} Project",
+    "archived": "Archived",
+    "topicsHeading": "Topics & Technologies",
+    "starsWatch": "Stars / Watch",
+    "forksCount": "Forks",
+    "openIssues": "Open Issues",
+    "defaultBranch": "Default Branch",
+    "repoSize": "Repo Size",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "cloneUrl": "Clone URL",
+    "copy": "Copy",
+    "copied": "Copied! ✓",
+    "contributorsHeading": "Contributors",
+    "contributorsError": "Failed to load contributors.",
+    "noContributors": "No contributors found for this project yet.",
+    "contributionsCount": "{count} contributions",
+    "liveSite": "🌐 Live Site →",
+    "close": "Close",
+    "loading": "Loading contributors…",
+    "viewOnGithub": "View on GitHub →"
   },
   "overviewPage": {
     "title": "Ecosystem Overview",
@@ -210,6 +247,320 @@
       "p3": {
         "title": "Phase 3: AI Assistants and Domain Systems",
         "desc": "Integration of the Simay AI assistant and deployment of Kutra decentralized domains for global address resolution."
+      }
+    }
+  },
+  "community": {
+    "title": "Community",
+    "subtitle": "Kutra is an ecosystem built together by bright young minds from all around the world.",
+    "cards": {
+      "global": {
+        "title": "Global Community",
+        "desc": "Contributors from different languages and cultures come together under one roof."
+      },
+      "build": {
+        "title": "Build Together",
+        "desc": "With our open collaboration culture, anyone can turn their ideas into real products."
+      },
+      "opensource": {
+        "title": "Open Source",
+        "desc": "Our projects are open on GitHub; we are waiting for your contributions."
+      }
+    },
+    "cta": "Join Us"
+  },
+  "privacyPage": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: August 21, 2026",
+    "intro": "At Kutra Corporation, we take your privacy seriously. This policy explains what data we collect, how we use it, and how we protect it when you use the products and services across our ecosystem.",
+    "sections": [
+      {
+        "heading": "1. Data We Collect",
+        "paragraphs": [
+          "Account information: basic contact details such as your email address when you create a Kutra ID.",
+          "Usage data: anonymized statistics about how you use our services, plus technical data for performance and error analysis.",
+          "Device information: technical details about your device such as browser type, operating system, and language preferences."
+        ]
+      },
+      {
+        "heading": "2. How We Use Data",
+        "paragraphs": [
+          "We use the data we collect to provide, maintain, and improve our services.",
+          "To secure your account, perform authentication, and prevent abuse.",
+          "To send you service updates, security alerts, and support-related communications."
+        ]
+      },
+      {
+        "heading": "3. Cookies and Tracking Technologies",
+        "paragraphs": [
+          "Our website uses strictly necessary cookies for session management and remembering your preferences.",
+          "We do not use third-party advertising trackers. Analytics are processed only in aggregate, anonymized form."
+        ]
+      },
+      {
+        "heading": "4. Data Sharing and Third Parties",
+        "paragraphs": [
+          "We do not sell or rent your data to third parties, except where required by law.",
+          "We share data only with infrastructure providers necessary to operate our services (e.g., cloud and domain services); these parties are equally bound to protect your data."
+        ]
+      },
+      {
+        "heading": "5. Data Security",
+        "paragraphs": [
+          "All user credentials are protected cryptographically; we embrace zero-knowledge principles.",
+          "Data is encrypted in transit with TLS and stored securely against unauthorized access."
+        ]
+      },
+      {
+        "heading": "6. Retention and Deletion",
+        "paragraphs": [
+          "We retain your data only as long as necessary to provide the service or as required by legal obligations.",
+          "When you delete your account, your personal data is permanently erased except for legally required retention periods."
+        ]
+      },
+      {
+        "heading": "7. Your Rights",
+        "paragraphs": [
+          "Under GDPR and Turkish KVKK (Law No. 6698), you have the right to access, correct, delete, and object to the processing of your data.",
+          "You can submit requests to info@kutra.co; we respond to all inquiries promptly."
+        ]
+      },
+      {
+        "heading": "8. Children's Privacy",
+        "paragraphs": [
+          "Our services are not directed at children under 13, and we do not knowingly collect their data."
+        ]
+      },
+      {
+        "heading": "9. Policy Changes",
+        "paragraphs": [
+          "We may update this policy from time to time. Material changes will be announced on our page and take effect immediately upon publication."
+        ]
+      }
+    ],
+    "contactNote": "For questions about this policy, contact us at info@kutra.co. Mailing address: Antalya, Türkiye."
+  },
+  "termsPage": {
+    "title": "Terms of Service",
+    "updated": "Last updated: August 21, 2026",
+    "intro": "These Terms of Service govern the use of the website, applications, and ecosystem services provided by Kutra Corporation. By using our services, you agree to these terms.",
+    "sections": [
+      {
+        "heading": "1. Scope of Service",
+        "paragraphs": [
+          "Kutra is a technology ecosystem that includes secure identity management, Web3 credential infrastructure, decentralized domains, browser solutions, and AI-powered assistant services.",
+          "Services are available worldwide; availability of specific features may vary by country."
+        ]
+      },
+      {
+        "heading": "2. Account and Identity Management",
+        "paragraphs": [
+          "You are responsible for the security of your Kutra ID account. You must not share your account credentials with third parties.",
+          "Actions performed through your account are deemed to be performed on your behalf."
+        ]
+      },
+      {
+        "heading": "3. Acceptable Use",
+        "paragraphs": [
+          "You may not use the services for unlawful activities, to infringe the rights of others, or to weaken the security of our systems.",
+          "Automated abuse, denial-of-service attacks, data scraping, and reverse engineering attempts are prohibited."
+        ]
+      },
+      {
+        "heading": "4. Intellectual Property",
+        "paragraphs": [
+          "Software, brands, and content within the ecosystem are owned by or licensed to Kutra Corporation.",
+          "Our open source projects are subject to the open source licenses specified in their respective repositories."
+        ]
+      },
+      {
+        "heading": "5. Web3 and Blockchain Services",
+        "paragraphs": [
+          "Transactions performed on the blockchain are irreversible. You are solely responsible for the security of your private keys and recovery phrases.",
+          "Kutra is not liable for network transaction fees or the behavior of third-party protocols on decentralized networks."
+        ]
+      },
+      {
+        "heading": "6. Disclaimer and Limitation of Liability",
+        "paragraphs": [
+          "The services are provided 'as is'. No warranties, express or implied, including merchantability or fitness for a particular purpose, are given.",
+          "To the maximum extent permitted by law, Kutra shall not be liable for any indirect, incidental, or consequential damages arising from the use of the services."
+        ]
+      },
+      {
+        "heading": "7. Service Changes and Termination",
+        "paragraphs": [
+          "We reserve the right to improve, modify, or discontinue the services. We may suspend or terminate your account if you breach these terms.",
+          "You may stop using the services at any time by deleting your account."
+        ]
+      },
+      {
+        "heading": "8. Governing Law",
+        "paragraphs": [
+          "Disputes arising from these terms are governed by the laws of the Republic of Türkiye, and the courts of Antalya shall have jurisdiction."
+        ]
+      },
+      {
+        "heading": "9. Contact",
+        "paragraphs": [
+          "For questions regarding these terms, write to info@kutra.co."
+        ]
+      }
+    ],
+    "contactNote": "Kutra Corporation — Antalya, Türkiye. Updated versions of these terms take effect immediately upon publication."
+  },
+  "productTerms": {
+    "title": "Product Agreements",
+    "updated": "Last updated: August 21, 2026",
+    "backToProduct": "Back to Product",
+    "generalNote": "These product-specific terms supplement the general Kutra Terms of Service and Privacy Policy. In case of conflict, product-specific terms prevail.",
+    "contactNote": "For questions about these agreements, write to info@kutra.co.",
+    "generic": {
+      "intro": "This document contains the specific terms governing the use of the relevant Kutra product.",
+      "sections": [
+        {
+          "heading": "License",
+          "paragraphs": ["The product is provided under a non-transferable license for personal and commercial use."]
+        },
+        {
+          "heading": "Data Processing",
+          "paragraphs": ["Your data is processed only to the extent necessary for the operation of the service; see our general Privacy Policy for details."]
+        }
+      ]
+    },
+    "items": {
+      "authenticator": {
+        "intro": "The following terms apply specifically to the use of the Authenticator app.",
+        "sections": [
+          {
+            "heading": "Backup and Recovery",
+            "paragraphs": [
+              "To use encrypted backup and restore, you must set a strong backup passphrase. If you forget it, your backups cannot be accessed.",
+              "You are solely responsible for the security of your recovery data; Kutra cannot be held liable for verification code loss resulting from a forgotten passphrase."
+            ]
+          },
+          {
+            "heading": "Data Processing and Zero Knowledge",
+            "paragraphs": [
+              "Your verification tokens are stored locally on your device by default and are never sent to our servers.",
+              "When cross-device sync is enabled, your data is transferred end-to-end encrypted; Kutra cannot read its contents."
+            ]
+          },
+          {
+            "heading": "Limitation of Liability",
+            "paragraphs": [
+              "Kutra is not liable for damages arising from verification codes not being generated on time due to an incorrect device clock or device loss."
+            ]
+          }
+        ]
+      },
+      "certwallet": {
+        "intro": "The following terms apply specifically to CertWallet's blockchain-based credential services.",
+        "sections": [
+          {
+            "heading": "On-Chain Records",
+            "paragraphs": [
+              "Certificates issued or verified on the blockchain are technically irreversible. Correcting records created with wrong information may require a new transaction."
+            ]
+          },
+          {
+            "heading": "Private Key Security",
+            "paragraphs": [
+              "The security of your wallet private keys and recovery phrases is entirely your responsibility; Kutra never accesses or stores them.",
+              "In case of key loss, access to your on-chain credentials may be permanently lost."
+            ]
+          },
+          {
+            "heading": "Sharing Credentials",
+            "paragraphs": [
+              "The decision of which parties to share your verifiable credentials with is entirely yours. You are responsible for the accuracy of the information you share."
+            ]
+          },
+          {
+            "heading": "Network Fees",
+            "paragraphs": [
+              "Network fees for transactions on blockchains such as the Sui Network are set by third-party networks; Kutra does not control these fees."
+            ]
+          }
+        ]
+      },
+      "chain": {
+        "intro": "The following terms apply specifically to the use of the Chain Browser.",
+        "sections": [
+          {
+            "heading": "Wallet Integration",
+            "paragraphs": [
+              "Private keys belonging to your in-browser wallet are stored without ever leaving your device. Transaction signing requests are presented for your approval each time."
+            ]
+          },
+          {
+            "heading": "dApp Access",
+            "paragraphs": [
+              "Decentralized applications (dApps) are developed by third parties; Kutra is not responsible for their content, security, or behavior.",
+              "It is your responsibility to evaluate a dApp's content before connecting your wallet to it."
+            ]
+          },
+          {
+            "heading": "Security Warnings",
+            "paragraphs": [
+              "Be cautious of phishing attempts you may encounter on Web2 and Web3 sites. The browser provides basic protections but does not eliminate all risks."
+            ]
+          }
+        ]
+      },
+      "domains": {
+        "intro": "The following terms apply specifically to the Kutra decentralized domain registration service (.id, .kutra).",
+        "sections": [
+          {
+            "heading": "Domain Registration",
+            "paragraphs": [
+              "Domains are registered on a first-come, first-served basis. For simultaneous requests for the same name, the blockchain confirmation is decisive.",
+              "A dispute resolution process may be initiated for registrations subject to trademark infringement claims."
+            ]
+          },
+          {
+            "heading": "Renewal and Expiration",
+            "paragraphs": [
+              "Domains that are not renewed at the end of their registration period become available again. Expiry reminders are sent as notifications but delivery is not guaranteed."
+            ]
+          },
+          {
+            "heading": "DNS and Management",
+            "paragraphs": [
+              "You are responsible for the accuracy of the DNS records you add to your domain and the content they point to."
+            ]
+          },
+          {
+            "heading": "Suspension",
+            "paragraphs": [
+              "If unlawful activity, phishing, or use infringing the rights of others is detected, the relevant domain may be suspended."
+            ]
+          }
+        ]
+      },
+      "Simay": {
+        "intro": "The following terms apply specifically to the use of the Simay AI assistant.",
+        "sections": [
+          {
+            "heading": "AI Outputs",
+            "paragraphs": [
+              "Responses produced by Simay are for informational purposes only and do not constitute professional legal, medical, or financial advice.",
+              "AI outputs may be inaccurate or incomplete; it is your responsibility to verify outputs before making critical decisions."
+            ]
+          },
+          {
+            "heading": "Cross-App Access",
+            "paragraphs": [
+              "Simay accesses other applications only within the scope you have explicitly granted. Permissions can be revoked at any time."
+            ]
+          },
+          {
+            "heading": "Usage Limits",
+            "paragraphs": [
+              "Using the assistant to produce unlawful content, harass others, or abuse system resources is prohibited."
+            ]
+          }
+        ]
       }
     }
   }

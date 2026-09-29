@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { getCookie, setCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next/client";
 
 import { i18n, type Locale } from "../i18n/i18n";
 
@@ -31,7 +31,7 @@ type LocaleProviderProps = {
   defaultLocale?: Locale;
 };
 
-export function LocaleProvider({ children, defaultLocale = i18n.defaultLocale }: LocaleProviderProps) {
+function LocaleProvider({ children, defaultLocale = i18n.defaultLocale }: LocaleProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale);
   const [mounted, setMounted] = useState(false);
 
@@ -64,3 +64,5 @@ export function LocaleProvider({ children, defaultLocale = i18n.defaultLocale }:
     </LocaleContext.Provider>
   );
 }
+
+export default LocaleProvider

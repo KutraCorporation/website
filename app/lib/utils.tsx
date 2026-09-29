@@ -73,37 +73,21 @@ const generateSiteMetadata = ({
 };
 
 const products: Product[] = [
-  /*{
-    id: "aether",
-    name: "Aether",
-    description: "A programming language for high-performance, standalone software ready for quantum technology; it supports contract writing and artificial intelligence for virtually all Web3 networks.",
-    links: [
-      { id: 1, name: "Github", link: "https://github.com/KutraCorporation/aether" },
-    ],
-  },*/
   {
     id: "authenticator",
     name: "Authenticator",
     categories: ["Security", "Productivity"],
     description: "Modern UI-Supported Authenticator App with advanced import/export and password protection.",
+    platforms: ["Android", "iOS", "macOS", "Linux", "Windows"],
     links: [
       {id: 1, name: "Github", link: "https://github.com/KutraCorporation/authenticator" }
     ]
-  },
-  {
-    id: "certwallet",
-    name: "CertWallet",
-    categories: ["Web3", "Education"],
-    description: "Secure vault for digital credentials, diplomas, and verifiable achievements on Sui Network.",
-    links: [
-      { id: 1, name: "Contracts Github", link: "https://github.com/KutraCorporation/certwallet-contracts" },
-    ],
   },
   /*
   {
     id: "chain",
     name: "Chain Browser",
-    categories: ["Web3", "Education"],
+    categories: ["Web3"],
     description: "Web2 + web3 based browser for the Web3 era, with built-in wallet and support for decentralized applications.",
   },
   {
@@ -111,12 +95,6 @@ const products: Product[] = [
     name: "Domains",
     categories: ["Web3", "Domains"],
     description: "Decentralized domain name registration service for the Web2 + Web3 era."
-  },
-  {
-    id: "Simay",
-    name: "Simay",
-    categories: ["AI", "Personal Assistant"],
-    description: "Personal Assistant"
   },*/
 ].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -150,10 +128,45 @@ const truncateDescription = (text: string, limit = 160) => {
   return text.length > limit ? text.substring(0, limit - 3) + "..." : text;
 };
 
+const safeJsonLd = (data: unknown): string => {
+  const json = JSON.stringify(data);
+  let safe = '';
+  for (const ch of json) {
+    if (ch === '<') {
+      safe += '\\u003c';
+    } else if (ch === '>') {
+      safe += '\\u003e';
+    } else if (ch === '&') {
+      safe += '\\u0026';
+    } else if (ch === '\u2028') {
+      safe += '\\u2028';
+    } else if (ch === '\u2029') {
+      safe += '\\u2029';
+    } else {
+      safe += ch;
+    }
+  }
+  return safe;
+};
+
+type Crumb = { name: string; path: string };
+
+const breadcrumbSchema = (crumbs: Crumb[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": crumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": crumb.name,
+    "item": getLocalizedUrl('en', crumb.path),
+  })),
+});
+
 export {
   baseUrl,
   getLangBaseUrl,
   getContactEmail,
   Icons, teams, products,
-  sanitizeId, socialAccountUrl, cn, generateSiteMetadata, truncateDescription
+  sanitizeId, socialAccountUrl, cn, generateSiteMetadata, truncateDescription,
+  safeJsonLd, breadcrumbSchema
 };

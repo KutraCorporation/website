@@ -11,7 +11,7 @@ export type Locale = (typeof i18n)["locales"][number];
 export const routing = defineRouting({
   locales: i18n.locales as unknown as string[],
   defaultLocale: i18n.defaultLocale,
-  localePrefix: 'always' 
+  localePrefix: 'always'
 });
 
 export const { Link, redirect, usePathname, useRouter, getPathname } = createNavigation(routing);

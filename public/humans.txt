@@ -11,7 +11,7 @@ It is developed actively, and built with more languages,
 frameworks, and protocols than we can shake a stick at.
 
 If you'd like to help us out, see
-github.com/KutraCorporation
+https://github.com/KutraCorporation
 
 /* THANKS */
 Special thanks to the open source community, our first

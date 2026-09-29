@@ -15,4 +15,5 @@ export interface Product {
   logo?: Logo;
   description: string;
   links?: Link[];
+  platforms?: string[];
 }

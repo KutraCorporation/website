@@ -68,7 +68,21 @@ export default function Footer() {
           <div className="float-left">
             <p translate="no">{new Date().getFullYear() + ' © ' + t('copyright')}</p>
           </div>
-          <div className="float-right flex gap-2"></div>
+          <div className="float-right flex gap-4">
+            <Link
+              href={`${langBaseUrl}/privacy`}
+              className="hover:text-[#e8e8e8] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded"
+            >
+              {t('privacy')}
+            </Link>
+            <span aria-hidden className="text-[#525252]">·</span>
+            <Link
+              href={`${langBaseUrl}/terms`}
+              className="hover:text-[#e8e8e8] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded"
+            >
+              {t('terms')}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
