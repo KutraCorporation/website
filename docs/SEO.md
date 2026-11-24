@@ -2,16 +2,12 @@
 
 ## Existing implementation
 
-The repository already serves `/robots.txt`, `/sitemap.xml`, localized `/{locale}/sitemap.xml`, and `/manifest.webmanifest` through App Router handlers. Locale metadata defines canonical URLs and the home page declares language alternates and structured data.
+App Router handlers already serve `/robots.txt`, `/sitemap.xml`, localized `/{locale}/sitemap.xml`, and `/manifest.webmanifest`. Locale metadata defines canonical URLs; the home page provides language alternates and structured data.
 
 ## Added
 
 - `/opensearch.xml`: OpenSearch description document.
-- `/api/search?q={query}`: JSON suggestions over the repository's existing in-memory `products` collection.
-- `npm run seo:check`: static contract checks for required routes and metadata markers.
+- `/api/search?q={query}`: JSON suggestions over the existing in-memory `products` collection.
+- `npm run seo:check`: static route/metadata contract checks.
 
-The suggestion endpoint only searches product name, description, and categories; it is not a general site search index.
-
-## Manual verification
-
-After deployment, check status/content types for `/robots.txt`, `/sitemap.xml`, `/en/sitemap.xml`, `/tr/sitemap.xml`, `/opensearch.xml`, and `/api/search?q=auth`. Confirm canonical and hreflang targets use the production `NEXT_PUBLIC_BASE_URL`. Run Lighthouse and validate structured data separately.
+Search only covers product name, description, and categories; it is not a full-site search index. After deployment verify `/robots.txt`, `/sitemap.xml`, `/en/sitemap.xml`, `/tr/sitemap.xml`, `/opensearch.xml`, and `/api/search?q=auth`. Ensure production `NEXT_PUBLIC_BASE_URL` is correct. Validate structured data separately.
