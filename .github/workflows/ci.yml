@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   quality:
-    name: Lint, typecheck and Cloudflare build
+    name: Lint, Cloudflare build and typecheck
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -43,8 +43,10 @@ jobs:
       - name: ESLint
         run: npm run lint
 
-      - name: TypeScript
-        run: npm run typecheck
-
+      # Next.js generates next-env.d.ts during its build. Run the build before tsc
+      # because next-env.d.ts is intentionally ignored by Git.
       - name: Build for Cloudflare
         run: npm run cloudflare:build
+
+      - name: TypeScript
+        run: npm run typecheck
