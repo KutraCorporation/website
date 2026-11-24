@@ -30,6 +30,13 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Verify npm lockfile
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "::error::package-lock.json is missing. Run 'npm install --package-lock-only' and commit the generated lockfile."
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
 
