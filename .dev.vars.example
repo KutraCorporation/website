@@ -1,0 +1,7 @@
+# Wrangler local development secrets.
+# Copy to .dev.vars and fill only values needed for your local workflow.
+# Never commit .dev.vars or real credentials.
+RESEND_KEY=
+WEB_BOT_AUTH_PRIVATE_KEY=
+BRAVE_REWARDS_VERIFICATION_TOKEN=
+X402_PAY_TO_ADDRESS=
