@@ -1,29 +1,22 @@
 # Disaster recovery
 
-## Current dependencies
+## Dependencies
 
-- Cloudflare Workers / OpenNext runtime and static assets.
+- Cloudflare Workers/OpenNext runtime and assets.
 - Cloudflare D1 database `website` via binding `DB`.
-- Resend for outbound contact email.
+- Resend outbound email.
 - Optional x402 facilitator and chain configuration.
 
-## Recovery order
+## Recovery sequence
 
-1. Declare incident and stop risky deployments or migrations.
-2. Confirm Cloudflare account, Worker deployment, D1 database, and secrets status.
-3. If D1 data is damaged, restore a verified encrypted export into an isolated database first; follow [D1 backup guide](./D1-BACKUP.md).
-4. Validate schema migrations and application compatibility in staging.
+1. Declare the incident; pause risky deployments/migrations.
+2. Confirm Cloudflare account, Worker deployment, D1 status, and secrets.
+3. For damaged D1 data, restore a verified encrypted export into an isolated database first; follow [D1 backup guide](./D1-BACKUP.md).
+4. Validate migrations and app compatibility in staging.
 5. Restore production only with explicit operator approval.
-6. Verify `/api/healthz`, localized home pages, contact flow, and any enabled paid endpoint.
-7. Communicate impact and record timeline, data-loss window, and corrective actions.
+6. Verify `/api/healthz`, localized home pages, contact flow, and enabled paid routes.
+7. Record impact, timeline, data-loss window, and corrective actions.
 
-## Recovery objectives
+## Recovery objectives and gaps
 
-RPO and RTO are intentionally unset. They require a business decision based on backup frequency, acceptable data loss, staffing, and Cloudflare recovery options. Do not claim disaster recovery readiness until a restore drill is completed and measured.
-
-## Required follow-up
-
-- Select encrypted off-account backup storage and retention.
-- Automate exports only after credentials, storage binding, schedule, and failure alerts are configured.
-- Perform and record a restore drill at least quarterly or after material schema changes.
-- Keep deployment rollback instructions and migration compatibility notes current.
+RPO/RTO are unset and require a business decision. Recovery is not proven until a restore drill is completed and measured. Choose encrypted off-account storage, retention, backup automation, failure alerts, and a quarterly restore exercise. Keep rollback instructions and migration compatibility notes current.

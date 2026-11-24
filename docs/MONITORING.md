@@ -1,21 +1,20 @@
-# Monitoring and operational signals
+# Monitoring
 
 ## Built-in signals
 
-The current `wrangler.jsonc` enables Cloudflare Workers observability logs and invocation logs. The application adds `GET /api/healthz`, which checks whether the Cloudflare D1 binding can execute `SELECT 1`.
+The existing Wrangler configuration enables Workers observability logs and invocation logs. `GET /api/healthz` checks whether the Cloudflare D1 binding can execute `SELECT 1`.
 
-- HTTP 200: D1 dependency check succeeded.
-- HTTP 503: Cloudflare context or D1 dependency unavailable.
-- Response intentionally omits exception details and returns `Cache-Control: no-store`.
+- 200: D1 dependency check succeeded.
+- 503: Cloudflare context or D1 dependency unavailable.
 
-This endpoint does not prove that email delivery, x402 payments, every page, or all third-party APIs are healthy.
+This endpoint does not prove email delivery, x402 payments, all pages, or third-party dependencies are healthy.
 
 ## Operator checklist
 
-- Review Worker invocation logs, exceptions, request volume, and CPU/duration metrics in Cloudflare.
-- Alert on sustained 5xx rates and failed health checks using an external monitor configured by the operator.
-- Review Resend delivery/bounce events in the Resend dashboard.
-- Review x402 facilitator/network failures before treating paid endpoints as available.
-- Never log contact message bodies, email credentials, authorization headers, or payment secrets.
+- Review Worker invocation logs, exceptions, request volume, CPU, and duration in Cloudflare.
+- Configure an external monitor and alert on sustained 5xx/health-check failures.
+- Review Resend delivery and bounce events in Resend.
+- Review x402 facilitator/network failures before declaring paid endpoints available.
+- Never log contact message bodies, credentials, authorization headers, or payment secrets.
 
-No external monitoring vendor, webhook, alert destination, or uptime SLO is configured in this repository. Add those only after selecting an owner and provider.
+No monitoring vendor, alert destination, or uptime SLO is configured here. Select an owner/provider before adding integrations.

@@ -1,38 +1,35 @@
 # Threat model
 
-## Scope verified in this repository
+## Verified scope
 
-The application is a Next.js App Router site deployed with OpenNext on Cloudflare Workers. The verified Cloudflare D1 binding is `DB`, database name `website`. Contact submissions are persisted through the D1 provider and then sent through Resend. A premium route is optionally protected with x402.
-
-This document is a working threat model, not a security audit or compliance claim.
+Next.js App Router deployed with OpenNext on Cloudflare Workers. Cloudflare D1 binding: `DB`; database: `website`. Contact submissions are stored in D1 and sent through Resend. A premium endpoint is optionally protected with x402. This is a working threat model, not an audit or compliance claim.
 
 ## Assets
 
-- Contact form submissions and email addresses stored in D1.
-- Resend API credentials and other deployment secrets.
-- x402 recipient configuration and payment-related settings.
-- Application source, deployment workflow, and release credentials.
-- Public project, team, and organization content.
+- Contact submissions and email addresses in D1.
+- Resend credentials and deployment secrets.
+- x402 recipient/network configuration.
+- Source code, CI workflows, and release credentials.
 
-## Trust boundaries and threats
+## Threats and controls
 
-| Boundary | Threat | Existing/required controls |
+| Boundary | Threat | Controls / work |
 | --- | --- | --- |
-| Browser → contact API | spam, oversized input, injection | Validate fields and lengths; escape HTML before email rendering; add rate limiting/abuse controls before public scale |
-| Worker → D1 | unauthorized reads/writes, SQL injection | Parameterized D1 statement; least-privilege binding; backups and restore drills |
-| Worker → Resend | leaked API key, email abuse | Store key as Cloudflare secret; rotate on exposure; restrict sender domain |
-| Worker → GitHub API | rate limits, untrusted repo input | Validate repository slug; encode URL component; cache responses |
-| Worker → x402 facilitator | payment/configuration errors | Keep secrets out of source; verify chain/network and recipient before enabling paid routes |
-| GitHub Actions → repository | malicious dependency/action or workflow change | Minimal permissions, dependency review, CodeQL, secret scanning, protected release process |
+| Browser → contact API | spam, oversized input, injection | Validate fields/lengths; HTML-escape email content; add rate limiting before public scale |
+| Worker → D1 | SQL injection, unauthorized writes | Parameterized statement; least-privilege binding; backup and restore drills |
+| Worker → Resend | leaked key, email abuse | Store key as Cloudflare secret; rotate on exposure; verify sender domain |
+| Worker → GitHub API | untrusted repo input, rate limits | Validate slug, encode path component, cache results |
+| Worker → x402 | wrong network/recipient, facilitator outage | Verify network and recipient before enabling paid route; never commit secrets |
+| Actions → repository | malicious dependency/workflow change | Minimal permissions, CodeQL, secret scanning, reviewed release process |
 
-## Prioritized work
+## Priorities
 
-1. Confirm Cloudflare production secrets are configured as secrets, never as committed vars.
+1. Confirm production credentials are Cloudflare secrets, not committed vars.
 2. Enable GitHub secret scanning and push protection in repository settings; CI scanning is defense in depth.
-3. Add rate limiting to public POST endpoints before exposing them to significant traffic.
-4. Test D1 backup restoration and document RPO/RTO targets once the operator chooses them.
-5. Review CSP directives and third-party script origins; do not loosen CSP without a concrete integration requirement.
+3. Rate-limit public POST endpoints before meaningful traffic.
+4. Test D1 restore and define RPO/RTO with the operator.
+5. Review CSP and third-party script origins before changing policy.
 
 ## Incident response
 
-If a credential is exposed: revoke/rotate it at its issuer, update Cloudflare secrets, inspect recent deployments and provider activity, then document the incident. Do not merely delete the secret from the latest commit; rotate it.
+If a credential is exposed, revoke/rotate it at the issuer, update Cloudflare secrets, inspect provider activity and deployments, then record the incident. Deleting a secret from the latest commit is not remediation; rotate it.
