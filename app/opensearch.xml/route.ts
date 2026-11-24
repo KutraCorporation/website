@@ -1,0 +1,16 @@
+import { NextResponse } from "next/server";
+import { baseUrl } from "@/lib/utils";
+
+export function GET() {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Kutra</ShortName>
+  <Description>Search Kutra projects</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <Url type="application/json" rel="suggestions" template="${baseUrl}api/search?q={searchTerms}"/>
+</OpenSearchDescription>`;
+  return new NextResponse(xml, {
+    headers: { "Content-Type": "application/opensearchdescription+xml; charset=utf-8" },
+  });
+}
